@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>8.3</title>
+<style type="text/css">
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-size: 12px;
+    background: #ccc;
+}
+.box {
+    position: relative;
+    left: 500px;
+    top: 300px;
+}
+.box .inBox {
+    height: 200px;
+    width: 200px;
+    background: rgba(255,255,255,0.2);
+    position: absolute;
+    -webkit-transform-origin: 0% 0%;
+}
+.box .inBox:after,.under .box_before:before,.under .box_right:before {
+    background: rgba(0,0,0,0);
+    display: block;
+    height: 200px;
+    width: 200px;
+    content: " ";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.box .box_before {
+    -webkit-transform: skew(0deg,20deg);
+}
+.box .box_back {
+    -webkit-transform: skew(0deg,20deg);
+    left: 200px;
+    top: -73px;
+}
+.box .box_left {
+    -webkit-transform: skew(0deg,-20deg);
+    background: rgba(255,255,255,0.1);
+}
+.box .box_right {
+    -webkit-transform: skew(0deg,-20deg);
+    left: 200px;
+    top: 73px;
+    background: rgba(255,255,255,0.2);
+}
+.box .box_top {
+    -webkit-transform: rotate(-40deg) skew(30deg,20deg);
+    height: 185px;
+    background: rgba(255,255,255,0.4);
+}
+.box .box_bottom {
+    -webkit-transform: rotate(-40deg) skew(30deg,20deg);
+    height: 185px;
+    top: 200px;
+    background: rgba(255,255,255,0.3);
+}
+.box .box_bottom:after {
+    height: 185px;
+    -webkit-box-shadow: 0px -1px 0px rgba(255,255,255,0.4),1px 0px 0px rgba(255,255,255,0.4),-1px 1px 5px rgba(50,50,50,0.1);
+}
+.box .box_before:after {
+    -webkit-box-shadow: 0px -1px 0px rgba(255,255,255,0.6),1px 0px 0px rgba(255,255,255,0.6),0px 1px 0px rgba(255,255,255,0.6),-1px 0px 0px rgba(255,255,255,0.6);
+    background: -webkit-linear-gradient(-45deg,rgba(255,255,255,0.3),rgba(255,255,255,0.2) 40%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0.1));
+}
+.box .box_right:after {
+    -webkit-box-shadow: 0px -1px 0px rgba(255,255,255,0.6),1px 0px 0px rgba(255,255,255,0.6),0px 1px 0px rgba(255,255,255,0.6);
+    background: -webkit-linear-gradient(-45deg,rgba(255,255,255,0.2),rgba(255,255,255,0.1) 40%,rgba(255,255,255,0.1) 40%,rgba(255,255,255,0));
+}
+.box .box_top:after {
+    height: 185px;
+    -webkit-box-shadow: 0px -1px 0px rgba(255,255,255,0.6),1px 0px 0px rgba(255,255,255,0.6);
+    background: -webkit-linear-gradient(-45deg,rgba(255,255,255,0.2),rgba(255,255,255,0.1) 40%,rgba(255,255,255,0.1) 40%,rgba(255,255,255,0));
+}
+.box .box_left:after {
+    -webkit-box-shadow: 1px 0px 0px rgba(255,255,255,0.2);
+    background: -webkit-linear-gradient(-65deg,rgba(255,255,255,0.1),rgba(255,255,255,0) 50%,rgba(255,255,255,0.1));
+}
+.box .box_back:after {
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0),rgba(255,255,255,0.1),rgba(255,255,255,0));
+}
+.under .box_before:before,.under .box_right:before {
+    -webkit-transform: translate(0px,201px);
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0.2),rgba(255,255,255,0.3) 2%,rgba(255,255,255,0) 50%,rgba(255,255,255,0));
+}
+.under .box_before:before {
+    width: 201px;
+}
+.box .box_before:hover {
+    -webkit-transform: skew(0deg,0deg) translate(0px,73px);
+}
+.box .box_right:hover {
+    -webkit-transform: skew(0deg,0deg);
+}
+.box .box_top:hover {
+    -webkit-transform: rotate(-80deg) skew(30deg,20deg);
+}
+/*.conBox {
+    padding: 10px;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.conBox .title {
+    color: #222;
+}
+.box2 {
+    position: relative;
+    width: 400px;
+    left: 900px;
+    top: 200px;
+}
+.box3 {
+    position: relative;
+    width: 400px;
+    left: 700px;
+    top: -73px;
+}*/
+.box .box_before,.box .box_back,.under .box_before:before {
+    width: 300px;
+}
+.box .box_right {
+    left: 300px;
+    top: 110px;
+}
+.box .box_top,.box .box_bottom {
+    height: 278px;
+}
+.box .box_bottom:after {
+    height: 280px;
+}
+.under .box_before:after {
+    width: 300px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box under">
+    <div class="inBox box_left">超实用的CSS代码段</div>
+    <div class="inBox box_back">超实用的CSS代码段</div>
+    <div class="inBox box_bottom">超实用的CSS代码段</div>
+    <div class="inBox box_right">
+        <div class="conBox">
+        <h3 class="title">超实用的CSS代码段</h3>
+        <p>超实用的CSS代码段...超实用的CSS代码段...</p>
+        </div>
+    </div>
+    <div class="inBox box_before">
+        <div class="conBox">
+        <h3 class="title">超实用的CSS代码段</h3>
+        <p>超实用的CSS代码段...超实用的CSS代码段...</p>
+        </div>
+    </div>
+    <div class="inBox box_top"><br><br>超实用的CSS代码段</div>
+</div>
+<!--
+<div class="box box2">
+    <div class="inBox box_before">前</div>
+    <div class="inBox box_back">后</div>
+    <div class="inBox box_left">左</div>
+    <div class="inBox box_right">右</div>
+    <div class="inBox box_top">上</div>
+    <div class="inBox box_bottom">下</div>
+</div>
+
+<div class="box box3">
+    <div class="inBox box_before">前</div>
+    <div class="inBox box_back">后</div>
+    <div class="inBox box_left">左</div>
+    <div class="inBox box_right">右</div>
+    <div class="inBox box_top">上</div>
+    <div class="inBox box_bottom">下</div>
+</div>-->
+
+</body>
+
+</html>

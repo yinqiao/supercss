@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>7.12</title>
+<meta 
+http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style> 
+/*
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+*/
+div {
+  padding: 20px;   
+  background: #eee;
+}
+
+p {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none; 
+}
+</style>
+</head> 
+<body>
+
+<div>
+    <p>在 WebKit 或 Firefox浏览器无法选中进行复制。</p>
+</div>
+
+<div>
+    .
+    <p>在 WebKit 或 Firefox浏览器无法选中</p>
+    .
+</div>
+
+<p>user-select is really useful. Not so much to protect text from being copied, but to provide a better user experience in little cases. Like let's say you have a row of little icons next to text. Nobody wants to select those icons, they want the text, so you could use user-select to make them unselectable.</p>
+
+<p>But sad story, user-select isn't very reliable. It's not in the spec yet, which means there is no standard for browsers to follow. And as ever, the implimentations vary, as shown above. Just a small example of why specs are a good thing. They prevent situations like this.</p>
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>9.5</title>
+<style type="text/css">
+.out_box {
+    width: 500px;
+    height: 300px;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+.out_box img {
+    float: left;
+}
+#animate_3d{
+    -webkit-perspective:600; 
+    -webkit-transform-style:preserve-3d; 
+    -webkit-animation-name:x-spin; 
+    -webkit-animation-duration:7s; 
+    -webkit-animation-iteration-count:infinite; 
+    -webkit-animation-timing-function:linear;
+}
+.img_3d,.line_3d{
+    -webkit-transform-style:preserve-3d; 
+    -webkit-animation-iteration-count:infinite; 
+    -webkit-animation-timing-function:linear;
+}
+#animate_line_1{
+    -webkit-animation-name:y-spin;
+    -webkit-animation-duration:5s;
+}
+div {
+    animation: myfirst 5s;
+    -moz-animation: myfirst 5s;     /* Firefox */
+    -webkit-animation: myfirst 5s;  /* Safari 和 Chrome */
+    -o-animation: myfirst 5s;       /* Opera */
+}
+#animate_line_2{
+    -webkit-animation-name:back-y-spin;
+    -webkit-animation-duration:4s;
+}
+
+#animate_line_3{
+    -webkit-animation-name:y-spin;
+    -webkit-animation-duration:3s;
+}
+@-webkit-keyframes x-spin {
+    0%    { -webkit-transform:rotateX(0deg); }
+    50%   { -webkit-transform:rotateX(180deg); }
+    100%  { -webkit-transform:rotateX(360deg); }
+}
+@-webkit-keyframes y-spin {
+    0%    { -webkit-transform:rotateY(0deg); }
+    50%   { -webkit-transform:rotateY(180deg); }
+    100%  { -webkit-transform:rotateY(360deg); }
+}
+
+@-webkit-keyframes back-y-spin {
+    0%    { -webkit-transform:rotateY(360deg); }
+    50%   { -webkit-transform:rotateY(180deg); }
+    100%  { -webkit-transform:rotateY(0deg); }
+}
+</style>
+</head>
+
+<body>
+<div id="animate_3d" class="out_box">
+    <div id="animate_line_1" class="line_3d">
+        <img class="img_3d" src="./images/ps1.jpg" />
+        <img class="img_3d" src="./images/ps2.jpg" />
+        <img class="img_3d" src="./images/ps3.jpg" />
+        <img class="img_3d" src="./images/ps4.jpg" />
+        <img class="img_3d" src="./images/ps5.jpg" />
+    </div>
+    <div id="animate_line_2" class="line_3d">           
+        <img class="img_3d" src="./images/ps6.jpg" />
+        <img class="img_3d" src="./images/ps7.jpg" />
+        <img class="img_3d" src="./images/ps8.jpg" />
+        <img class="img_3d" src="./images/ps9.jpg" />
+        <img class="img_3d" src="./images/ps10.jpg" />
+    </div>
+    <div id="animate_line_3" class="line_3d">        
+        <img class="img_3d" src="./images/ps11.jpg" />
+        <img class="img_3d" src="./images/ps12.jpg" />
+        <img class="img_3d" src="./images/ps13.jpg" />
+        <img class="img_3d" src="./images/ps14.jpg" />
+        <img class="img_3d" src="./images/ps15.jpg" />
+    </div>
+</div>
+</body>
+</html>

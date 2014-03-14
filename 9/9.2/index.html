@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>9.2</title>
+<style type="text/css">
+body {                      /* 设置背景颜色 */
+    background: #ddd;
+}
+.view {
+    width: 980px;
+    height: 400px;
+    margin-top: 20px;
+    float: left;
+    position: relative;
+    border: 8px solid #fff;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    background: #333;
+    /* 设置perspective属性可实现景深 */
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+}
+.view .slice{
+    width: 196px;
+    height: 100%;
+    z-index: 100;
+    /* 设置preserve-3d */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    /* 设置旋转元素的基点位置 */
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform-origin: left center;
+    /* 设置变化效果 */
+    -webkit-transition: -webkit-transform 150ms ease-in-out;
+    -moz-transition: -moz-transform 150ms ease-in-out;
+    -o-transition: -o-transform 150ms ease-in-out;
+    -ms-transition: -ms-transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out;
+        
+}
+/* 利用translate3d属性设置x/y/z这3个维度的移动 */
+.view .s2, 
+.view .s3, 
+.view .s4, 
+.view .s5 {
+    -webkit-transform: translate3d(196px,0,0);
+    -moz-transform: translate3d(196px,0,0);
+    -o-transform: translate3d(196px,0,0);
+    -ms-transform: translate3d(196px,0,0);
+    transform: translate3d(196px,0,0);
+}
+/* 设置背景图片的位置 */
+.view .s1 {
+    background-position: 0px 0px;
+}
+.view .s2 {
+    background-position: -196px 0px;
+}
+.view .s3 {
+    background-position: -392px 0px;
+}
+.view .s4 {
+    background-position: -588px 0px;
+}
+.view .s5 {
+    background-position: -784px 0px;
+}
+.view .overlay {
+    width: 196px;
+    height: 100%;
+    opacity: 0;             /* 默认情况下不呈现3D图 */
+    position: absolute;
+    -webkit-transition: opacity 150ms ease-in-out;
+    -moz-transition: opacity 150ms ease-in-out;
+    -o-transition: opacity 150ms ease-in-out;
+    -ms-transition: opacity 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out;
+}
+.view:hover .overlay {
+    opacity: 1;             /* 当鼠标移动到图片上时呈现3D图效果 */
+}
+.view img {
+    position: absolute;
+    z-index: 0;
+    -webkit-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    -moz-transition: left 0.3s ease-in-out;
+    -ms-transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+}
+/* 为s2/s3/s4/s5分别设置3D移动与旋转效果 */
+.view:hover .s2{
+    -webkit-transform: translate3d(195px,0,0) rotate3d(0,1,0,-45deg);
+    -moz-transform: translate3d(195px,0,0) rotate3d(0,1,0,-45deg);
+    -o-transform: translate3d(195px,0,0) rotate3d(0,1,0,-45deg);
+    -ms-transform: translate3d(195px,0,0) rotate3d(0,1,0,-45deg);
+    transform: translate3d(195px,0,0) rotate3d(0,1,0,-45deg);
+}
+.view:hover .s3, 
+.view:hover .s5{
+    -webkit-transform: translate3d(195px,0,0) rotate3d(0,1,0,90deg);
+    -moz-transform: translate3d(195px,0,0) rotate3d(0,1,0,90deg);
+    -o-transform: translate3d(195px,0,0) rotate3d(0,1,0,90deg);
+    -ms-transform: translate3d(195px,0,0) rotate3d(0,1,0,90deg);
+    transform: translate3d(195px,0,0) rotate3d(0,1,0,90deg);
+}
+.view:hover .s4{
+    -webkit-transform: translate3d(195px,0,0) rotate3d(0,1,0,-90deg);
+    -moz-transform: translate3d(195px,0,0) rotate3d(0,1,0,-90deg);
+    -o-transform: translate3d(195px,0,0) rotate3d(0,1,0,-90deg);
+    -ms-transform: translate3d(195px,0,0) rotate3d(0,1,0,-90deg);
+    transform: translate3d(195px,0,0) rotate3d(0,1,0,-90deg);
+}
+/* 使用linear-gradient设置背景渐变 */
+.view .s1 > .overlay {
+    background: -moz-linear-gradient(right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+}
+.view .s2 > .overlay {
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+.view .s3 > .overlay {
+    background: -moz-linear-gradient(right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+    background: -webkit-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+    background: -o-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+    background: -ms-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+}
+.view .s4 > .overlay {
+    background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+}
+.view .s5 > .overlay {
+    background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="view">
+        
+    <div class="slice s1" style="background-image: url(./8.jpg);">
+        <span class="overlay"></span>
+        <div class="slice s2" style="background-image: url(./8.jpg);">
+            <span class="overlay"></span>
+            <div class="slice s3" style="background-image: url(./8.jpg);">
+                <span class="overlay"></span>
+                <div class="slice s4" style="background-image: url(./8.jpg);">
+                    <span class="overlay"></span>
+                    <div class="slice s5" style="background-image: url(./8.jpg);">
+                        <span class="overlay"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

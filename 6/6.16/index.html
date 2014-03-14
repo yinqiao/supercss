@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>6.15</title>
+    
+    <style>
+
+  * {
+  margin: 0px;
+  padding: 0px;
+}
+
+.flash {
+  height: 500px;
+  position: relative;
+}
+
+.div1 {
+  background: #000;
+  width: 500px;
+  height: 30px;
+  position: absolute;
+  left: 10px;
+  top: 30px;
+  z-index: 2;
+  color: #fff;
+}
+    </style>
+</head>
+<body>
+<div class="flash">
+ <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1002" height="426">
+   <param name="movie" value="http://images.sohu.com/bill/s2013/yanlu/other/0304/3005000401.swf" />
+   <param name="quality" value="high" />
+   <param name="wmode" value="transparent" />
+   <param name="wmode" value="opaque" />   
+   <embed src="http://images.sohu.com/bill/s2013/yanlu/other/0304/3005000401.swf" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="220"></embed>
+ </object>
+ <div class="div1">
+ 这是浮动在Flash上方的浮动层。
+ </div>
+</div>
+</body>
+</html>

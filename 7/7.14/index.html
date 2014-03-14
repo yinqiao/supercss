@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="content-language" content="zh-cn" />
+<meta content="all" name="robots" />
+<title>7.14</title>
+<link rel="stylesheet" type="text/css" href="css.css" media="all" />
+<style>
+/*公共*/
+body{
+    font-size:12px;
+    font-family:verdana,arial,helvetica,sans-serif;
+    /*width:60%;*/
+    /*padding-left:25px*/
+}
+.noshadow_div{
+    height:100px;
+    width:500px;
+    padding:20px;
+    margin:15px;
+    background:#6E6E6E;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    font-size:24px;
+    color:white;
+    text-align: center;
+}
+.noshadow_div_stitch{
+    height:100px;
+    width:500px;
+    padding:20px;
+    margin:15px;
+    background:#6E6E6E;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    font-size:24px;
+    color:white;
+    border:2px dashed rgba(255,255,255,0.8);
+}
+.shadow_div_stitch{
+    height:100px;
+    width:500px;
+    padding:20px;
+    margin:15px;
+    background:#6E6E6E;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    font-size:24px;
+    color:white;
+    border:2px dashed rgba(255,255,255,0.8);
+    -moz-box-shadow:0004px #6E6E6E,2px 1px 4px 4px rgba(10,10,0,.5);
+    -webkit-box-shadow:0004px #6E6E6E,2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow:0004px #6E6E6E,2px 1px 6px 4px rgba(10,10,0,.5);
+}
+
+
+
+/*second*/
+
+.noshadow_div_solid_stitch{
+    height:100px;
+    width:500px;
+    padding:20px;
+    margin:15px;
+    background:#6E6E6E;
+    border:2px solid rgba(247, 231, 247, 0.8);
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    font-size:24px;
+    color:white;
+    position:relative;
+    z-index:0;
+}
+.noshadow_div_solid_stitch:before{
+    border:2px dashed rgba(255,255,255,0.8);
+    top:3px;
+    bottom:3px;
+    left:3px;
+    right:3px;
+    position:absolute;
+    z-index:-1;
+    position:absolute;
+    content:'';
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="noshadow_div">超实用的CSS代码段</div>
+
+<div class="noshadow_div_stitch">一个不带阴影效果的DIV加上虚线边框</div>
+
+<div class="shadow_div_stitch">为加上虚线边框的DIV加上阴影</div>
+
+
+
+<!-- second -->
+<div class="noshadow_div_solid_stitch">超实用的CSS代码段 —  针线缝合效果</div>
+
+</body>
+
+</html>

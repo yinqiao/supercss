@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>11.1</title>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="css/style.css" media="screen">
+
+	<style type="text/css">
+		html, body { margin: 0;	padding: 0; }
+		body { background: #f2f2f2 url(img/bg.png) no-repeat top center; padding-top: 265px; }
+		.mejs-container { margin: 0 auto; }
+	</style>
+	<meta name="robots" content="noindex,follow" />
+</head>
+
+<body>
+
+	<video width="640" height="267" poster="media/cars.png">
+		<source src="media/cars.mp4" type="video/mp4">
+	</video>
+
+	<script>
+	$(document).ready(function() {
+		$('video').mediaelementplayer({
+			alwaysShowControls: false,
+			videoVolume: 'horizontal',
+			features: ['playpause','progress','volume','fullscreen']
+		});
+	});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>7.8</title>
+<meta 
+http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css"> 
+.transparent {
+    filter: alpha(opacity=50); /* internet explorer */
+    -khtml-opacity: 0.5;      /* khtml, old safari */
+    -moz-opacity: 0.5;       /* mozilla, netscape */
+    opacity: 0.5;           /* fx, safari, opera */
+}
+
+body {
+    padding: 2em;
+    color: #ccc;
+    background: #000;
+}
+#out{
+   position:relative;
+   padding:20px 0;
+   height:100px;
+   width:200px;
+   color:#000;
+   border:2px solid #ddd;
+   _overflow:hidden;
+}
+#in{
+  background:#fff;
+  margin:0 10px;
+}
+#alpha{
+     position: absolute;
+     top:0;
+     left: 0;
+     width: 100%;
+     height:100%;
+     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; /*IE8*/
+     filter:alpha(opacity=30);  /*IE5、IE5.5、IE6、IE7*/
+     opacity: .3;  /*Opera9.0+、Firefox1.5+、Safari、Chrome*/
+     *z-index: -1;  /*让其位于in的下面*/
+     background:#fff;
+}
+
+.transparent{
+    background:rgba(0,0,0,0.5); /* Chrome, Saf, FF, Opera <em>/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); /</em> IE6 - IE9 */
+
+
+    background-image: -moz-linear-gradient(top,#ffffff,#000000);  /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#000000)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #ffffff, #000000); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -ms-linear-gradient(top,#ffffff,#000000); /* IE10 */
+    background-image: -o-linear-gradient(top,#ffffff,#000000); /* Opera 11.10+ */
+    background-image: linear-gradient(top, #ffffff, #000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffffff,endColorstr=#ff000000,enabled=true,gradientType='1'); /* IE6–IE9 */
+}
+
+</style>
+</head> 
+<body>
+
+<div id="out">
+    <div id="in">不透明<div>
+    <div id="alpha">半透明<div>
+<div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+body{
+    scrollbar-arrow-color: red; /*上下按钮上三角箭头的颜色*/
+    scrollbar-face-color: #CBCBCB; /*滚动条凸出部分的颜色*/
+    scrollbar-3dlight-color: blue; /*滚动条亮边的颜色*/
+    scrollbar-highlight-color: #333; /*滚动条空白部分的颜色*/
+    scrollbar-shadow-color: yellow; /*滚动条阴影的颜色*/
+    scrollbar-darkshadow-color: green; /*滚动条强阴影的颜色*/
+    scrollbar-track-color: #eee; /*滚动条背景颜色*/
+
+    scrollbar-base-color: black; /*滚动条的基本颜色*/
+    Cursor:url(mouse.cur); /*自定义个性鼠标*/
+    /*以上2项适用与：body、div、textarea、iframe*/
+}
+
+
+::-webkit-scrollbar {  /* 滚动条整体部分 */
+    width:10px;
+    margin-right:2px
+}
+::-webkit-scrollbar-button { /* 滚动条两端的按钮 */ 
+    width:10px;
+    background-color: yellow;
+}
+::-webkit-scrollbar:horizontal {
+    height:10px;
+    margin-bottom:2px
+}
+::-webkit-scrollbar-track {  /* 外层轨道 */ 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {  /*内层轨道，滚动条中间部分 */ 
+    background-color: #333333;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {  /* 滑块 */ 
+    width:10px;
+    border-radius: 5px;
+    background: #CBCBCB; 
+}
+::-webkit-scrollbar-corner { /* 边角 */ 
+    width: 10px;
+    background-color: red;
+}
+::-webkit-scrollbar-thumb:hover { /* 鼠标移入滑块 */ 
+    background: #909090; 
+}
+.demo {
+    width: 400px;
+    height: 200px;
+    overflow: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo">
+    <table  width="500" border="0">
+        <tr>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+        </tr>
+        <tr>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+        </tr>
+        <tr>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+        </tr>
+        <tr>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+        </tr>
+        <tr>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+        </tr>
+        <tr>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+            <td>超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段超实用的CSS代码段</td>
+        </tr>
+    </table>
+</div>
+
+<!-- 
+
+<div style="border: 1px #9EBFE8 solid; width: 250px; height: 150px; scrollbar-face-color: #9EBFE8; scrollbar-shadow-color: #FFFFFF; scrollbar-highlight-color: #FFFFFF; scrollbar-3dlight-color: #9EBFE8; scrollbar-darkshadow-color: #9EBFE8; scrollbar-track-color: #FFFFFF; scrollbar-arrow-color: #FFFFFF; overflow-x: hidden;">
+<div style="width: 300px; height: 200px;">蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条蓝色 没有水平滚动条</div>
+</div>
+
+<div style="border: 1px #59ADBB solid; width: 250px; height: 150px; scrollbar-shadow-color: #FFFFFF; scrollbar-highlight-color: #FFFFFF; scrollbar-arrow-color: #FFFFFF; scrollbar-face-color: #59ADBB; scrollbar-track-color: #FFFFFF; scrollbar-3dlight-color: #59ADBB; scrollbar-darkshadow-color: #59ADBB; overflow-y: hidden;">
+<div style="width: 300px; height: 200px;">绿色 没有垂直滚动条绿色 没有垂直滚动条绿色 没有垂直滚动条绿色 没有垂直滚动条绿色 没有垂直滚动条绿色 没有垂直滚动条</div>
+</div>
+
+<div style="border: 1px #FDDEE8 solid; width: 250px; height: 150px; scrollbar-face-color: #FDDEE8; scrollbar-shadow-color: #FDDEE8; scrollbar-highlight-color: #ffffff; scrollbar-3dlight-color: #FDCFDD; scrollbar-darkshadow-color: #FDCFDD; scrollbar-track-color: FFF6F9; scrollbar-arrow-color: #FEA6C0; overflow: hidden;">
+<div style="width: 2300px; height: 200px;">浅粉红 没有滚动条浅粉红 没有滚动条浅粉红 没有滚动条浅粉红 没有滚动条浅粉红 没有滚动条浅粉红 没有滚动条</div>
+</div>
+
+<div style="border: 1px #333333 solid; width: 250px; height: 150px; scrollbar-face-color: #333333; scrollbar-shadow-color: #808080; scrollbar-highlight-color: #333333; scrollbar-3dlight-color: #808080; scrollbar-darkshadow-color: #333333; scrollbar-track-color: #191919; scrollbar-arrow-color: #CCCCCC; overflow: auto;">
+<div style="width: 300px; height: 200px;">黑色 自动显示滚动条黑色 自动显示滚动条黑色 自动显示滚动条黑色 自动显示滚动条黑色 自动显示滚动条黑色 自动显示滚动条</div>
+</div>
+
+<div style="border: 1px #d9d9d9 solid; width: 250px; height: 150px; scrollbar-shadow-color: #ffffff; scrollbar-highlight-color: #ffffff; scrollbar-face-color: #d9d9d9; scrollbar-3dlight-color: #d9d9d9; scrollbar-darkshadow-color: #d9d9d9; scrollbar-track-color: #ffffff; scrollbar-arrow-color: #ffffff;">
+    <div style="width: 300px; height: 200px;">灰色 超出范围强制显示 灰色 超出范围强制显示 灰色 超出范围强制显示 灰色 超出范围强制显示 灰色 超出范围强制显示 灰色 超出范围强制显示</div>
+</div>
+ -->
+</body>
+</html>

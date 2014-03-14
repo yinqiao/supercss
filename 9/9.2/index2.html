@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D立方体</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="author" content="@my_programmer">
+<style type="text/css">
+/*重置{*/
+* { padding: 0; margin: 0; }img{border:0;}li{list-style:none;}
+/*}重置*/
+ul{width:200px;height:200px;margin:100px auto;position:relative;-webkit-transform-style:preserve-3d;}    
+    /*如果在ul里设置：-webkit-perspective:400px;-webkit-perspective-origin:0% 50%; 则会有透视、景深的效果*/
+li{width:200px;height:200px;position:absolute;text-align:center;line-height:200px;font-size:80px;font-weight:bold;color:#fff;}
+li:nth-child(1){background:rgba(255,0,0,1);-webkit-transform:rotateX(90deg)   translateZ(100px);}
+li:nth-child(2){background:rgba(0,255,255,1);-webkit-transform:rotateX(270deg)  translateZ(100px);}
+li:nth-child(3){background:rgba(255,0,255,1);-webkit-transform:rotateY(90deg) translateZ(100px);}
+li:nth-child(4){background:rgba(0,255,0,1);-webkit-transform:rotateY(270deg) translateZ(100px);}
+li:nth-child(5){background:rgba(200,200,0,1);-webkit-transform:translateZ(-100px);}
+li:nth-child(6){background:rgba(0,0,255,1);-webkit-transform: translateZ(100px) ;}
+.button{width:200px;margin:20px auto;position:relative;}
+input{width:50px;height:30px;position:absolute;cursor:pointer;}
+input:nth-child(1){left:100px;top:0;}
+input:nth-child(2){left:200px;top:50px;}
+input:nth-child(3){left:0px;top:50px;}
+input:nth-child(4){left:100px;top:100px;}
+input:nth-child(5){left:100px;top:50px;}
+        /*****当执行下列css时，立方体无限自由旋转******/
+/* ul{-webkit-animation:run 5s linear infinite ;}    
+@-webkit-keyframes run{
+    0%{-webkit-transform: rotateX(0deg) rotateY(0deg) }
+    100%{-webkit-transform:rotateX(360deg)  rotateY(360deg)  }
+}
+*/
+</style>
+</head>
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div class="button">
+        <input type="button" value="上">
+        <input type="button" value="右">
+        <input type="button" value="左">
+        <input type="button" value="下">
+        <input type="button" value="重置">
+    </div>
+<script type="text/javascript">
+<!--
+    var ul=document.getElementById('ul');
+    var inputs=document.getElementsByTagName('input');
+    var x=0,y=0;
+    /////////////////////////鼠标控制
+    for(var i=0;i<inputs.length;i++){
+        inputs[i].onclick=run;
+    }
+    function run(){
+        ul.style.webkitTransition='-webkit-transform 3s linear';  //设置立方体变换的属性、持续时间、动画类型
+        if(inputs[0]==this){x+=90;}
+        if(inputs[1]==this){y+=90;}
+        if(inputs[2]==this){y-=90;}
+        if(inputs[3]==this){x-=90;}
+        if(inputs[4]==this){x=0;y=0; ul.style.webkitTransition='-webkit-transform 0.1s linear';}    //当点击重置按钮时，迅速转回到初始状态。
+        ul.style.webkitTransform = "rotateX("+x+"deg) rotateY("+y+"deg)";    //变换效果（沿X轴和Y轴旋转）
+    }    
+    ////////////////////////键盘控制    
+    document.addEventListener('keydown', function(e){
+        ul.style.webkitTransition='-webkit-transform 3s linear';
+        switch(e.keyCode){
+            case 37:    y -= 90;    //左箭头
+                        break;
+            case 38:    x += 90;    //上箭头
+                        break;
+            case 39:    y += 90;    //下箭头
+                        break;
+            case 40:    x -= 90;    //右箭头
+                        break;
+            case 13:    x=0; y=0;    //回车 （当回车时，迅速转回初始状态）
+                        ul.style.webkitTransition='-webkit-transform 0.1s linear';
+                        break;
+        }
+        ul.style.webkitTransform = "rotateX("+x+"deg) rotateY("+y+"deg)"; //变换效果（沿X轴和Y轴旋转）
+    }, false);
+//-->
+</script>
+</body>
+</html>

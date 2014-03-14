@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content=" ">
+<meta name="keywords" content="">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/prettify.css" rel="stylesheet">
+<link href="./css/lab-common.css" rel="stylesheet">
+<title>11.3</title>
+<style type="text/css">
+/* 时钟表面 */
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    border: 10px solid #333;
+    border-radius: 50%;
+}
+.clock .hour {
+    position: absolute;
+    left: 50%;
+    bottom: 150px;
+    width: 8px;
+    height: 50px;
+    margin-left: -4px;
+    background-color: #333;
+}
+.clock .hour::after {
+    position: absolute;
+    top: -20px;
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #333;
+}
+.clock .min {
+    position: absolute;
+    left: 50%;
+    bottom: 150px;
+    width: 4px;
+    height: 80px;
+    margin-left: -2px;
+    background-color: #333;
+}
+.clock .min::after {
+    position: absolute;
+    top: -20px;
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #333;
+}
+.clock .sec {
+    position: absolute;
+    left: 50%;
+    bottom: 150px;
+    width: 2px;
+    height: 100px;
+    margin-left: -1px;
+    background-color: #333;
+}
+.clock .hour,
+.clock .min,
+.clock .sec {
+    -webkit-transform-origin: center bottom;
+    -moz-transform-origin: center bottom;
+    transform-origin: center bottom;
+}
+.clock .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 50%;
+    background-color: #333;
+}
+.clock .small-scale {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 4px;
+    height: 8px;
+    margin-left: -3px;
+    background-color: #333;
+    -webkit-transform-origin: center 140px;
+    -moz-transform-origin: center 140px;
+    transform-origin: center 140px;
+}
+.clock .big-scale {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 6px;
+    height: 14px;
+    margin-left: -3px;
+    background-color: #333;
+    -webkit-transform-origin: center 140px;
+    -moz-transform-origin: center 140px;
+    transform-origin: center 140px;
+}
+.clock .small-scale em,
+.clock .big-scale em {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    width: 30px;
+    margin-left: -15px;
+    text-align: center;
+    font-size: 16px;
+}
+</style>
+<script>
+// 
+    function setCss3(ele, attr, val) {
+        var str = attr.charAt(0).toUpperCase() + attr.substring(1);
+        ele.style['Webkit' + str] = val;
+        ele.style['Moz' + str] = val;
+        ele.style['MS' + str] = val;
+        ele.style[attr] = val;
+    }
+    window.onload = function () {
+        var clock = document.querySelector('.clock');
+        var hour = document.querySelector('.hour');
+        var min = document.querySelector('.min');
+        var sec = document.querySelector('.sec');
+        /**
+         * 创建刻度
+         */
+        for (var i = 0; i < 60; i++) {
+            var span = document.createElement('span');
+            setCss3(span, 'transform', 'rotate(' + 6 * i + 'deg)');
+            if (i % 5) {
+                span.className = 'small-scale';
+            } else {
+                span.className = 'big-scale';
+                if (i === 0) {
+                    span.innerHTML = '<em>' + 12 + '</em>';
+                } else {
+                    span.innerHTML = '<em>' + i/5 + '</em>';
+                }
+                setCss3(span.children[0], 'transform', 'rotate(' + -6 * i + 'deg)');
+            }
+            clock.appendChild(span);
+        }
+        /**
+         * 更新时间
+         */
+        function update() {
+            var date = new Date();
+            setCss3(hour, 'transform', 'rotate(' + 30 * (date.getHours() + date.getMinutes() / 60) + 'deg)');
+            setCss3(min, 'transform', 'rotate(' + 6 * (date.getMinutes() + date.getSeconds() / 60) + 'deg)');
+            setCss3(sec, 'transform', 'rotate(' + 6 * date.getSeconds() + 'deg)');
+        }
+        update();
+        setInterval(update, 1000);
+    };
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+            <div class="hour"></div>
+            <div class="min"></div>
+            <div class="sec"></div>
+            <div class="circle"></div>
+        </div>
+    </div>  
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>    
+    <script src="./js/prettify.js"></script>
+</body>
+</html>

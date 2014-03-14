@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+input:focus, select:focus, textarea:focus {
+    -moz-outline: 2px solid red;
+    -webkit-outline: 2px solid #ebc476;
+    -moz-outline-radius: 5px !important;
+    -webkit-outline-radius: 5px !important;
+}
+
+    /* */
+    /*input, textarea {
+     -webkit-transition: all 0.30s ease-in-out;
+     -moz-transition: all 0.30s ease-in-out;
+     -ms-transition: all 0.30s ease-in-out;
+     -o-transition: all 0.30s ease-in-out;
+     outline: none;
+     padding: 3px 0px 3px 3px;
+     margin: 5px 1px 3px 0px;
+     border: 1px solid #ddd;
+    }
+    
+    input:focus, textarea:focus {
+     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+     padding: 3px 0px 3px 3px;
+     margin: 5px 1px 3px 0px;
+     border: 1px solid rgba(81, 203, 238, 1);
+    }*/
+
+/*input {
+transition: all 0.30s ease-in-out;
+-webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+border: #35a5e5 1px solid;
+border-radius: 4px;
+outline: none;
+}
+input:focus {
+border:#35a5e5 1px solid;
+box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+-webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+-moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}*/
+
+
+input, textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #ddd;
+}
+ 
+input:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+</style>
+</head>
+
+<body>
+
+<form>
+    <div>
+        <label for="username">账号：
+            <input name="username" type="text" placeholder="请输入账号">
+        </label>
+    </div>
+    <div>
+        <label for="password">密码：
+            <input name="password" type="password" placeholder="请输入密码"></label>
+    </div>
+    <div>
+        <label for="note">留言：
+            <textarea name="note" placeholder="请输入留言"></textarea>
+        </label>
+    </div>
+
+</form>
+
+</body>
+</html>

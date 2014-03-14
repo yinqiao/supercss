@@ -1,0 +1,60 @@
+.clear {
+    clear: both;
+}
+#gallery {
+    font: 11px verdana,arial,sans-serif;/*设置字体大小及字体类型*/
+    width: 750px;
+    padding: 15px 0 0 0;
+    line-height: 15px;/*设置行高*/
+}
+#gallery .on {/*当前选项卡的样式表*/
+    color: #c00;
+    padding: 0 20px;
+    margin-right: 2px;
+    margin-top: 1px;
+    float: left;
+    background: url(tabs_2.gif) repeat-x left bottom;/*当前选项卡的背景图*/
+    border: 1px solid #000;/*设置边框*/
+    border-bottom: 0;/*不显示底部边框*/
+    cursor: pointer;/*手势*/
+    height: 33px;
+    line-height: 32px;
+    position: relative;
+    z-index: 100;/*叠放次序*/
+}
+#gallery .off {/*非当前选项卡的样式表*/
+    color: #000;
+    height: 33px;
+    margin-right: 2px;
+    line-height: 33px;
+    padding: 0 20px;
+    float: left;
+    background: url(tabs_0.gif) repeat-x left bottom;/*非当前选项卡的背景图*/
+    border: 1px solid #ddd;
+    border-bottom-color: #000;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+}
+.show {/*显示详情的样式表*/
+    clear: left;
+    background: #fff;
+    width: 708px;
+    margin-top: 0;
+    top: -1px;
+    border: 1px solid #000;
+    padding: 20px;
+    position: relative;
+    z-index: 50;
+    font: 11px verdana, arial, sans-serif;
+    line-height: 18px;
+}
+.show img {/*图文混排中图片的样式*/
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.hide {/*不显示详情的样式表*/
+    display: none;
+    width: 0;
+    overflow: hidden;
+}

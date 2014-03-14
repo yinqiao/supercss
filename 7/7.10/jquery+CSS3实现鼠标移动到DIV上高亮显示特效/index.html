@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jquery+CSS3实现鼠标移动到DIV上高亮显示特效</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/lanrenzhijia.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/modernizr.custom.34978.js"></script>
+</head>
+<body>
+<div class="container">
+  <header> </header>
+  <section class="ib-container" id="ib-container">
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">25 Examples of Perfect Color Combinations in Web Design</a></h3>
+        <span>December 8, 2011 by Gisele Muller</span> </header>
+      <p>Today we will show you some examples of websites that are using beautiful and inspiring color combinations that match perfectly and create an eye candy...</p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">Design It to Build It: What to Consider When Designing for the Web</a></h3>
+        <span>December 8, 2011 by Patrick Cox</span> </header>
+      <p>For me, Photoshop is becoming more and more of a prototyping or blue printing tool: it’s basically just a canvas...</p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">Splash and Coming Soon Page Effects with CSS3</a></h3>
+        <span>December 7, 2011 by Mary Lou </span> </header>
+      <p>CSS3 opens up so many crazy possibilities and today we want to show you how to go wild with splash and coming soon page effects using CSS3 animations.</p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">Lateral On-Scroll Sliding with jQuery</a></h3>
+        <span>December 5, 2011 by Mary Lou </span> </header>
+      <p>After getting the request, we are going to show you how to create a “slide-in on scroll” effect. You’ve probably seen this cool effect on some websites, like on Nizo or in the portfolio section of brilliantly designed La Moulade. </p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com">6 Questions You Should Ask Yourself When Choosing Fonts</a></h3>
+        <span>December 1, 2011 by Patrick Cox </span> </header>
+      <p>Typography is truly a science and many designers spend an entire career devoted to the study. But selecting effective fonts for your project doesn't require...</p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">Inspiring Examples of Symbol and Metaphor Use in Web Design</a></h3>
+        <span>November 30, 2011 by Mary Lou</span> </header>
+      <p>There are many creative ways of showing what a website is about: the use of images, videos, descriptions and more. Symbolic graphics and metaphorical pictures...</p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">Typography Effects with CSS3 and jQuery</a></h3>
+        <span>November 28, 2011 by Mary Lou</span> </header>
+      <p>Today we will create a set of nice typography effects for big headlines using CSS3 and jQuery. There are many things we can do with CSS3 animations and transitions and we’ll...</p>
+    </article>
+    <article>
+      <header>
+        <h3><a target="_blank" href="http://www.lanrenzhijia.com/">Top 10 Reasons to Use HTML5 Right Now</a></h3>
+        <span>November 24, 2011 by Patrick Cox </span> </header>
+      <p>So you're still not using HTML5, huh? I guess you probably have your reasons; it's not fully adopted yet, it doesn't work in IE, you don't like users, you're out of touch or you are just...</p>
+    </article>
+  </section>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {		
+		var $container	= $('#ib-container'),
+			$articles	= $container.children('article'),
+			timeout;		
+		$articles.on( 'mouseenter', function( event ) {				
+			var $article	= $(this);
+			clearTimeout( timeout );
+			timeout = setTimeout( function() {				
+				if( $article.hasClass('active') ) return false;				
+				$articles.not( $article.removeClass('blur').addClass('active') )
+						 .removeClass('active')
+						 .addClass('blur');				
+			}, 65 );			
+		});		
+		$container.on( 'mouseleave', function( event ) {			
+			clearTimeout( timeout );
+			$articles.removeClass('active blur');			
+		});	
+	});
+</script>
+</body>
+</html>

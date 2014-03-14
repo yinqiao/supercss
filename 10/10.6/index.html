@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>10.6</title>
+<style> 
+/*设置灰度滤镜*/
+.greyscale img {
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    -o-filter: grayscale(1);
+    -ms-filter: grayscale(1);
+}
+.greyscale img:hover {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    -o-filter: grayscale(0);
+    -ms-filter: grayscale(0);
+}
+/*设置老照片滤镜*/
+.sepia img {
+    filter: sepia(1);
+    -webkit-filter: sepia(1);
+    -moz-filter: sepia(1);
+    -o-filter: sepia(1);
+    -ms-filter: sepia(1);
+}
+.sepia img:hover {
+    filter: sepia(0);
+    -webkit-filter: sepia(0);
+    -moz-filter: sepia(0);
+    -o-filter: sepia(0);
+    -ms-filter: sepia(0);
+}
+/*设置饱和度滤镜*/
+.saturate img {
+    filter: saturate(500%);
+    -webkit-filter: saturate(500%);
+    -moz-filter: saturate(500%);
+    -o-filter: saturate(500%);
+    -ms-filter: saturate(500%);
+}
+.saturate img:hover {
+    filter: saturate(100%);
+    -webkit-filter: saturate(100%);
+    -moz-filter: saturate(100%);
+    -o-filter: saturate(100%);
+    -ms-filter: saturate(100%);
+}
+/*设置色相反转滤镜*/
+.hue-rotate img {
+    filter: hue-rotate(180deg);
+    -webkit-filter: hue-rotate(180deg);
+    -moz-filter: hue-rotate(180deg);
+    -o-filter: hue-rotate(180deg);
+    -ms-filter: hue-rotate(180deg);
+}
+.hue-rotate img:hover {
+    filter: hue-rotate(0);
+    -webkit-filter: hue-rotate(0);
+    -moz-filter: hue-rotate(0);
+    -o-filter: hue-rotate(0);
+    -ms-filter: hue-rotate(0);
+}
+/*设置反色滤镜*/
+.invert img {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+    -moz-filter: invert(1);
+    -o-filter: invert(1);
+    -ms-filter: invert(1);
+}
+.invert img:hover {
+    filter: invert(0);
+    -webkit-filter: invert(0);
+    -moz-filter: invert(0);
+    -o-filter: invert(0);
+    -ms-filter: invert(0);
+}
+/*设置透明度滤镜*/
+.opacity img {
+    opacity:0.3;
+}
+.opacity img:hover {
+    opacity:1;
+}
+/*设置亮度滤镜*/
+.brightness img {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    -o-filter: brightness(50%);
+    -ms-filter: brightness(50%);
+}
+.brightness img:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    -ms-filter: brightness(100%);
+}
+/*设置对比度滤镜*/
+.contrast img {
+    filter: contrast(0.3);
+    -webkit-filter: contrast(0.3);
+    -moz-filter: contrast(0.3);
+    -o-filter: contrast(0.3);
+    -ms-filter: contrast(0.3);
+}
+.contrast img:hover {
+    filter: contrast(1);
+    -webkit-filter: contrast(1);
+    -moz-filter: contrast(1);
+    -o-filter: contrast(1);
+    -ms-filter: contrast(1);
+}
+/*设置模糊滤镜*/
+.blur img {
+    filter: url(/static/svg/filter.svg#blur);
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
+.blur img:hover {
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -o-filter: blur(0);
+    -ms-filter: blur(0);
+}
+/*设置阴影*/
+.drop-shadow{
+    -webkit-filter:drop-shadow(5px 5px 5px #ccc);
+}
+
+</style> 
+</head> 
+ 
+<body> 
+
+<div class="drop-shadow">
+    <img src="images/beauty.jpg" height="200"/>
+</div>
+
+
+</body> 
+</html> 

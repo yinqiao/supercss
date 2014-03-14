@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>8.5</title>
+<style type="text/css">
+body{ 
+    background:#CCC;
+}
+.text {
+    font-size: 100px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    position: relative;
+    text-shadow: 1px 2px 3px rgba(67,8,7,0.8);
+    color: #c60000;
+}
+.text:after {
+    position: absolute;
+    left: 0px;
+    content: "超实用的CSS代码段";
+    color: #ea0000;
+    -webkit-mask-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.9)), color-stop(40%, rgba(0, 0, 0, 0.5)),to(rgba(0, 0, 0, 0)));
+    text-shadow: 0px 0px 2px rgba(234,0,0,1);
+}
+.text:before {
+    content: "超实用的CSS代码段";
+    text-shadow: 0px 0px 5px rgba(110,0,0,0.8);
+    position: absolute;
+    left: 0px;
+    color: rgba(0,0,0,0);
+    -webkit-mask-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0.4)), color-stop(70%, rgba(0, 0, 0, 0.7)),to(rgba(0, 0, 0, 0.9)));
+    z-index: 99;
+}
+.text2 {
+    margin-top: 100px;
+    text-shadow:2px 2px 4px #000; 
+    width:400px; 
+    font-size:40px; 
+    height:40px; 
+    color:#000; 
+    padding:5px;
+}
+.box {
+    margin-top: 100px;
+    box-shadow:2px 2px 4px #000; 
+    width:400px; 
+    font-size:40px; 
+    height:40px; 
+    color:#000; 
+    padding:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="text">超实用的CSS代码段</div>
+<div class="text2">超实用的CSS代码段</div>
+<div class="box">超实用的CSS代码段</div>
+
+</body>
+
+</html>

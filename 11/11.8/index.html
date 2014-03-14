@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>11.8</title>
+<style>
+div.example{background-color: #cee;}
+
+.has-pullquote:before {
+    /* 重置矩形 */
+    padding: 0;
+    border: none;
+    /* Content */
+    content: attr(data-pullquote);
+    /* 居右 基于模块化的引文 */
+    float: right;
+    width: 320px;
+    margin: 12px -140px 24px 36px;
+    /* Baseline 矫正 */
+    position: relative;
+    top: 5px;
+    /* 排版 (30px line-height = 25% incremental leading) */
+    font-size: 23px;
+    line-height: 30px;
+}
+.pullquote-adelle:before {
+    font-family: "adelle-1", "adelle-2";
+    font-weight: 100;
+    top: 10px !important;
+}
+.pullquote-helvetica:before {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+    top: 7px !important;
+}
+.pullquote-facit:before {
+    font-family: "facitweb-1", "facitweb-2", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    top: 7px !important;
+}
+</style>
+<body>
+
+<h3>Example</h3>
+<div class="example has-pullquote">
+    <blockquote>为什么爱情、死亡和战争是人类文学史上三个最重要的主题？我想是因为这三件事物都会将一个无法内化的绝对他者、一种无法掌控的陌生状态强行置入个体的生命。而如鲍德里亚所说，战争现在已变成不可见的按钮游戏，杀人不见血；而日常的死亡已经被干净文明卫生的医疗系统隔离，爱情就一枝独秀地成为今日最普遍的经验及主题，经得起无穷诠释。正如那个耳熟能详的神话：人在被创造时本是完整的同体生物，后被分成两半，孤独的一半流落世上，永远追寻那与自己完美相合的另一半。爱情是对完满的追求，而其基础是核心性的匮乏。<p></p></blockquote>
+</div>
+
+</body>
+</html>

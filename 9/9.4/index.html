@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>9.4</title>
+    <script class="jquery library" src="http://sandbox.runjs.cn//js/sandbox/jquery/jquery-1.8.2.min.js" type="text/javascript"></script>
+    </head>
+<body>
+<header class="header">
+    <hgroup>
+        <h1>Makisu</h1>
+        <h2>CSS 3D Dropdown Concept</h2>
+    </hgroup>
+</header>
+
+<section class="demo">
+
+    <dl class="list nigiri">
+        <dt>首页</dt>
+        <dd><a href="#">国内机票</a></dd>
+        <dd><a href="#">国际机票</a></dd>
+        <dd><a href="#">酒店</a></dd>
+        <dd><a href="#">客栈</a></dd>
+        <dd><a href="#">签证</a></dd>
+        <dd><a href="#">门票</a></dd>
+        <dd><a href="#">旅游度假</a></dd>
+        <dd><a href="#">手机版</a></dd>
+        <dd><a href="#">每日特惠</a></dd>
+        <dd><a href="#">发现航线</a></dd>
+    </dl>
+
+    <dl class="list maki">
+        <dt>机票</dt>
+        <dd><a href="#">我的机票</a></dd>
+        <dd><a href="#">查看机票</a></dd>
+        <dd><a href="#">机票预约</a></dd>
+        <dd><a href="#">票价历史</a></dd>
+        <dd><a href="#">航空保险</a></dd>
+        <dd><a href="#">明星商家</a></dd>
+        <dd><a href="#">往返航线</a></dd>
+        <dd><a href="#">单程航线</a></dd>
+        <dd><a href="#">国内低价</a></dd>
+        <dd><a href="#">航记攻略</a></dd>
+    </dl>
+
+    <dl class="list sashimi">
+        <dt>酒店</dt>
+        <dd><a href="#">国内酒店</a></dd>
+        <dd><a href="#">海外酒店</a></dd>
+        <dd><a href="#">港澳台</a></dd>
+        <dd><a href="#">品牌特价</a></dd>
+        <dd><a href="#">特价推荐</a></dd>
+        <dd><a href="#">国内酒店</a></dd>
+        <dd><a href="#">海外酒店</a></dd>
+        <dd><a href="#">游记攻略</a></dd>
+        <dd><a href="#">品牌商家</a></dd>
+        <dd><a href="#">消费者保障</a></dd>
+    </dl>
+
+    <a href="#" class="toggle">Toggle</a>
+
+</section>
+
+<div class="warning">
+    <div class="message">
+        <h1>CSS 3D Not Detected :(</h1>
+        <p>I couldn't detect your browser's CSS 3D capabilities. If I'm wrong, please <a href="https://github.com/soulwire/Makisu/issues" target="_blank">file an issue</a>, otherwise, try a <a href="www.google.com/chrome" target="_blank">sexier browser</a></p>
+    </div>
+</div>
+
+    </body>
+</html>
+        <style>
+html, body {
+
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+
+    background: #ffffff;
+    background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 26%, #f5f5f5 59%, #f5f5f5 77%, #cecece 100%);
+    background: -webkit-gradient(radial, center center, 0, center center, 100%, color-stop(0%,#ffffff), color-stop(26%,#ffffff), color-stop(59%,#f5f5f5), color-stop(77%,#f5f5f5), color-stop(100%,#cecece));
+    background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 26%,#f5f5f5 59%,#f5f5f5 77%,#cecece 100%);
+    background: -o-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 26%,#f5f5f5 59%,#f5f5f5 77%,#cecece 100%);
+    background: -ms-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 26%,#f5f5f5 59%,#f5f5f5 77%,#cecece 100%);
+    background: radial-gradient(ellipse at center,  #ffffff 0%,#ffffff 26%,#f5f5f5 59%,#f5f5f5 77%,#cecece 100%);
+    font-family: 'Days One', sans-serif;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body:before {
+    position: absolute;
+    content: '';
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+a {
+
+    -webkit-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -moz-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -ms-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -o-transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    transition: all 250ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+    text-decoration: none;
+}
+/*ease: cubic-bezier(0.25, 0.1, 0.25, 1.0)
+linear: cubic-bezier(0.0, 0.0, 1.0, 1.0)
+ease-in: cubic-bezier(0.42, 0, 1.0, 1.0)
+ease-out: cubic-bezier(0, 0, 0.58, 1.0)
+ease-in-out: cubic-bezier(0.42, 0, 0.58, 1.0)*/
+.header {
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    color: #333;
+    width: 100%;
+    top: 5%;
+}
+.header h1 {
+    letter-spacing: -1px;
+    text-shadow: -2px -1px 1px #fff, 1px 2px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+    font-size: 36px;
+    margin: 0;
+}
+.header h2 {
+
+    text-transform: uppercase;
+    text-shadow: -2px -1px 1px #fff, 1px 1px 1px rgba(0, 0, 0, 0.15);
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    margin: 0;
+}
+.demo:after {
+    box-shadow: 0 1px 16px rgba(0,0,0,0.15);
+    background: #1b1b1b;
+    position: absolute;
+    content: '';
+    height: 10px;
+    width: 100%;
+    top: 0;
+}
+/* 菜单列表样式 */
+.list {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-stle: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    text-transform: uppercase;
+    position: absolute;
+    margin-left: -140px;
+    top: 20%;
+}
+.list a {   
+    display: block;
+    color: #fff;
+}
+.list a:hover {
+    text-indent: 20px;
+}
+.list dt, .list dd {
+
+    text-indent: 10px;
+    line-height: 55px;
+    background: #E0FBAC;
+    margin: 0;
+    height: 55px;
+    width: 270px;
+    color: #fff;
+}
+.list dt {
+    /* 3D特效 */
+    -webkit-transform: translateZ(0.3px);
+    -moz-transform: translateZ(0.3px);
+    -ms-transform: translateZ(0.3px);
+    -o-transform: translateZ(0.3px);
+    transform: translateZ(0.3px);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+}
+
+.list dd {
+    border-top: 1px dashed rgba(255,255,255,0.3);
+    line-height: 35px;
+    font-size: 11px;
+    height: 35px;
+    margin: 0;
+}
+
+/* UI */
+
+.toggle {
+  
+    -webkit-transform: translateZ(100px);
+    -moz-transform: translateZ(100px);
+    -ms-transform: translateZ(100px);
+    -o-transform: translateZ(100px);
+    transform: translateZ(100px);
+
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    border-radius: 3px;
+
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 50px;
+    margin-left: -70px;
+    margin-top: -20px;
+    background: #2b2b2b;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    z-index: 1;
+    height: 50px;
+    bottom: 10%;
+    width: 140px;
+    color: #fff;
+    left: 50%;
+}
+
+.toggle:hover {
+    
+    background: #E42692;
+}
+
+/* No CSS 3D support warning */
+.warning {
+
+    -webkit-transform: translateZ(2px);
+    -moz-transform: translateZ(2px);
+    -ms-transform: translateZ(2px);
+    -o-transform: translateZ(2px);
+    transform: translateZ(2px);
+
+    background: rgba(255,255,255,0.6);
+    position: fixed;
+    display: none;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.warning .message {
+
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    text-align: center;
+    margin-left: -150px;
+    margin-top: -60px;
+    line-height: 1.5;
+    background: #222;
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    width: 280px;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+}
+
+.warning .message h1 {
+
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.warning .message a {
+
+    text-decoration: none;
+    color: #73C8A9;
+}
+
+/* 个性化颜色设置 */
+.sashimi dt, .sashimi dd, .sashimi a { background: #73C8A9; }
+.nigiri dt, .nigiri dd, .nigiri a { background: #E32551; }
+.maki dt, .maki dd, .maki a { background: #FFC219; }
+.sashimi a:hover { background: #61c19e; }
+.nigiri a:hover { background: #d31b46; }
+.maki a:hover { background: #ffbb00; }
+.nigiri {
+    -webkit-transform: perspective(1200px) rotateY(40deg) !important;
+    -moz-transform: perspective(1200px) rotateY(40deg) !important;
+    -ms-transform: perspective(1200px) rotateY(40deg) !important;
+    -o-transform: perspective(1200px) rotateY(40deg) !important;
+    transform: perspective(1200px) rotateY(40deg) !important;
+
+    -webkit-transform-origin: 110% 25%;
+    -moz-transform-origin: 110% 25%;
+    -ms-transform-origin: 110% 25%;
+    -o-transform-origin: 110% 25%;
+    transform-origin: 110% 25%;
+
+    left: 20%;
+}
+.maki {
+    -webkit-transform: perspective(600px) translateZ(1px) !important;
+    -moz-transform: perspective(600px) translateZ(1px) !important;
+    -ms-transform: perspective(600px) translateZ(1px) !important;
+    -o-transform: perspective(600px) translateZ(1px) !important;
+    transform: perspective(600px) translateZ(1px) !important;
+
+    left: 50%;
+}
+.sashimi {
+    -webkit-transform: perspective(1200px) rotateY(-40deg) !important;
+    -moz-transform: perspective(1200px) rotateY(-40deg) !important;
+    -ms-transform: perspective(1200px) rotateY(-40deg) !important;
+    -o-transform: perspective(1200px) rotateY(-40deg) !important;
+    transform: perspective(1200px) rotateY(-40deg) !important;
+
+    -webkit-transform-origin: -10% 25%;
+    -moz-transform-origin: -10% 25%;
+    -ms-transform-origin: -10% 25%;
+    -o-transform-origin: -10% 25%;
+    transform-origin: -10% 25%;
+
+    left: 80%;
+}
+</style>
+<script>
+/**
+ * Copyright (C) 2012 by Justin Windle
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+(function($) {
+
+    // Global initialisation flag
+    var initialized = false;
+
+    // For detecting browser prefix and capabilities
+    var el = document.createElement( 'div' );
+    var re = /^(Moz|(w|W)ebkit|O|ms)(?=[A-Z])/;
+
+    // Establish vendor prefix and CSS 3D support
+    var vendor = (function() { for ( var p in el.style ) if( re.test(p) ) return p.match(re)[0]; })() || '';
+    var canRun = vendor + 'Perspective' in el.style;
+    var prefix = '-' + vendor.toLowerCase() + '-';
+
+    var $this, $root, $base, $kids, $node, $item, $over, $back;
+    var wait, anim, last;
+
+    // Public API
+    var api = {
+
+        // Toggle open / closed
+        toggle: function() {
+
+            $this = $( this );
+            $this.makisu( $this.hasClass( 'open' ) ? 'close' : 'open' );
+        },
+
+        // Trigger the unfold animation
+        open: function( speed, overlap, easing ) {
+
+            // Cache DOM references
+            $this = $(this);
+            $root = $this.find( '.root' );
+            $kids = $this.find( '.node' ).not( $root );
+
+            // Establish values or fallbacks
+            speed = utils.resolve( $this, 'speed', speed );
+            easing = utils.resolve( $this, 'easing', easing );
+            overlap = utils.resolve( $this, 'overlap', overlap );
+
+            $kids.each( function( index, el ) {
+
+                // Establish settings for this iteration
+                anim = 'unfold' + ( !index ? '-first' : '' );
+                last = index === $kids.length - 1;
+                time = speed * ( 1 - overlap );
+                wait = index * time;
+
+                // Cache DOM references
+                $item = $( el );
+                $over = $item.find( '.over' );
+
+                // Element animation
+                $item.css(utils.prefix({
+                    'transform': 'rotateX(180deg)',
+                    'animation': anim + ' ' + speed + 's ' + easing + ' ' + wait + 's 1 normal forwards'
+                }));
+
+                // Shading animation happens when the next item starts
+                if ( !last ) wait = ( index + 1 ) * time;
+
+                // Shading animation
+                $over.css(utils.prefix({
+                    'animation': 'unfold-over ' + (speed * 0.45) + 's ' + easing + ' ' + wait + 's 1 normal forwards'
+                }));
+            });
+
+            // Add momentum to the container
+            $root.css(utils.prefix({
+                'animation': 'swing-out ' + ( $kids.length * time * 1.4 ) + 's ease-in-out 0s 1 normal forwards'
+            }));
+
+            $this.addClass( 'open' );
+        },
+
+        // Trigger the fold animation
+        close: function( speed, overlap, easing ) {
+
+            // Cache DOM references
+            $this = $(this);
+            $root = $this.find( '.root' );
+            $kids = $this.find( '.node' ).not( $root );
+
+            // Establish values or fallbacks
+            speed = utils.resolve( $this, 'speed', speed ) * 0.66;
+            easing = utils.resolve( $this, 'easing', easing );
+            overlap = utils.resolve( $this, 'overlap', overlap );
+
+            $kids.each( function( index, el ) {
+
+                // Establish settings for this iteration
+                anim = 'fold' + ( !index ? '-first' : '' );
+                last = index === 0;
+                time = speed * ( 1 - overlap );
+                wait = ( $kids.length - index - 1 ) * time;
+
+                // Cache DOM references
+                $item = $( el );
+                $over = $item.find( '.over' );
+
+                // Element animation
+                $item.css(utils.prefix({
+                    'transform': 'rotateX(0deg)',
+                    'animation': anim + ' ' + speed + 's ' + easing + ' ' + wait + 's 1 normal forwards'
+                }));
+
+                // Adjust delay for shading
+                if ( !last ) wait = ( ( $kids.length - index - 2 ) * time ) + ( speed * 0.35 );
+
+                // Shading animation
+                $over.css(utils.prefix({
+                    'animation': 'fold-over ' + (speed * 0.45) + 's ' + easing + ' ' + wait + 's 1 normal forwards'
+                }));
+            });
+
+            // Add momentum to the container
+            $root.css(utils.prefix({
+                'animation': 'swing-in ' + ( $kids.length * time * 1.0 ) + 's ease-in-out 0s 1 normal forwards'
+            }));
+
+            $this.removeClass( 'open' );
+        }
+    };
+
+    // Utils
+    var utils = {
+
+        // Resolves argument values to defaults
+        resolve: function( $el, key, val ) {
+            return typeof val === 'undefined' ? $el.data( key ) : val;
+        },
+
+        // Prefixes a hash of styles with the current vendor
+        prefix: function( style ) {
+            
+            for ( var key in style ) {
+                style[ prefix + key ] = style[ key ];
+            }
+
+            return style;
+        },
+
+        // Inserts rules into the document styles
+        inject: function( rule ) {
+
+            try {
+
+                var style = document.createElement( 'style' );
+                style.innerHTML = rule;
+                document.getElementsByTagName( 'head' )[0].appendChild( style );
+
+            } catch ( error ) {}
+        }
+    };
+
+    // Element templates
+    var markup = {
+        node: '<span class="node"/>',
+        back: '<span class="face back"/>',
+        over: '<span class="face over"/>'
+    };
+
+    // Plugin definition
+    $.fn.makisu = function( options ) {
+
+        // Notify if 3D isn't available
+        if ( !canRun ) {
+
+            var message = 'Failed to detect CSS 3D support';
+
+            if( console && console.warn ) {
+                
+                // Print warning to the console
+                console.warn( message );
+
+                // Trigger errors on elements
+                this.each( function() {
+                    $( this ).trigger( 'error', message );
+                });
+            }
+
+            return;
+        }
+
+        // Fires only once
+        if ( !initialized ) {
+
+            initialized = true;
+
+            // Unfold
+            utils.inject( '@' + prefix + 'keyframes unfold        {' +
+
+                '0%   {' + prefix + 'transform: rotateX(180deg);  }' +
+                '50%  {' + prefix + 'transform: rotateX(-30deg);  }' +
+                '100% {' + prefix + 'transform: rotateX(0deg);    }' +
+
+                '}');
+
+            // Unfold (first item)
+            utils.inject( '@' + prefix + 'keyframes unfold-first  {' +
+
+                '0%   {' + prefix + 'transform: rotateX(-90deg);  }' +
+                '50%  {' + prefix + 'transform: rotateX(60deg);   }' +
+                '100% {' + prefix + 'transform: rotateX(0deg);    }' +
+
+                '}');
+
+            // Fold
+            utils.inject( '@' + prefix + 'keyframes fold          {' +
+
+                '0%   {' + prefix + 'transform: rotateX(0deg);    }' +
+                '100% {' + prefix + 'transform: rotateX(180deg);  }' +
+
+                '}');
+
+            // Fold (first item)
+            utils.inject( '@' + prefix + 'keyframes fold-first    {' +
+
+                '0%   {' + prefix + 'transform: rotateX(0deg);    }' +
+                '100% {' + prefix + 'transform: rotateX(-180deg); }' +
+
+                '}');
+
+            // Swing out
+            utils.inject( '@' + prefix + 'keyframes swing-out     {' +
+
+                '0%   {' + prefix + 'transform: rotateX(0deg);    }' +
+                '30%  {' + prefix + 'transform: rotateX(-30deg);  }' +
+                '60%  {' + prefix + 'transform: rotateX(15deg);   }' +
+                '100% {' + prefix + 'transform: rotateX(0deg);    }' +
+
+                '}');
+
+            // Swing in
+            utils.inject( '@' + prefix + 'keyframes swing-in      {' +
+
+                '0%   {' + prefix + 'transform: rotateX(0deg);    }' +
+                '50%  {' + prefix + 'transform: rotateX(-10deg);  }' +
+                '90%  {' + prefix + 'transform: rotateX(15deg);   }' +
+                '100% {' + prefix + 'transform: rotateX(0deg);    }' +
+
+                '}');
+
+            // Shading (unfold)
+            utils.inject( '@' + prefix + 'keyframes unfold-over   {' +
+                '0%   { opacity: 1.0; }' +
+                '100% { opacity: 0.0; }' +
+                '}');
+
+            // Shading (fold)
+            utils.inject( '@' + prefix + 'keyframes fold-over     {' +
+                '0%   { opacity: 0.0; }' +
+                '100% { opacity: 1.0; }' +
+                '}');
+
+            // Node styles
+            utils.inject( '.node {' +
+                'position: relative;' +
+                'display: block;' +
+                '}');
+
+            // Face styles
+            utils.inject( '.face {' +
+                'pointer-events: none;' +
+                'position: absolute;' +
+                'display: block;' +
+                'height: 100%;' +
+                'width: 100%;' +
+                'left: 0;' +
+                'top: 0;' +
+                '}');
+        }
+
+        // Merge options & defaults
+        var opts = $.extend( {}, $.fn.makisu.defaults, options );
+
+        // Extract api method arguments
+        var args = Array.prototype.slice.call( arguments, 1 );
+
+        // Main plugin loop
+        return this.each( function () {
+
+            // If the user is calling a method...
+            if ( api[ options ] ) {
+                return api[ options ].apply( this, args );
+            }
+
+            // Store options in view
+            $this = $( this ).data( opts );
+
+            // Only proceed if the scene hierarchy isn't already built
+            if ( !$this.data( 'initialized' ) ) {
+
+                $this.data( 'initialized', true );
+
+                // Select the first level of matching child elements
+                $kids = $this.children( opts.selector );
+
+                // Build a scene graph for elements
+                $root = $( markup.node ).addClass( 'root' );
+                $base = $root;
+                
+                // Process each element and insert into hierarchy
+                $kids.each( function( index, el ) {
+
+                    $item = $( el );
+
+                    // Which animation should this node use?
+                    anim = 'fold' + ( !index ? '-first' : '' );
+
+                    // Since we're adding absolutely positioned children
+                    $item.css( 'position', 'relative' );
+
+                    // Give the item some depth to avoid clipping artefacts
+                    $item.css(utils.prefix({
+                        'transform-style': 'preserve-3d',
+                        'transform': 'translateZ(-0.1px)'
+                    }));
+
+                    // Create back face
+                    $back = $( markup.back );
+                    $back.css( 'background', $item.css( 'background' ) );
+                    $back.css(utils.prefix({ 'transform': 'translateZ(-0.1px)' }));
+
+                    // Create shading
+                    $over = $( markup.over );
+                    $over.css(utils.prefix({ 'transform': 'translateZ(0.1px)' }));
+                    $over.css({
+                        'background': opts.shading,
+                        'opacity': 0.0
+                    });
+                    
+                    // Begin folded
+                    $node = $( markup.node ).append( $item );
+                    $node.css(utils.prefix({
+                        'transform-origin': '50% 0%',
+                        'transform-style': 'preserve-3d',
+                        'animation': anim + ' 1ms linear 0s 1 normal forwards'
+                    }));
+
+                    // Build display list
+                    $item.append( $over );
+                    $item.append( $back );
+                    $base.append( $node );
+
+                    // Use as parent in next iteration
+                    $base = $node;
+                });
+
+                // Set root transform settings
+                $root.css(utils.prefix({
+                    'transform-origin': '50% 0%',
+                    'transform-style': 'preserve-3d'
+                }));
+
+                // Apply perspective
+                $this.css(utils.prefix({
+                    'transform': 'perspective(' + opts.perspective + 'px)'
+                }));
+
+                // Display the scene
+                $this.append( $root );
+            }
+        });
+    };
+
+    // Default options
+    $.fn.makisu.defaults = {
+
+        // Perspective to apply to rotating elements
+        perspective: 1200,
+
+        // Default shading to apply (null => no shading)
+        shading: 'rgba(0,0,0,0.12)',
+
+        // Area of rotation (fraction or pixel value)
+        selector: null,
+
+        // Fraction of speed (0-1)
+        overlap: 0.6,
+
+        // Duration per element
+        speed: 0.8,
+
+        // Animation curve
+        easing: 'ease-in-out'
+    };
+
+    $.fn.makisu.enabled = canRun;
+
+})( jQuery );
+
+// The `enabled` flag will be `false` if CSS 3D isn't available
+
+if ( $.fn.makisu.enabled ) {
+
+    var $sashimi = $( '.sashimi' );
+    var $nigiri = $( '.nigiri' );
+    var $maki = $( '.maki' );
+
+    // Create Makisus
+
+    $nigiri.makisu({
+        selector: 'dd',
+        overlap: 0.85,
+        speed: 1.7
+    });
+
+    $maki.makisu({
+        selector: 'dd',
+        overlap: 0.6,
+        speed: 0.85
+    });
+
+    $sashimi.makisu({
+        selector: 'dd',
+        overlap: 0.2,
+        speed: 0.5
+    });
+
+    // Open all
+    
+    $( '.list' ).makisu( 'open' );
+
+    // Toggle on click
+
+    $( '.toggle' ).on( 'click', function() {
+        $( '.list' ).makisu( 'toggle' );
+    });
+
+    // Disable all links
+
+    $( '.demo a' ).click( function( event ) {
+        event.preventDefault();
+    });
+
+} else {
+
+    $( '.warning' ).show();
+}</script>
+    
+<!-- Generated by RunJS (Sun Feb 16 14:55:46 CST 2014) 1ms -->

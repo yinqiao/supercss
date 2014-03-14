@@ -1,0 +1,120 @@
+/* 基本浏览器重置 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* 设置字体 */
+	font: bold 14px Arial, sans-serif;
+}
+/*  背景渐变设置为径向渐变 */
+html {
+	height: 100%;
+	background: white;
+	background: radial-gradient(circle, #fff 20%, #ccc);
+	background-size: cover;
+}
+/* 使用box-shadow，创造3D特效 */
+#calculator {
+	width: 325px;
+	height: auto;
+	margin: 100px auto;
+	padding: 20px 20px 9px;
+	background: #9dd2ea;
+	background: linear-gradient(#9dd2ea, #8bceec);
+	border-radius: 3px;
+	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+/* 顶部 */
+.top span.clear {
+	float: left;
+}
+/* 使用内阴影inset，创造缩进效果 */
+.top .screen {
+	height: 40px;
+	width: 212px;
+	float: right;
+	padding: 0 10px;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+	/* 设置字体、排版 */
+	font-size: 17px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+}
+/* 清除浮动 */
+.keys, .top {
+	overflow: hidden;
+}
+/* 设置键盘统一样式 */
+.keys span, .top span.clear {
+	float: left;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+	width: 66px;
+	height: 36px;
+	background: white;
+	border-radius: 3px;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	margin: 0 7px 11px 0;
+	color: #888;
+	line-height: 36px;
+	text-align: center;
+	/* 设置内容不可选 */
+	user-select: none;
+	/* 使用 css3 transitions，使得键盘样式变化更为平滑 */
+	transition: all 0.2s ease;
+}
+/* 设置操作符、计算符、清除等按键的特殊样式 */
+.keys span.operator {
+	background: #FFF0F5;
+	margin-right: 0;
+}
+.keys span.eval {
+	background: #f1ff92;
+	box-shadow: 0px 4px #9da853;
+	color: #888e5f;
+}
+.top span.clear {
+	background: #ff9fa8;
+	box-shadow: 0px 4px #ff7c87;
+	color: white;
+}
+/* 数字键鼠标移入效果 */
+.keys span:hover {
+	background: #9c89f6;
+	box-shadow: 0px 4px #6b54d3;
+	color: white;
+}
+/* 计算符鼠标移入效果 */
+.keys span.eval:hover {
+	background: #abb850;
+	box-shadow: 0px 4px #717a33;
+	color: #ffffff;
+}
+/* 清除键鼠标移入效果 */
+.top span.clear:hover {
+	background: #f68991;
+	box-shadow: 0px 4px #d3545d;
+	color: white;
+}
+/* 
+ *模拟键盘按下效果
+ *当键盘按下时，去除box-shadow，并且将该按键下移一个像素
+ */
+.keys span:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+.keys span.eval:active {
+	box-shadow: 0px 0px #717a33;
+	top: 4px;
+}
+.top span.clear:active {
+	top: 4px;
+	box-shadow: 0px 0px #d3545d;
+}
