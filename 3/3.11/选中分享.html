@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>选中分享</title>
+  <style type="text/css">
+  #share{width:500px;margin:50px;}
+  #share_button{position:absolute;display:none;}
+  </style>
+  <script type="text/javascript">
+  window.onload=function(){
+  function select(){//获取到选中的文字函数
+  return document.selection?document.selection.createRange().text:window.getSelection().toString();//IE与标准
+  }
+  var text=document.getElementById('share');
+  var sharebutton=document.getElementById('share_button');
+  text.onmouseup=function (){
+  var ev=ev||window.event;
+  var l=document.body.scrollLeft>0?document.body.scrollLeft:document.documentElement.scrollLeft;
+  var t=document.body.scrollTop>0?document.body.scrollTop:document.documentElement.scrollTop;
+  l+=ev.clientX;//计算分享按钮的left值
+  t+=ev.clientY;//计算分享按钮的top值
+  if(select().length>10){
+	  setTimeout(function (){//解决IE下文本选中不正确的问题
+		  share_button.style.display='block';
+		  share_button.style.left=l+'px';
+		  share_button.style.top=t+'px';	  
+	  },100);
+  }else{
+  share_button.style.display='none';//小于10个字不分享
+  }
+  document.onclick=function (){//点击页面
+  share_button.style.display='none';//分享按钮消失
+  }
+  text.onclick=function (){//点击文本时阻止document.onclick
+  var ev=ev||window.event;
+  ev.cacelBubble=true;
+  }
+  share_button.onclick=function (){//http请求分享到新浪微博
+  window.location.href="http://service.weibo.com/share/share.php?title="+select()+"&url="+window.location.href;}}}
+  </script>
+ </head>
+ <body>
+  <p id="share">
+  若你安好，便是晴天
+  <br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一直都相信，文字里的暖是可以润心的，就如一朵花开在干枯的河床，它可以温暖视线，增添美丽，润泽心扉，一段文字，一首音乐，一缕幸福，一份心情，可以领略幸福的风景，一个场景，可以体会幸福的真谛，一句若你安好，便是晴天，蕴藏了生命的厚重。--魂之舞者
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若你安好，便是晴天，多么深刻温馨的句子，短短的一句话，却蕴含了醇厚的感情，看着这干净的八个字，素颜素心，潮湿了自己的心，一方素心中，就那样执着的守候，不悲不喜，与世无争，优雅而从容，幸福而执着，不为别的，只为心灵的相通和默契，只为幸福的明眸和微笑，生命不止，红尘无尽，总以一程换一种懂得，总以一程换一场经历，深刻而久远。
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若你安好，便是晴天，无所求，亦无所欲，只要你安好，我的世界便晴空万里，无论身在何处，都有一颗牵挂的心，简单的话语，诠释了情深似海的真谛，人的一生会遇到许多感动，能对你说出这样话的人，一定是最值得感恩的人，因为在每个人心中，都会有一片纯净的天空，因爱而晴朗，因爱而明媚，因爱而执着，因爱而美丽，因爱而铭记。
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时光如水，总是无言。若你安好，便是晴天，永远不要计较付出的多而得到少，这样你会少份抱怨，多份感恩，感恩曾经有这样一个人，给你带来温暖和感动，让你用一生时间去追忆，无论社会如何变化，做一个简单而执着的女人，在最深的红尘里，守候那片心灵的净土，一份心情与风月无关，水逝惊鸿去，时光仿佛一杯静水，依然深刻，依然可以深流，而站在时光的路口，回望曾经走过的美丽，依然在岁月的长河中，缓缓流过，又默默回溯。
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此生，若你安好，便是晴天，翻阅有关幸福的记忆，给指尖涂上一抹温情，让这七月的天空，变得更加纯粹而干净，内心不经意间，多了一份温馨和感动，无需太多的言辞，也无需太多的寒暄，淡淡的一句话，却让人滋生出无数的精彩和感动，在这个寂静的夜晚，用心品味这句话，倾听来自灵魂的声音，心里轻触幸福的过往，总会油然而生，荡漾成温馨的微笑。
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若你安好，便是晴天，纵使光阴模糊了容颜，我也要一笔倾心，用指尖的舞蹈，蕴藏生命里最至真的情，风起的日子，我静卧晨曦的光中，静静守望，默默聆听，用水润的心，剪出一段幸福的过往，盈一抹淡然，笑看青山绿黛暖融，远雨微凉，又把牵念落笔成行，和着深深的感悟，凝结成笑语，轻拥流年沧桑，用一生的时间去铭记，铭记幸福的点点滴滴。
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若你安好，便是晴天，用简单的心，厚重的情，撑起一片心灵的净土，守住一颗幸福的心，清净，柔美，润中带着几丝薄凉，惟愿点一盏心灯，不为取悦别人，仅以莹莹之光抚慰心墙，看夜深人静，思绪又疯长，我安坐其中，品茶，赏乐，随心起舞，淡写一生的美丽，惟有，一人，一景，一曲入心，将幸福的屡屡花香怡情融汇，一听钟情，再听倾心。
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今夜，伴着心灵的乐曲，再一次放飞心灵，落笔描绘幸福的片段，不管语言是否精致，都是最朴实的心韵，纵然光阴移步，岁月流逝，幸福的点滴，未曾远离，守一份幸福的回眸，然后静静老去，此生，若你安好，便是晴天，那是最美丽宿愿，最朴素的关爱，偶有风雨来袭，不变的依然是厚重的祝愿与牵绊。（魂之舞者：47682977）
+</p>
+<div id="share_button"><img src="img/share.gif" alt="" /></div>
+ </body>
+</html>

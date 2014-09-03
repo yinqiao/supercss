@@ -1,0 +1,29 @@
+<html>
+ <head>
+  <meta charset="UTF-8">
+<style type="text/css">
+div.shui{							/*水印*/
+border:1px solid ;
+opacity:0.5;						/*透明度设置*/
+right:0;							/*水印居右*/
+bottom:0;							/*水印居下*/
+position:absolute;					/*一定要这样设置*/
+}
+div.img{
+border:1px solid ;					/*透明度设置*/
+position:relative;					/*一定要这样设置*/
+display:inline-block;				/*div 宽度自适应图片宽度*/
+}
+img.big{							/*缩小一下图片*/
+width:250px;
+height:150px;
+}
+</style>
+
+</head>
+<body>
+<div class="img"><img src="4.jpg" class="big" /><div class="shui"><img src="google.jpg" /></div></div>
+<div class="img"><img src="4.jpg" class="big" /><div class="shui">jianzhiunique原创作品</div></div>
+</body>
+</html>
+

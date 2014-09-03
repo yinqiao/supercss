@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>使用opacity的图片轮播图</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #pics{
+  width:520px;height:280px;
+  border:1px solid;overflow:hidden;
+  position:absolute;top:100px;left:300px;
+  }
+  .pics{
+  width:2600px;height:280px;
+  position:relative;
+  left:0;
+  }
+  .pics>li{position:absolute;opacity:0;filter:alpha(opcity:0);}
+  .pics_pre{
+  width:32px;height:32px;
+  position:absolute;top:45%;left:0;
+  background:url("img/arrow_left.png");
+  cursor:pointer;display:none;
+  }
+   .pics_next{
+  width:32px;height:32px;
+  position:absolute;top:45%;right:0;
+  background:url("img/arrow_right.png");
+  cursor:pointer;display:none;
+  }
+  .pics_list{
+  width:100%;height:8%;
+  position:absolute;bottom:0;
+  background:#8B8878;opacity:0.8;filter:alpha(opacity:80);
+  cursor:pointer;text-align:center;display:none;
+  }
+  .pics_list>li{
+  width:10px;height:10px;
+  border-radius:5px;
+  background:#ffffff;
+  cursor:pointer;
+  float:left;margin:5px;left:35%;position:relative;
+  list-style:none;
+  }
+  </style>
+  <script type="text/javascript" src="js/zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload=function(){
+  var pics=document.getElementById('pics');
+  var pics_pre=getbyclass(pics,'pics_pre')[0];
+  var pics_next=getbyclass(pics,'pics_next')[0];
+  var pics_list=getbyclass(pics,'pics_list')[0];
+  var pics_ul=pics.getElementsByTagName('ul')[0];
+  var pics_lis=pics_ul.getElementsByTagName('li');
+  var inow=0;
+  for (var i=0;i<pics_lis.length ;i++ )
+  {
+	  var list=document.createElement('li');
+	  pics_list.appendChild(list);
+  }
+  var list_li=pics_list.getElementsByTagName('li');
+  for (var i=0; i<list_li.length;i++ )
+	{
+		  list_li[i].onclick=function (){
+		  inow=index(this,list_li);
+		  show(inow);
+		  }
+	}
+	show(0);
+	var timer=setInterval(function (){
+		if (inow<pics_lis.length-1)
+		{
+			inow++;
+		}else{
+		inow=0;
+		}
+		show(inow);
+	},3000);
+	pics_pre.onclick=function (){//上一个
+	if (inow>0)
+	{
+		inow-=1;
+	}else{
+	inow=pics_lis.length-1;
+	}
+		show(inow);
+	}
+    pics_next.onclick=function (){//下一个
+	if (inow<pics_lis.length-1)
+	{
+		inow+=1;
+	}else{
+	inow=0;
+	}
+		show(inow);
+	}
+  
+  function show(inow){
+  for (var i=0;i<pics_lis.length ;i++ )
+  {
+	  move(pics_lis[i],{opacity:0});
+	  list_li[i].style.background='#FFFFFF';
+  }
+  move(pics_lis[inow],{opacity:100});
+  list_li[inow].style.background='#EE7600';
+  }
+  pics.onmouseover=function(){
+  pics_pre.style.display="block";
+  pics_next.style.display="block";
+  pics_list.style.display='block';
+  clearInterval(timer);
+  }
+  pics.onmouseout=function(){
+  pics_pre.style.display="none";
+  pics_next.style.display="none";
+  pics_list.style.display="none";
+  timer=setInterval(function (){
+		if (inow<pics_lis.length)
+		{
+			show(inow);
+			inow++;
+		}else{
+		inow=0;
+		}
+	},3000);
+  }
+  }
+  </script>
+ </head>
+ <body>
+ <div id="pics">
+  <ul class="pics">
+  <li><a href=""><img src="img/1.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/2.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/3.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/4.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/5.jpg" alt="" /></a></li>
+  </ul>
+  <span class="pics_pre"></span><span class="pics_next"></span>
+  <ul class="pics_list">
+  </ul>
+  </div>
+ </body>
+</html>

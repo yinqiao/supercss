@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>按钮式单选框与复选框</title>
+  <style type="text/css">
+  .radioEnable{
+  width:50px;height:20px;
+  border-radius:5px 0 0 5px/5px 0 0 5px ;
+  float:left;text-align:center;
+  border-top:1px solid black;
+  border-left:1px solid black;
+  border-bottom:1px solid black;
+  }
+  .radioDisable{
+  width:50px;height:20px;
+  border-radius:0 5px 5px 0/0 5px 5px 0 ;
+  float:left;text-align:center;
+  border-top:1px solid black;
+  border-right:1px solid black;
+  border-bottom:1px solid black;
+  }
+  .radioEnable.enable{
+  background:#71C671;color:#fff;
+  }
+  .radioDisable.enable{
+  background:#C1C1C1;color:#fff;
+  }
+  input{display:none;}
+  </style>
+  <script type="text/javascript" src='js/jq.js'></script>
+  <script type="text/javascript">
+  $(function(){
+	  $(".radioEnable").click(function(){//单选启用按钮被点击
+	  $(this).parent('div').children(".radioDisable").removeClass('enable');//禁用按钮去除选中状态
+	  $(this).addClass('enable');//启用按钮选中
+	  });
+	  $(".radioDisable").click(function(){//单选禁用按钮被点击
+	  $(this).parent('div').children(".radioEnable").removeClass('enable');//启用按钮去除选中状态
+	  $(this).addClass('enable');//禁用按钮选中
+	  });
+	  $(".cbEn").click(function(){//复选启用按钮被点击
+	  $(this).parent('p').children(".radioDisable").removeClass('enable');//禁用按钮去除选中状态
+	  $(this).addClass('enable');//启用按钮选中
+	  $(this).parent('p').children('input').prop('checked',true);//input属性值选中
+	  });
+	  $(".cbDis").click(function(){//复选禁用按钮被点击
+      $(this).parent('p').children(".radioEnable").removeClass('enable');//启用按钮去除选中状态
+	  $(this).addClass('enable');//禁用按钮选中
+	  $(this).parent('p').children('input').prop('checked',false);//input属性值去除选中
+	  });
+  });
+  </script>
+ </head>
+ <body>
+<p>
+		是否启用系统？
+		<input type="radio" id="radio1" name="field"  checked />
+		<input type="radio" id="radio2" name="field" />
+		<div>
+		<label for="radio1" class="radioEnable enable"><span>是</span></label>
+		<label for="radio2" class="radioDisable "><span>否</span></label>
+		</div>
+	</p>
+	<br />
+	<p>
+		是否启用系统加速？
+		<input type="radio" id="radio3" name="field2"  checked />
+		<input type="radio" id="radio4" name="field2" />
+		<div>
+		<label for="radio3" class="radioEnable enable"><span>是</span></label>
+		<label for="radio4" class="radioDisable "><span>否</span></label>
+		</div>
+	</p>
+	<br />
+	<p>加速选项</p>
+		<p>
+		<input type="checkbox" id="radio5"  checked/>
+		<label class="radioEnable enable cbEn" ><span>启用</span></label>
+		<label class="radioDisable  cbDis"><span>禁用</span></label>
+		云端加速
+	</p>
+		<p>
+		<input type="checkbox" id="radio6" checked />
+		<label class="radioEnable enable cbEn"><span>启用</span></label>
+		<label class="radioDisable  cbDis"><span>禁用</span></label>
+		P2P加速
+	</p>
+ </body>
+</html>

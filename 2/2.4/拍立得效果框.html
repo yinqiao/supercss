@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta	charset="UTF-8">
+  <meta	name="Generator" content="EditPlus®">
+  <meta	name="Author" content="">
+  <meta	name="Keywords"	content="">
+  <meta	name="Description" content="">
+  <title>为图片创建拍立得效果边框</title>
+  <style type="text/css">
+  body
+  {
+  background:#ABABAB;
+  }
+  img.palaroid{
+  position:absolute;
+  background:#000;
+  height:200px;
+  width:300px;
+  border:solid #fff;
+  box-shadow:1px 1px 5px #333;
+  border-width:6px 6px 20px	6px;
+  }
+div.palaroid
+{
+position:absolute;
+left:50px;
+top:300px;
+text-align:center;
+font-size:15px;
+width:200px;
+padding:10px 10px 10px 10px;
+border:1px solid #BFBFBF;
+background-color:white;
+box-shadow:2px 2px 3px #aaaaaa;
+transform:rotate(30deg);
+-ms-transform:rotate(30deg); /* IE 9 */
+-moz-transform:rotate(30deg); /* Firefox */
+-webkit-transform:rotate(30deg); /* Safari and Chrome */
+-o-transform:rotate(30deg); /* Opera */
+}
+img{
+width:100%;
+}
+  </style>
+ </head>
+ <body>
+ <img src="3.jpg" alt="" class="palaroid"/>
+ <br><br><br>
+<div class="palaroid"><img src="4.jpg" alt="" />彩色的铅笔</div>
+ </body>
+</html>

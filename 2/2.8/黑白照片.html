@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>黑白照片</title>
+  <style type="text/css">
+  img{
+  width:200px;height:150px;
+  }
+/*  .gray{*/
+/*  filter:gray;*/
+/*  -webkit-filter: grayscale(100%);*/
+/*  }*/
+  </style>
+  <script type="text/javascript" src='js/grayscale.js'></script>
+  <script type="text/javascript">
+  window.onload =function (){
+  var oimg=document.getElementsByTagName('img')[1];
+  grayscale(oimg);
+  }
+  </script>
+ </head>
+ <body>
+  <img src="img/1.jpg" alt="" />
+  <img src="img/1.jpg" alt="" class="gray"/>
+ </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>苹果系统stack</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #stack{
+  position:absolute;left:300px;bottom:64px;
+  }
+  #stack>ul>li{list-style:none;position:absolute;
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  transform:rotate(0deg);}
+  #stack>ul>li>img{width:50px;height:50px;}
+  #stack>ul>li>span{
+  padding-left:20px;padding-right:20px;width:auto;border:1px solid #9E9E9E;border-radius:8px;
+  background:#9E9E9E;color:#FFFFFF;
+  font-size:14px;text-align:center;
+  display:block;position:absolute;top:40%;right:80px;}
+  </style>
+  <script type="text/javascript" src="js/zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload =function (){
+  var stack=document.getElementById('stack');//获取stack
+  var stack_ul=stack.getElementsByTagName('ul')[0];//获取ul
+  var stack_ul_lis=stack_ul.getElementsByTagName('li');//获取所有li
+  var li_height=stack_ul_lis[0].offsetHeight;
+  var R=40*li_height;//设一个合理的圆半径，做转换使用
+  for (var i=0;i<stack_ul_lis.length-1 ;i++ )//遍历li
+  {
+	  var img=stack_ul_lis[i].getElementsByTagName('img')[0];//获取到当前的li
+	  var text=document.createTextNode(img.getAttribute('alt'));//创建一个文本节点，该节点的值为图片的alt属性
+	  var span=document.createElement('span');//创建一个span
+	  span.appendChild(text);//将文本节点追加到span
+	  stack_ul_lis[i].appendChild(span);//将span追加到当前的li中
+	  stack_ul_lis[i].style.opacity='0';//在初始状态下隐藏图标
+  }
+  var btn=false;//判断单次点击与双次点击
+  stack_ul_lis[stack_ul_lis.length-1].onclick=function (){
+  btn=!btn;//点击变量取反
+  btn?show_stack():hide_stack();//单次点击展开、双次点击隐藏
+  }
+  function show_stack(){//展示函数
+	    for (var i=0;i<stack_ul_lis.length-1 ;i++ )//遍历li
+		{
+			  var deg=1.3*(stack_ul_lis.length-i-1)/180*Math.PI;//根据设置的半径对每个图标做合适的转换
+			  var tl=Math.ceil(R*(1-Math.cos(deg)));var tt=Math.ceil(R*Math.sin(deg));//translate参数
+			  var d1=Math.cos(deg);//角度参数
+			  var d2=Math.sin(deg);
+			  var d3=-Math.sin(deg);
+			  var d4=Math.cos(deg);
+			  move(stack_ul_lis[i],{transform:[d1,d2,d3,d4,tl,-tt],opacity:[100]});//使用matrix方法对图标做混合转换
+		}
+  }
+    function hide_stack(){//隐藏函数
+	    for (var i=0;i<stack_ul_lis.length-1 ;i++ )//遍历li
+		{
+			  move(stack_ul_lis[i],{transform:[1,0,0,1,0,0],opacity:[0]});//透明度为0，位置还原
+		}
+  }
+  }
+  </script>
+ </head>
+ <body>
+  <div id="stack">
+  <ul>
+  	<li><img src="img/Appstore.png" alt="Appstore" /></li>
+  	<li><img src="img/AddressBook.png" alt="AddressBook" /></li>
+  	<li><img src="img/FaceTime.png" alt="FaceTime" /></li>
+  	<li><img src="img/iCalendar.png" alt="iCalendar" /></li>
+  	<li><img src="img/iPhoto.png" alt="iPhoto" /></li>
+  	<li><img src="img/iTunes.png" alt="iTunes" /></li>
+  	<li><img src="img/Mail.png" alt="Mail" /></li>
+  	<li><img src="img/PhotoBooth.png" alt="PhotoBooth" /></li>
+  	<li><img src="img/safari.png" alt="Safari" /></li>
+  	<li><img src="img/Finder.png" alt="" /></li>
+  </ul>
+  </div>
+
+ </body>
+</html>

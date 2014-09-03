@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>11.20</title>
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.about {
+  margin: 100px auto 40px;
+  padding: 8px;
+  width: 260px;
+  font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+  color: #666;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  background: #eee;
+  background: rgba(250, 250, 250, 0.8);
+  border-radius: 4px;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.about a {
+  color: #333;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: background 0.1s;
+  -moz-transition: background 0.1s;
+  -o-transition: background 0.1s;
+  transition: background 0.1s;
+}
+.about a:hover {
+  text-decoration: none;
+  background: #fafafa;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.about-links {
+  height: 30px;
+}
+.about-links > a {
+  float: left;
+  width: 50%;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.about-author {
+  margin-top: 5px;
+}
+.about-author > a {
+  padding: 1px 3px;
+  margin: 0 -1px;
+}
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: #323a44 url("../img/bg.png") 0 0 repeat;
+}
+/*容器样式*/
+.container {
+  margin: 50px auto;
+  width: 640px;
+  text-align: center;
+}
+.container .dropdown {
+  text-align: left;
+}
+/*下拉框*/
+.dropdown {
+  position: relative;
+  height: 27px;
+  background: #363d47;
+  border: 1px solid;
+  border-color: #272c33 #242930 #22272d;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  background-image: -webkit-linear-gradient(top, #4a5361, #363d47);
+  background-image: -moz-linear-gradient(top, #4a5361, #363d47);
+  background-image: -o-linear-gradient(top, #4a5361, #363d47);
+  background-image: linear-gradient(to bottom, #4a5361, #363d47);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+.dropdown a {
+  font-size: 12px;
+  text-decoration: none;
+  text-shadow: 0 1px black;
+}
+.dropdown > a {
+  float: left;
+  position: relative;
+  height: 27px;
+  line-height: 26px;
+  padding: 0 12px;
+  color: #ecf0f1;
+  border-radius: 2px 0 0 2px;
+}
+.dropdown > a:before {
+  content: '';
+  display: inline-block;
+  vertical-align: -2px;
+  width: 10px;
+  height: 11px;
+  margin-right: 10px;
+  background: url("../img/settings.png") 0 0 no-repeat;
+}
+.dropdown > a:hover {
+  background: #3f4753;
+  background: rgba(255, 255, 255, 0.04);
+}
+.dropdown > a:active {
+  background: #343b44;
+}
+/*下拉框容器*/
+.dropdown div {
+  float: left;
+  height: 27px;
+  width: 26px;
+  background: url("../img/toggle.png") 9px 9px no-repeat;
+  border-left: 1px solid #292e36;
+  border-color: rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.08);
+}
+/*下拉列表hover*/
+.dropdown div:hover {
+  -webkit-box-shadow: inset 1px 0 rgba(255, 255, 255, 0.04), inset 26px 26px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.04), inset 26px 26px rgba(0, 0, 0, 0.1);
+}
+.dropdown div:hover ul {
+  display: block;
+}
+.dropdown ul {
+  display: none;
+  position: absolute;
+  top: 27px;
+  left: -1px;
+  right: -1px;
+  background: #272c33;
+  border: 1px solid #20242a;
+  border-radius: 0 0 3px 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.dropdown ul li {
+  display: block;
+}
+.dropdown ul li:last-child a {
+  border-radius: 0 0 3px 3px;
+}
+.dropdown ul a {
+  display: block;
+  line-height: 28px;
+  padding: 0 10px 1px;
+  color: #b2b8c4;
+  border-top: 1px solid transparent;
+}
+.dropdown ul a:hover {
+  color: white;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.7);
+  background: #426ebf;
+  border-color: #78aad5;
+  background-image: -webkit-linear-gradient(top, #5e9ace, #416cb8);
+  background-image: -moz-linear-gradient(top, #5e9ace, #416cb8);
+  background-image: -o-linear-gradient(top, #5e9ace, #416cb8);
+  background-image: linear-gradient(to bottom, #5e9ace, #416cb8);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<section class="container">
+  <div class="dropdown">
+    <a href="index.html">设置</a>
+    <div>
+      <ul>
+        <li><a href="index.html">账号管理</a></li>
+        <li><a href="index.html">账单设置</a></li>
+        <li><a href="index.html">通知</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="about">
+    <p class="about-links">
+      <a href="https://github.com/yinqiao/supercss" target="_parent">View Article</a>
+      <a href="https://github.com/yinqiao/supercss" target="_parent">Download</a>
+    </p>
+    <p class="about-author">
+      © 2014 
+     <a href="http://yinqiao.github.io/2014/03/16/supercss/">超实用代码段</a>
+    </p>
+  </div>
+  
+</body>
+
+
+</html>

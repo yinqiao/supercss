@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  div.elli{
+border:1px solid;
+overflow:hidden; /*超出部分隐藏*/
+white-space:nowrap;/*强制在一行显示*/
+text-overflow:ellipsis;
+width:200px;
+height:20px;
+}
+  div.clip
+{
+border:1px solid;
+overflow:hidden; /*超出部分隐藏*/
+white-space:nowrap;/*强制在一行显示*/
+text-overflow:clip;
+width:200px;
+height:20px;
+}
+div.hide
+{
+   overflow:hidden;
+   border:1px solid;
+   width:200px;
+   height:50px;
+}
+div.scroll
+{
+   overflow:scroll;
+   border:1px solid;
+   width:200px;
+   height:50px;
+}
+
+  </style>
+ </head>
+ <body>
+  <div class="clip">如果此处的文字较多，将自动裁切裁切裁切裁切</div>
+  <br>
+  <div class="elli"><a href="#">如果此处的文字较多，将自动用省略号代替！</a></div>
+  <br>
+  <div class="hide">如果此处的文字较多，将自动隐藏！如果此处的文字较多，将自动隐藏！如果此处的文字较多，将自动隐藏！如果此处的文字较多，将自动隐藏！如果此处的文字较多，将自动隐藏！</div>
+  <br>
+  <div class="scroll">如果此处的文字较多，将出现滚动条！如果此处的文字较多，将出现滚动条！如果此处的文字较多，将出现滚动条！</div>
+ </body>
+
+</html>

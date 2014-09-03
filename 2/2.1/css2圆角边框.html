@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>圆角边框方案二</title>
+  <style>
+.box{
+width:220px;         /*容器宽度控制*/
+margin:20px auto 0;
+float:left;
+margin-right:2%;
+}
+.box .content {
+padding:2px;
+text-align:center ;
+}
+.content{
+height:100px;       /*整体高度控制*/
+}
+.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8{
+height:1px;
+overflow:hidden;
+}
+.b1,.b8{
+margin:0 5px;		/*相对于垂直方向边框的偏移5px*/
+}
+.b2,.b7{
+margin:0 3px;       /*相对于垂直方向边框的偏移3px*/
+border-right:2px solid;
+border-left:2px solid;
+}
+.b3,.b6{
+margin:0 2px;        /*相对于垂直方向边框的偏移2px*/
+border-right:1px solid;
+border-left:1px solid;
+}
+.b4,.b5{
+margin:0 1px;		/*相对于垂直方向边框的偏移1px*/
+border-right:1px solid;
+border-left:1px solid;
+height:2px;
+}
+.content {
+border-right:1px solid;
+border-left:1px solid;
+overflow:hidden;
+}
+.color1 .b2,.color1 .b3,.color1 .b4,.color1 .b5,.color1 .b6,.color1 .b7,.color1 .content{
+border-color:#9400D3;																		/*左右边框色*/
+}
+.color1 .b1,.color1 .b8{
+background:#9400D3;																		/*上下边框色*/
+}
+.color1 .b2,.color1 .b3,.color1 .b4,.color1 .b5,.color1 .b6,.color1 .b7,.color1 .content{
+background:#EEAEEE;																	/*背景色*/
+}
+
+  </style>
+ </head>
+ <body>
+  <div class="box color1">
+        <div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div> 
+        <div class="content">  
+              <h4>圆角边框方案二</h4>
+              兼容所有浏览器的圆角边框。
+        </div>
+        <div class="b5"></div><div class="b6"></div><div class="b7"></div><div class="b8"></div>    
+    </div>
+ </body>
+</html>

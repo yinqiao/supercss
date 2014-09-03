@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>手风琴效果</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  li{list-style:none;
+  float:left;
+  width:10px;
+  overflow:hidden;
+  border:1px solid;
+	transition:all .1s;
+	-webkit-transition:all .1s;
+	-moz-transition:all .1s;
+	-o-transition:all .1s;
+	cursor:pointer;
+  }
+  .on{width:500px;}
+  ul:hover li{width:10px;}
+  ul li:hover{width:500px;}
+  </style>
+ </head>
+ <body>
+  <ul id="pics">
+  <li class="on"><img src="img/1.jpg" alt=""/></li>
+  <li><img src="img/2.jpg" alt="" /></li>
+  <li><img src="img/3.jpg" alt="" /></li>
+  <li><img src="img/4.jpg" alt="" /></li>
+  <li><img src="img/5.jpg" alt="" /></li>
+  <li><img src="img/6.jpg" alt="" /></li>
+  </ul>
+ </body>
+</html>

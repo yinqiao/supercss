@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus?">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  *{
+  margin:0;
+  padding:0;
+  }
+  body{
+  background:url(imgs/galaxy.jpg) no-repeat;
+  overflow:hidden;
+  }
+  #bottom_dock
+  {
+  height:auto;
+  width:auto;
+  position:absolute;
+  bottom:0;
+  overflow:hidden;
+  }
+  #bottom_dock_background
+  {
+  position:absolute;
+  bottom:0;
+  width:auto;
+  z-index:-1;
+  }
+  #bottom_dock>a>img
+  {
+  border:0;
+  width:64px;
+  height:64px;
+  }
+  </style>
+  <script type="text/javascript" src="js/jq.js"></script>
+  <script type="text/javascript" src="js/bottom_dock.js"></script>
+ </head>
+ <body>
+<!-- µ×²¿dockÀ¸ -->
+  <div id="bottom_dock">
+  <a href=""><img src="imgs/Finder.png" alt="" /></a>
+  <a href=""><img src="imgs/Appstore.png" alt="" /></a>
+  <a href=""><img src="imgs/Mail.png" alt="" /></a>
+  <a href="javascript:show('browser');"><img src="imgs/safari.png"  alt="" /></a>
+  <a href=""><img src="imgs/FaceTime.png" alt="" /></a>
+  <a href=""><img src="imgs/AddressBook.png" alt="" /></a>
+  <a href=""><img src="imgs/iCalendar.png" alt="" /></a>
+  <a href="javascript:show('player');"><img src="imgs/iTunes.png" alt="iTunes" /></a>
+  <a href=""><img src="imgs/PhotoBooth.png" alt="" /></a>
+  <a href=""><img src="imgs/iPhoto.png" alt="" /></a>
+  <div id="bottom_dock_background"><img src="imgs/dock.png" alt="background" /></div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>拖拽和抛出</title>
+  <style type="text/css">
+  body{
+  	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+    user-select: none;
+  }
+  #test{
+  width:320px ;
+  position:absolute;left:300px;top:30px;
+  font-size:15px;
+  }
+  .window{
+  position:relative;
+  border:1px solid;border-radius:10px;
+  background:#E2E2E2;
+  background:linear-gradient(to bottom ,#FBFAFF, #BDBDBD);
+  box-shadow: 2px 2px 2px #888888;
+  }
+  .window_top{
+  width:100%;
+  border-radius:10px;border-bottom:1px solid;
+  font-size:0.9em;
+  background:linear-gradient(to bottom ,#FBFAFF, #BDBDBD);
+  }
+  .window_top_close,.window_top_min,.window_top_max{
+  display:inline-block;
+  height:1em;width:1em;
+  border:1px solid;border-radius:10px;
+  background:#FEFFFD;
+  }
+  .window_top_close{background:#DC5037;}
+  .window_top_min{background:#F4D257;}
+  .window_top_max{background:#9DCC1C;}
+  </style>
+
+ <script type="text/javascript">
+ function win(attr)
+ {//获取可视区尺寸，参数为height|width
+	switch(attr)
+		{           
+			case 'height'://获取窗口高度
+             if (window.innerHeight)
+			{
+                   winHeight = window.innerHeight;return winHeight;
+			}else if ((document.body) && (document.body.clientHeight)){
+                   winHeight = document.body.clientHeight;return winHeight;
+			}
+			if (document.documentElement  && document.documentElement.clientHeight)
+             {
+                 winHeight = document.documentElement.clientHeight;return winHeight;
+             }
+			 break;
+			case 'width'://获取窗口宽度
+			  if (window.innerWidth){
+                   winWidth = window.innerWidth;return winWidth;
+			  }else if ((document.body) && (document.body.clientWidth)){
+                   winWidth = document.body.clientWidth;   return winWidth;          
+			  }//通过深入Document内部对body进行检测，获取窗口大小
+             if (document.documentElement  &&document.documentElement.clientWidth)
+             {
+                 winWidth = document.documentElement.clientWidth;return winWidth;
+             }
+			 break;
+			 case 'scrollTop':
+				var scrollTop;
+				if(typeof window.pageYOffset != 'undefined'){
+				scrollTop = window.pageYOffset;
+				}
+				else
+				if(typeof document.compatMode != 'undefined' &&
+				document.compatMode != 'BackCompat'){
+				scrollTop = document.documentElement.scrollTop;
+				}
+				else 
+				if(typeof document.body != 'undefined'){
+				scrollTop = document.body.scrollTop;
+				}
+				return scrollTop;break;
+			default :return 0;break;
+		}
+}
+ window.onload =function (){
+	 var odiv=document.getElementById('test');
+	 var timer;
+	 var speedX=0;//记录拖拽产生的速度
+	 var speedY=0;
+	var lastX=0;//记录上一个拖拽点的位置
+	var lastY=0;
+	odiv.onmousedown=function (ev){//按下鼠标
+	clearInterval(timer);
+	var oev=ev||event;
+	var disX=oev.clientX-odiv.offsetLeft;
+	var disY=oev.clientY-odiv.offsetTop;
+	document.onmousemove=function (ev){//拖动鼠标
+	var oev=ev||event;
+	var left=oev.clientX-disX;
+	var top=oev.clientY-disY;
+	odiv.style.left=left+'px';//更新对象的位置
+	odiv.style.top=top+'px';
+	speedX=left-lastX;//计算拖拽速度
+	speedY=top-lastY;
+	lastX=left;//更新上一个点
+	lastY=top;
+	}
+	
+	document.onmouseup=function (){//抬起鼠标
+	document.onmousemove=null;
+	document.onmouseup=null;
+	timer=setInterval(function (){
+	speedY+=3;//与重力相似，y轴的速度会随着物体下落而增大
+	var left=odiv.offsetLeft+speedX;//计算定位值
+	var top=odiv.offsetTop+speedY;
+	 if (top>=(win('height')-odiv.offsetHeight))//碰撞到底部，y轴速度反向，x轴速度减小
+	 {
+		 speedY*=-0.8;
+		 speedX*=0.8;
+		 top=(win('height')-odiv.offsetHeight);
+	 }else if (top<=0)//碰撞到顶部，y轴速度反向，x轴速度减小
+	 {
+		 speedY*=-0.8;
+		 speedX*=0.8;
+		 top=0;
+	 }
+	 if (left>=(win('width')-odiv.offsetWidth))//碰撞到右侧，X轴速度反向且减小
+	 {
+		 speedX*=-0.8;
+		 left=(win('width')-odiv.offsetWidth);
+	 }else if (left<=0)//碰撞到左侧，X轴速度反向且减小
+	 {
+		 speedX*=-0.8;
+		 left=0;
+	 }
+	 if (Math.abs(speedX)<1)//速度很小时视为停止
+	 {
+		 speedX=0;
+	 }
+	 if (Math.abs(speedY)<1)//速度很小时视为停止
+	 {
+		 speedY=0;
+	 }
+	 if(speedX==0&&speedY==0&&top==(win('height')-odiv.offsetHeight)){//运动过程停止
+	 clearInterval(timer);
+	 }
+	 odiv.style.left=left+'px';//应用定位
+	 odiv.style.top=top+'px';
+	 },30);
+	}
+	}
+ }
+ </script>
+  </head>
+ <body>
+<div id="test">
+	<div class="window" id="about">
+		<div class="window_top">
+		<span class="window_top_close" title="关闭"></span>
+		<span class="window_top_min" title="最小化"></span>
+		<span class="window_top_max" title="合适大小"></span>
+		通知
+		</div>
+		<div class="window_main">
+		新进公司的全体员工：<br>
+		经公司领导班子研究决定，新进公司的员工，<br>
+		一年转正定级后，公司给统一办理缴纳社保。<br>
+		现在由员工自己缴纳社保，缴费收据上交到<br>
+		公司人事部门。为保证员工的合法权益，公<br>
+		司将以现金的形式给予补偿，每月每人补人<br>
+		民币180元，体现在个人的工资里。此规定即<br>
+		日起执行。<br>
+		特此通知<br>
+		公司人事部				2014年3月1日
+		</div>
+	</div>
+</div>
+ </body>
+</html>

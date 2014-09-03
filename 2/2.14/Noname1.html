@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>幻灯片</title>
+  <style type="text/css">
+  *{margin:0;padding:0;list-style:none;}
+  .powerpoint{
+  position:absolute;
+  width:100%; height:460px;
+  background:black;
+  overflow:hidden;
+  }
+  .powerpoint_big_pic>ul>li{
+  position:absolute;top:0;left:-200px;/*  图偏宽度大于屏幕宽度，大图居中*/
+  width:100%;height:100%;
+  opacity:0;
+  }
+  .powerpoint_textlist{
+  position:absolute;top:78%;left:10%;
+  width:20%;height:15%;
+  background:#7A7A7A;
+  font-size:20px;
+  color:#FFFFFF;
+  }
+  .powerpoint_textlist>ul>li{
+  position:absolute;
+  opacity:0;/*  文字的原理同大图的原理*/
+  }
+  .powerpoint_small_pic{
+  position:relative;top:78%;left:35%;
+  width:51%;height:15%;
+  background:#7A7A7A;
+  overflow:hidden;
+  }
+  .powerpoint_small_pic>ul{
+  position:relative;
+  width:1500px;/*  设为大数以便li排成一排*/
+  }
+  .powerpoint_small_pic>ul>li{
+  margin:5px;
+  float:left;/*  左浮动*/
+  }
+  .powerpoint_pre,.powerpoint_next{
+  position:absolute;top:81%;
+  width:37px;height:38px;
+  background:#303030;
+  font-size:40px;
+  color:#FFFFFF;
+  border-radius:20px;
+  cursor:pointer;
+  }
+  .powerpoint_pre{left:31%;}
+  .powerpoint_next{left:87%;}
+  </style>
+  <script type="text/javascript" src="js/jq.js"></script>
+  <script type="text/javascript">
+  $(function(){
+   var p=$(".powerpoint");//获取整体，自动播放与暂停播放用到
+   var pspu=$(".powerpoint_small_pic>ul");//获取小图ul
+   var psp=$(".powerpoint_small_pic>ul>li");//获取小图li
+   var  pbp=$(".powerpoint_big_pic>ul>li");//获取大图li
+   var  ptl=$(".powerpoint_textlist>ul>li");//获取文字说明li
+   var  pre=$(".powerpoint_pre");//获取上一个按钮
+   var  next=$(".powerpoint_next");//获取下一个按钮
+   var now=0;//记录当前被激活元素的变量，作为参数传入展示函数
+   showpic(0);//页面载入完成播放第一张
+   var t=setInterval(function (){play()},4000);//自动播放
+   p.hover(function (){clearInterval(t)},//鼠标悬停清空定时器，暂停
+				 function (){t=setInterval(function (){play()},4000)});//鼠标移开继续播放
+   for (var i=0;i<psp.length ;i++ )//为每个小图写入点击事件
+   {
+	   psp.eq(i).click(function (){
+	   now=$(this).index();//将当前元素的索引存入变量
+       showpic(now);
+	   });
+   }
+   pre.click(function(){//前一个按钮被点击
+	   if(0==now){
+	   now=psp.length;//范围限制
+	   }
+	   now=now-1;
+	   showpic(now);
+	   })
+   next.click(function(){//前一个按钮被点击
+	   if(psp.length-1==now){
+	   now=-1;//范围限制
+	   }
+	   now=now+1;
+	   showpic(now);
+	   })
+	function play()//自动播放函数
+	  {
+		  showpic(now);
+		  now++;
+		  if(pbp.length==now)
+		  {
+			  now=0;
+		  }
+	  }
+     function showpic(inow){//展示图片函数
+  	   for (var j=0;j<pbp.length ;j++ )//去除所有元素的可见性
+	   {
+		   pbp.eq(j).stop(true,false).animate({opacity:"0"},"normal");
+		   ptl.eq(j).css("opacity","0");
+		   psp.eq(j).css("border","0");
+	   }
+	   if(inow<6)//范围限制
+	   left=psp.eq(inow).offset().left-psp.eq(0).offset().left;//计算小图标的左偏移值
+	   else
+	   left=psp.eq(6).offset().left-psp.eq(0).offset().left;//计算小图标的左偏移值
+	   pbp.eq(inow).stop(true,false).animate({opacity:"1"},"normal");//使编号为now元素可见
+	   ptl.eq(inow).css("opacity","1");
+	   psp.eq(inow).css("border","2px solid #FF7F00");
+	   pspu.stop(true,false).animate({left:-left},"normal");//小图滚动（left值改变）
+  }
+  });
+  </script>
+ </head>
+ <body>
+  <div class="powerpoint">
+  <div class="powerpoint_big_pic">
+   <ul>
+   	<li><img src="img/b1.jpg" alt="" /></li>
+   	<li><img src="img/b2.jpg" alt="" /></li>
+   	<li><img src="img/b3.jpg" alt="" /></li>
+   	<li><img src="img/b4.jpg" alt="" /></li>
+   	<li><img src="img/b5.jpg" alt="" /></li>
+   	<li><img src="img/b6.jpg" alt="" /></li>
+   	<li><img src="img/b7.jpg" alt="" /></li>
+   	<li><img src="img/b8.jpg" alt="" /></li>
+	<li><img src="img/b9.jpg" alt="" /></li>
+	<li><img src="img/b10.jpg" alt="" /></li>
+	<li><img src="img/b11.jpg" alt="" /></li>
+	<li><img src="img/b12.jpg" alt="" /></li>
+	<li><img src="img/b13.jpg" alt="" /></li>
+   </ul>
+  </div>
+  <div class="powerpoint_textlist">
+  <ul>
+  <li>《警察故事2013》 硬汉成龙演绎柔情父亲</li>
+  <li>《中国好歌曲》第四期 史上最美歌词获盛赞</li>
+  <li>2014环球春晚 19：40直播 杰克逊经典重现</li>
+  <li>2014新春观剧指南 赵本山宋丹丹蔡明谁能打趴谁？</li>
+  <li>天龙八部（至23集） 虚竹接任逍遥派掌门</li>
+  <li>《与狼共舞2》主演做客 “特种兵”夫妻档再续前缘</li>
+  <li>《与狼共舞2》(至24集) 三人组陷四角恋</li>
+  <li>《周末宅影院》 2013那些“雷疯”的电影</li>
+  <li>《中国达人秀》 终极考核战虐心来袭</li>
+  <li>《男媒婆》（至26集） 张庭女儿逼父母复婚</li>
+  <li>《喋血孤岛》（至30集） 红叶被诬陷杀害芙蓉</li>
+  <li>【英剧】神探默多克第七季 （至12集）尘封8年谋杀旧案终告破</li>
+  <li>【美剧】军旅轶事（至03集） 美国大兵展露纯爷们儿气质</li>
+  </ul>
+  </div>
+  <div class="powerpoint_pre"><</div>
+   <div class="powerpoint_small_pic">
+   <ul>
+   <li><img src="img/s1.jpg" alt="" /></li>
+   <li><img src="img/s2.jpg" alt="" /></li>
+   <li><img src="img/s3.jpg" alt="" /></li>
+   <li><img src="img/s4.jpg" alt="" /></li>
+   <li><img src="img/s5.jpg" alt="" /></li>
+   <li><img src="img/s6.jpg" alt="" /></li>
+   <li><img src="img/s7.jpg" alt="" /></li>
+   <li><img src="img/s8.jpg" alt="" /></li>
+   <li><img src="img/s9.jpg" alt="" /></li>
+   <li><img src="img/s10.jpg" alt="" /></li>
+   <li><img src="img/s11.jpg" alt="" /></li>
+   <li><img src="img/s12.jpg" alt="" /></li>
+   <li><img src="img/s13.jpg" alt="" /></li>
+   </ul>
+   </div>
+   <div class="powerpoint_next">></div>
+  </div>
+ </body>
+</html>

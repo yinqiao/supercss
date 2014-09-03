@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>11.24</title>
+<style type="text/css">
+
+html, body, ul, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    background: #ddd url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%01%00%00%01%F4%08%06%00%00%00%FC%3DG%97%00%00%00%04sBIT%08%08%08%08%7C%08d%88%00%00%00%09pHYs%00%00%0B%12%00%00%0B%12%01%D2%DD~%FC%00%00%00%16tEXtCreation%20Time%0004%2F21%2F09Q2O%D2%00%00%00%25tEXtSoftware%00Macromedia%20Fireworks%20MX%202004%87v%AC%CF%00%00%00%3AIDATx%9C%ED%CE%B1%09%00%40%0C%C3%40%93%FDw%D6%CF%F0%10%82%0A7*%C5%05%60%92d)%80f%B5c%910j%F1%5B%24%8CZ%FC%16%09%A3%16%BFE%C2%A8%E5f%F5%9D%07%C7%09m%7D%3E%5DSI%00%00%00%00IEND%AEB%60%82") repeat-x left top;
+}
+
+body {
+    color: #666;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 27px;
+    margin-top: 100px;
+    text-align: justify;
+}
+/*段落首行样式*/
+p:first-line {
+    color: #5b6f7b;
+    font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 45px;
+    text-transform: capitalize;
+}
+
+p:after {
+    color: #5b6f7b;
+    font-weight: bold;
+    padding-left: 3px;
+    text-decoration: underline;
+    content: "Read More >>";
+}
+
+/* 核心代码 {{*/
+/*设置幻灯片高度*/
+#slider, ul, li {
+    height: 300px;
+}
+/*幻灯片类别宽度与定位样式*/
+#slider, li {
+    position: relative;
+    width: 500px;
+}
+/*幻灯片容器样式*/
+#slider {
+    margin: auto;
+    overflow: hidden;
+    background: #f6f7f8;
+    box-shadow: 4px 4px 15px #aaa;
+    -o-box-shadow: 4px 4px 15px #aaa;
+    -icab-box-shadow: 4px 4px 15px #aaa;
+    -khtml-box-shadow: 4px 4px 15px #aaa;
+    -moz-box-shadow: 4px 4px 15px #aaa;
+    -webkit-box-shadow: 4px 4px 15px #aaa;
+    border: 1px solid #bcc5cb;
+    border-width: 1px 2px 2px 1px;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -icab-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 10px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #slider {
+        border-width: 1px;
+    }
+}
+/*幻灯片无序列表样式，设置绝对定位*/
+ul {
+    list-style-type: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 2000px;
+    -webkit-transition: left .3s linear;
+}
+/*幻灯片上一张、下一张定位样式*/
+#a1:target ul {
+    left: 0px;
+}
+#a2:target ul {
+    left: -500px;
+}
+#a3:target ul {
+    left: -1000px;
+}
+#a4:target ul {
+    left: -1500px;
+}
+/*幻灯片列表浮动*/
+li {
+    float: left;
+}
+
+p {
+    position: absolute;
+    left: 60px;
+    top: 10px;
+    width: 400px;
+    z-index: 1;
+}
+/*设置上一张、下一张样式*/
+a {
+    background-image: url("http://gtms03.alicdn.com/tps/i3/T1hMPZFvXdXXXBANEj-60-128.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: none;
+    height: 64px;
+    width: 30px;
+    outline-width: 0px;
+    position: absolute;
+    top: 90px;
+    text-indent: -9999px;
+    z-index: 2;
+}
+
+a[class^="down"] {
+    left: 10px;
+}
+
+a[class^="up"] {
+    right: 10px;
+}
+
+a[class^="down"]:hover {
+    background-position: right top;
+}
+
+a[class^="down"], a[class^="down"]:active {
+    background-position: left top;
+}
+
+a[class^="up"]:hover {
+    background-position: right bottom;
+}
+
+a[class^="up"], a[class^="up"]:active {
+    background-position: left bottom;
+}
+
+/* Default */
+:target .up2.default {
+    display: none;
+}
+
+.up2.default,
+#a1:target .up2,
+#a2:target .down1,
+#a2:target .up3,
+#a3:target .down2,
+#a3:target .up4,
+#a4:target .down3 {
+    display: block;
+}
+
+html {
+    position: relative;
+    padding-top: 50px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+<div id="slider">
+    <!-- :target hooks -->
+    <div id="a1">
+        <div id="a2">
+            <div id="a3">
+                <div id="a4">
+                    <!-- 1 -->
+                    <a href="#a2" class="up2 default">2</a>
+                    <a href="#a2" class="up2">2</a>
+                    <!-- 2 -->
+                    <a href="#a1" class="down1">1</a>
+                    <a href="#a3" class="up3">3</a>
+                    <!-- 3 -->
+                    <a href="#a2" class="down2">2</a>
+                    <a href="#a4" class="up4">4</a>
+                    <!-- 4 -->
+                    <a href="#a3" class="down3">3</a>
+                    <ul>
+                        <li>
+                        <p>
+                            通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。
+                        </p>
+                        </li>
+                        <li>
+                        <p>
+                            通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。
+                        </p>
+                        </li>
+                        <li>
+                        <p>
+                            通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。
+                        </p>
+                        </li>
+                        <li>
+                        <p>
+                            通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。通常情况下幻灯片的实现都需要借助JavaScript代码来实现跑马灯的效果。本节介绍一种纯CSS实现的幻灯片的设计与实现方式。
+                        </p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End #a4 -->
+            </div>
+            <!-- End #a3 -->
+        </div>
+        <!-- End #a2 -->
+    </div>
+    <!-- End #a1 -->
+</div>
+<!-- End #slider --> 
+
+  
+</body>
+
+
+</html>

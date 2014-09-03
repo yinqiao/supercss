@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>滑动菜单</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #ani_links{
+  width:800px;height:30px;
+  position:absolute;top:100px;left:200px;
+  border-bottom:1px solid;
+  }
+  .ani_links {
+  width:100%;height:100%;
+  list-style:none;
+  position:absolute;
+  color:#FFFFFF;
+  }
+  .ani_links>li{text-align:center;float:left;background:#808080;}
+  .ani_links>li>a{text-decoration:none;font-size:16px;display:block;color:#FFFFFF;}
+
+  </style>
+<script type="text/javascript" src="move.js"></script>
+<script type="text/javascript">
+function getbyclass(parent,classname){//通过类名获取元素
+var result=new Array();
+var allclass=parent.getElementsByTagName('*');
+for (var i=0; i<allclass.length;i++ )
+{
+if(classname==allclass[i].className)
+   result.push(allclass[i]);
+}
+return result;
+}
+function color(){//随机生成颜色
+var r=parseInt(Math.random()*255);
+var g=parseInt(Math.random()*255);
+var b=parseInt(Math.random()*255);
+var newcolor="rgb("+r+","+g+","+b+")";
+return newcolor;
+}
+window.onload=function (){//页面加载完成
+var ani_links=document.getElementById('ani_links');//获取最外层div
+var ani_links_ul=getbyclass(ani_links,'ani_links')[0];//获取ul
+var ani_links_ul_width=ani_links_ul.offsetWidth;//获取ul宽度
+var ani_links_ul_height=ani_links_ul.offsetHeight;//获取ul高度
+var ani_links_lis=ani_links_ul.getElementsByTagName('li');//获取li
+var ani_links_li_border=1;var bottom=3;var bottom_left=0;//li的边框、下方可滑动控件的高度、可滑动控件的left值变量
+var n=ani_links_lis.length;//获取li的数量
+var ani_links_li_width=Math.floor(ani_links_ul_width/(n-1));//计算每个li所占空间的平均宽度
+for (var i=0;i<n-1;i++ )
+{
+   ani_links_lis[i].style.width=ani_links_li_width-ani_links_li_border*2+"px";//设置li元素的宽度
+   ani_links_lis[i].style.height=ani_links_ul_height-ani_links_li_border*2-bottom+"px";//设置li元素的高度
+   ani_links_lis[i].style.lineHeight=ani_links_ul_height-ani_links_li_border*2-bottom+"px";//设置li的行高
+   ani_links_lis[i].style.border=ani_links_li_border+"px solid";//设置li的边框
+   ani_links_lis[i].onmouseover=function (){//鼠标指向链接
+   bottom_left=this.offsetLeft;//获取当前元素相对于父元素的左偏移量
+   var c=color();//随机生成一种颜色   
+   move(ani_links_lis[n-1],{left:bottom_left},"flex");//改变可滑动控件位置，move函数为move.js中的函数，本行可使元素按照弹性运动方式运动
+   ani_links_lis[n-1].style.backgroundColor=c;//设置颜色
+   }
+}
+ani_links_lis[n-1].style.position="absolute";//初始化滑动控件
+ani_links_lis[n-1].style.bottom=0;
+ani_links_lis[n-1].style.left=0;
+ani_links_lis[n-1].style.width=ani_links_li_width+"px";
+ani_links_lis[n-1].style.height=bottom+"px";
+ani_links_lis[n-1].style.background="red";
+}
+</script>
+ </head>
+ <body>
+ <div id="ani_links">
+  <ul class="ani_links">
+  <li><a href="">首页</a></li>
+  <li><a href="">栏目</a></li>
+  <li><a href="">栏目</a></li>
+  <li><a href="">栏目</a></li>
+  <li><a href="">关于</a></li>
+  <li></li>
+  </ul>
+  </div>
+ </body>
+</html>

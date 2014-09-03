@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图片放大展示</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #show_bigger_pic{
+  position:absolute;
+  width:500px;
+  height:400px;
+  top:200px;
+  left:200px;
+  }
+  .small_pic_div{
+  width:240px;
+  height:240px;
+  border:1px solid;
+  float:left;
+  position:relative;/*  cover:absolute定位使用*/
+  }
+  .big_pic_div{
+  width:240px;
+  height:240px;
+  border:1px solid;
+  float:left;
+  margin-left:10px;
+  display:none;
+  overflow:hidden;
+  }
+  .big_pic_div>img{
+  position:relative;
+  }
+  .cover{
+  width:240px;
+  height:240px;
+  position:absolute;
+  border:1px solid;
+  z-index:2;
+  left:0;
+  top:0;
+  }
+  .float_span{
+  width:165px;
+  height:165px;
+  position:absolute;
+  z-index:1;
+  background:#B2DFEE;
+  opacity:0.5;
+  display:none;
+  border:1px solid;
+  left:0;
+  top:0;
+  }
+  </style>
+  <script type="text/javascript">
+    function gbc(tparent,tclass){//获取指定父元素的指定类的子元素的函数
+	  var allclass=tparent.getElementsByTagName('*');
+	  var result=[];
+	  for (var i=0;i<allclass.length;i++)
+	  {
+		  if(allclass[i].className==tclass)
+		  result.push(allclass[i]);
+	  }
+	  return result;//返回的是数组
+  }
+  window.onload =function (){
+  var sbp=document.getElementById('show_bigger_pic');//获取最外层div
+  var  c=gbc(sbp,'cover')[0];//获取cover层
+  var  fs=gbc(sbp,'float_span')[0];//获取浮动层
+  var spd=gbc(sbp,'small_pic_div')[0];//获取小图div
+  var sp=spd.getElementsByTagName('img')[0];//获取小图
+  var bpd=gbc(sbp,'big_pic_div')[0];//获取大图div
+  var bp=bpd.getElementsByTagName('img')[0];//获取大图
+  var spw;//比例计算暂存参数变量
+  var sph;
+  var bpw;
+  var bph;
+  var btn=true;//开关，因参数只需获取一次 
+  c.onmouseover  =function(){//鼠标移入小图
+  fs.style.display="block";
+  bpd.style.display="block";
+  c.style.cursor="pointer";
+  if(btn){//获取大小图片的参数以便浮动层大小的计算，仅获取一次即可
+  spw=sp.offsetWidth;
+  sph=sp.offsetHeight;
+  bpw=bp.offsetWidth;
+  bpw=bp.offsetHeight;
+  spdw=spd.offsetWidth;
+  spdh=spd.offsetHeight;
+  var fsw=Math.ceil(spw/bpw*spdw);//比例计算
+  var fsh=Math.ceil(sph/bph*spdh);
+  fs.style.width=fsw+'px';//浮动层大小设置，以便使左图浮动层遮盖符合右边放大区
+  fs.style.height=fsh+'px';
+  btn=false;//获取完关闭开关
+  }
+  };
+  c.onmouseout  =function(){//鼠标移出
+  fs.style.display="none";
+  bpd.style.display="none";
+  };
+  c.onmousemove =function (ev){//鼠标移动
+  var pos=ev||event;
+  var left=pos.clientX-sbp.offsetLeft-fs.offsetWidth/2;//计算left
+  var top=pos.clientY-sbp.offsetTop-fs.offsetHeight/2;//计算top
+//  document.title=left+" "+top+" "+pos.clientX+" "+sbp.offsetLeft+" "+fs.offsetWidth/2;
+  if(left<0){
+  left=0;//当小于0强制固定
+  }
+  else if(left>c.offsetWidth-fs.offsetWidth){//大于某一参数也固定，以防浮动层移出图片区
+	  left=c.offsetWidth-fs.offsetWidth;
+  }
+  if(top<0){
+	  top=0;
+  }
+  else if(top>c.offsetHeight-fs.offsetHeight){
+	  top=c.offsetHeight-fs.offsetHeight;
+  }
+  fs.style.left=left+"px";//浮动层位置改变
+  fs.style.top=top+'px';
+  var percentX=left/c.offsetWidth;//比例计算
+  var percentY=top/c.offsetHeight;
+  bp.style.left=-percentX*(bp.offsetWidth)+"px";//右边大图位置的改变，表现在实际中是放大区改变
+  bp.style.top=-percentY*(bp.offsetHeight)+"px";
+  }
+  }
+  </script>
+ </head>
+ <body>
+  <div id="show_bigger_pic">
+  <span class="cover"></span>
+  <span class="float_span"></span>
+  <div class="small_pic_div">
+  <img src="img/small.jpg" alt="" />
+  </div>
+  <div class="big_pic_div">
+  <img src="img/big.jpg" alt="" />
+  </div>
+  </div>
+ </body>
+</html>

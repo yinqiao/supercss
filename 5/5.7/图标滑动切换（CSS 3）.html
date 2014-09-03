@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图标切换特效</title>
+  <style type="text/css">
+	#div1 li{list-style:none;}
+	#div1 span{height:16px;width:16px;display:inline-block;margin-right:20px;
+	transition: background-position .3s;
+	-moz-transition: background-position .3s;	/* Firefox 4 */
+	-webkit-transition: background-position .3s;	/* Safari 和 Chrome */
+	-o-transition: background-position .3s;	/* Opera */}
+	.icon1{background:url('img/1.png');background-position:0 0;}
+	.icon2{background:url('img/1.png');background-position:0 -20px;}
+	.icon3{background:url('img/1.png');background-position:0 -40px;}
+	.icon4{background:url('img/1.png');background-position:0 -117px;}
+	.icon5{background:url('img/1.png');background-position:-42px -141px;}
+	#div1 li:nth-child(1):hover .icon1{background-position:-18px 0;}
+	#div1 li:nth-child(2):hover .icon2{background-position:-18px -20px;}
+	#div1 li:nth-child(3):hover .icon3{background-position:-18px -40px;}
+	#div1 li:nth-child(4):hover .icon4{background-position:-18px -117px;}
+	#div1 li:nth-child(5):hover .icon5{background-position:-60px -141px;}
+  </style>
+ </head>
+ <body>
+  <div id="div1">
+  <ul>
+  <li><span class="icon1"></span>TA的主页</li>
+  <li><span class="icon2"></span>TA的提问</li>
+  <li><span class="icon3"></span>TA的回答</li>
+  <li><span class="icon4"></span>TA的成长</li>
+  <li><span class="icon5"></span>TA的圈子</li>
+  </ul>
+  </div>
+ </body>
+</html>

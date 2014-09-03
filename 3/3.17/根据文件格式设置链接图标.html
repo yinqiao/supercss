@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>根据文件格式设置链接图标</title>
+  <style type="text/css">
+a[href^="http:"] {
+		display:inline-block;
+		padding-left:20px;
+		background:transparent url("img/url.gif") center left no-repeat;
+}
+a[href^="mailto:"] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/email.png") center left no-repeat;
+}
+a[href$='.pdf'] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/pdf.gif") center left no-repeat;
+}
+a[href$='.swf'], a[href$='.fla'], a[href$='.swd'] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/swf.gif") center left no-repeat;
+}
+a[href$='.xls'], a[href$='.csv'], a[href$='.xlt'], a[href$='.xlw'] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/xls.gif") center left no-repeat;
+}
+a[href$='.ppt'], a[href$='.pps'] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/ppt.gif") center left no-repeat;
+}
+a[href$='.doc'], a[href$='.rtf'], a[href$='.wps'] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/wps.gif") center left no-repeat;
+}
+a[href$='.txt']{
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/txt.gif") center left no-repeat;
+}
+a[href$='.zip'], a[href$='.gzip'], a[href$='.rar'] {
+		display:inline-block;
+		padding-left:20px;
+		line-height:18px;
+		background:transparent url("img/rar.gif") center left no-repeat;
+}
+a[href$='.mov'] {
+		padding-left: 20px;
+		background: url("img/video.png") no-repeat left;
+	}
+a[href$='.rss'], a[href$='.atom'] { 
+	padding-left: 20px;
+	background: url("img/rss.png") no-repeat left;
+}	
+a[href *="username"] {
+	padding-left: 20px;
+	background: url("img/star.png") no-repeat left;
+}
+</style>
+ </head>
+
+ <body>
+ <a href="http://www.baidu.com">百度</a>
+ <a href="mailto:jianzhiunique@163.com">给我发邮件</a>
+ <a href="i.pdf">下载pdf文档</a>
+ <a href="i.swf">swf文件</a>
+ <a href="i.xls">统计表</a>
+ <a href="i.ppt">幻灯片</a><br />
+ <a href="i.txt">记事本文档</a>
+ <a href="i.rar">压缩文件</a>
+ <a href="i.mov">视频</a>
+ <a href="i.rss">RSS</a>
+ <a href="username.read">包含某些文字</a>
+ </body>
+</html>

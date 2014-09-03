@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>纯CSS导航栏</title>
+  <style type="text/css">
+  *{
+  margin:0;
+  padding:0;
+  }
+/*  一级导航*/
+  .nav_1{
+  margin:50px auto;
+  background-color:#666;
+  border-top:2px solid #000;
+  border-bottom:2px solid #000;
+  }
+  .nav_1>ul{
+  margin:0 auto;
+  list-style:none;
+  position:relative;
+  width:960px;
+  }
+  .nav_1>ul>li{
+  display:inline-block;
+  }
+  .nav_1>ul>li>a{
+  display:block;
+  width:100px;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+  }
+/*  二级导航*/
+  .nav_2{
+  margin:50px auto;
+  height:20px;
+  background-color:#666;
+  border-top:2px solid #000;
+  border-bottom:2px solid #000;
+  }
+  .nav_2>ul{
+  margin:0 auto;
+  list-style:none;
+  position:relative;
+  width:960px;
+  }
+  .nav_2>ul>li{
+  float:left;
+  line-height:20px;
+  }
+  .nav_2>ul>li>a{
+  display:block;
+  width:105px;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+  }
+  .nav_2>ul>li>ul{
+  list-style:none;
+  display:none;
+  }
+  .nav_2>ul>li>ul>li{
+  display:block;
+  background-color:#666;
+  line-height:25px; 
+  border-left:2px solid #000;
+  border-right:2px solid #000;
+  }
+  .nav_2>ul>li>ul>li>a{
+  display:block;
+  width:100px;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+  }
+  .nav_2>ul>li:hover >ul{
+  display:block;
+  }
+/*  三级导航*/
+  .nav_3{
+  margin:50px auto;
+  height:20px;
+  background-color:#666;
+  border-top:2px solid #000;
+  border-bottom:2px solid #000;
+  }
+  .nav_3>ul{
+  margin:0 auto;
+  list-style:none;
+  position:relative;
+  width:960px;
+  }
+  .nav_3>ul>li{
+  float:left;
+  line-height:20px;
+  }
+  .nav_3>ul>li>a{
+  display:block;
+  width:105px;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+  }
+  .nav_3>ul>li>ul{
+  list-style:none;
+  display:none;
+  }
+  .nav_3>ul>li>ul>li{
+  display:block;
+  position:relative;
+
+  background-color:#666;
+  line-height:25px;
+  border-left:2px solid #000;
+  border-right:2px solid #000;
+  }
+  .nav_3>ul>li>ul>li>a{
+  display:block;
+  width:100px;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+  }
+  .nav_3>ul>li:hover >ul{
+  display:block;
+  }
+  .nav_3>ul>li>ul>li>ul{
+  display:none;
+  list-style:none;
+  
+  border-top:2px solid #000;
+  border-right:2px solid #000;
+  border-bottom:2px solid #000;
+  background-color:#666;
+  }
+  .nav_3>ul>li>ul>li>ul>li>a{
+  display:block;
+  width:100px;
+  color:#FFFFFF;
+  text-align:center;
+  text-decoration:none;
+  }
+  .nav_3>ul>li:hover >ul>li:hover >ul{
+  display:block;
+  position:absolute;
+  left:103px;
+  top:0;
+  }
+  </style>
+ </head>
+ <body>
+  <div class="nav_1">
+  	<ul>
+  		<li><a href="#">主页</a></li>
+  		<li><a href="#">音乐</a></li>
+  		<li><a href="#">视频</a></li>
+  		<li><a href="#">新闻</a></li>
+  		<li><a href="#">关于</a></li>
+  	</ul>
+  </div>
+<div class="nav_2">
+	<ul>
+		<li><a href="#">主页</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">音乐</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">视频</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">新闻</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">关于</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+	</ul>
+</div>
+<div class="nav_3">
+	<ul>
+		<li><a href="#">主页</a>
+		<ul>
+			<li><a href="#">二级栏目></a>
+			<ul>
+			<li><a href="#">三级栏目</a></li>
+			<li><a href="#">三级栏目</a></li>
+			<li><a href="#">三级栏目</a></li>
+		    </ul>
+			</li>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目></a>
+			<ul>
+			<li><a href="#">三级栏目</a></li>
+			<li><a href="#">三级栏目</a></li>
+			<li><a href="#">三级栏目</a></li>
+		    </ul>
+			</li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">音乐</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">视频</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">新闻</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+		<li><a href="#">关于</a>
+		<ul>
+			<li><a href="#">二级栏目</a></li>
+			<li><a href="#">二级栏目</a></li>
+		</ul>
+		</li>
+	</ul>
+</div>
+ </body>
+</html>

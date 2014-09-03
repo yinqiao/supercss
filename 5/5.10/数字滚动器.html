@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>数字滚动器</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #changenumber{
+  border:1px solid;border-radius:5px;
+  position:absolute;
+  left:300px;top:300px;
+  box-shadow:1px 1px 2px 1px #CCC;
+  width:auto;height:20px;overflow:hidden;
+  }
+  #changenumber ul{
+  width:20px;
+  border:1px solid;
+  text-align:center;
+  position:relative;float:left;top:0;
+  }
+  #changenumber li{
+  height:20px;
+  border-bottom:1px dashed;
+  list-style:none;
+  }
+  </style>
+  <script type="text/javascript" src="js/zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload =function (){
+	  function createnumber(n,obj){//创建数字函数
+	  for (var i=0;i<n ;i++ )
+	  {
+		  var ul=document.createElement('ul');//创建ul
+		  for (var j=0;j<10 ;j++ )
+		  {
+			  var li=document.createElement('li');//创建li
+			  var text=document.createTextNode(j);//创建文本节点
+			  li.appendChild(text);//在li中填入数字
+			  ul.appendChild(li);//将li放入ul
+		  }
+		  obj.appendChild(ul);//将ul放入容器
+	  }
+	  }
+	  function change(num){//改变数值函数
+	  if (num%10>=0&&num>10)//依次取得数字的每一位并存入数组
+	  {
+		  temp.push(num%10);
+		  num=Math.floor(num/10);
+		  change(num);
+	  }else{
+		  temp.push(num);
+	  }
+	  for (var i=0;i<temp.length ;i++ )
+	  {
+		  move(ul[n-1-i],{top:[-temp[i]*li_height]});//改变某些ul的定位值
+	  }
+	  }
+	  var changenumber=document.getElementById('changenumber');//获得容器
+	  createnumber(9,changenumber);//在容器中创建一个9位数
+	  var ul=changenumber.getElementsByTagName('ul');//获得创建完成的每个ul
+	  var li_height=ul[0].getElementsByTagName('li')[0].offsetHeight;//获取到一个数的高度供定位使用
+	  var n=ul.length;//获取位数
+	  var num=1298453;var temp=[];//num为9位数，temp为改变函数中的暂存数组
+	  setInterval(function (){temp=[];change(num);num+=parseInt(Math.random()*1000);//每当定时器运行时先清空temp的值
+	  },1500);
+  }
+  </script>
+ </head>
+ <body>
+  <div id="changenumber"></div>
+ </body>
+</html>

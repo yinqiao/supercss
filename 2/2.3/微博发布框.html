@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>微博发布框</title>
+  <style type="text/css">
+  *{margin:0;padding:0;font-size:12px;}
+  .weibodiv{
+  width:600px;
+  margin:20px  auto;
+  }
+  .ad{
+  display:block;
+  width:291px;
+  height:30px;
+  background:url(img/1.png);
+  float:left;
+  }
+  .adtext{
+  position:relative;
+  float:right;
+  line-height:30px;
+  top:10px;
+  }
+  p{
+  float:right;
+  }
+  .weibotext{
+  margin:5px auto;
+  float:left;
+  top:30px;
+  }
+  textarea{
+ width:590px;
+ height:150px;
+ font-size:16px;
+ overflow:auto;
+  }
+  .post{
+  display:block;
+  color:#FFFFFF;
+  float:right;
+  border:1px solid;
+  width:80px;
+  height:30px;
+  text-align:center;
+  text-decoration:none;
+  line-height:30px;
+  margin:3px;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:5px;
+  background:#8BC528;
+  cursor:pointer;
+  }
+ #weibotextnumber{
+ font-family:Bell MT;
+ font-size:20px;
+ }
+ #weibotextnum{
+ opacity:0;
+ }
+  
+  </style>
+  <script type="text/javascript">
+  window.onload =function (){
+  var oT = document.getElementsByTagName('textarea')[0];//获取到输入区
+  var weibotext=document.getElementsByClassName("weibotext")[0];//获取输入区外容器
+  var weibotextnum=document.getElementById("weibotextnum");//获取数字提示语句
+  var weibotextnumber = document .getElementById('weibotextnumber');//获取数字
+  var oA=document.getElementsByClassName('post')[0]; //获取提交按钮
+  var ie = !-[1,];//判断是否为IE
+  oT.onfocus=function (){//获得焦点函数
+  oT.style.border="1px #40E0D0 solid";
+  oT.style.boxShadow="0 0 10px #5CACEE";
+  weibotextnum.style.opacity="1";
+  var num = Math.ceil(getLength(oT.value)/2);
+  if(num=="")
+	  {
+		  oA.style.background="#7F7F7F";//针对第一次获得焦点时提交按钮应该为灰色
+	  }
+  };
+  oT.onblur = function(){//失去焦点函数
+  oT.style.boxShadow="";
+  weibotextnum.style.opacity ="0";
+  oA.style.background="#8BC528";
+  };
+  	if(ie){//字数变化事件的兼容，主要针对IE
+		oT.onpropertychange = toChange;
+	}
+	else{
+		oT.oninput = toChange;
+	}
+	oA.onmouseover=function(){
+	oT.blur();
+	oA.style.background="#7CCD7C";
+	}
+	oA.onmouseout=function(){
+	oA.style.background="#8BC528";
+	}
+		oA.onclick=function (){//提交函数
+		var num = Math.ceil(getLength(oT.value)/2);//获取内容长度
+		if(num==0|| num>140){
+			alert("不符合发布要求，请检查");
+		}
+		else{
+			alert("发布成功");
+			oT.value="";
+			weibotextnumber.innerHTML = "140";
+		}
+		}
+	function toChange(){//字数变化时执行的函数
+		var num = Math.ceil(getLength(oT.value)/2);
+		if(num<=140){
+			weibotextnum.innerHTML = "还能输入<span id='weibotextnumber'></span>字";
+			weibotextnumber = document .getElementById('weibotextnumber');//重新获取数字
+			weibotextnumber.innerHTML = 140 - num;
+			weibotextnumber.style.color = '';
+		}
+		else{
+			weibotextnum.innerHTML = "超出<span id='weibotextnumber'></span>字，您可以转为<a href='#'>长微博</a>发送";
+			weibotextnumber = document .getElementById('weibotextnumber');//重新获取数字
+            weibotextnumber.innerHTML=num-140;
+			weibotextnumber.style.color = 'red';
+		}
+		if(oT.value=="" || num>140){
+			oA.style.background="#7F7F7F";//提交框为灰色
+		}
+		else{
+			oA.style.background="#8BC528"//提交框为绿色
+		}
+	}
+		function getLength(str){//计算输入内容长度的函数
+		return String(str).replace(/[^\x00-\xff]/g,'aa').length;//正则表达式，当汉字时以aa算长度
+	}
+  }
+  </script>
+ </head>
+ <body>
+  <div class="weibodiv">
+  <a href="#" class="ad"></a>
+  <a href="#" class="adtext">点击牛运按钮，赢取码上好礼</a>
+  <div class="weibotext">
+  <textarea></textarea>
+  <p id="weibotextnum">还能输入<span id="weibotextnumber">140</span>字</p>
+  </div>
+   <span id="weibobottomlinks"><img src="img/2.png" alt="" /></span>
+   <a class="post">广播</a>
+   </div>
+ </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>流星划过效果</title>
+ <style type="text/css">
+ #container{width:100%;height:430px;border:1px solid;background:url("img/bg.png");position:absolute;overflow:hidden;}
+ #star1{width:220px;height:130px;background:url("img/star.png");background-position:-380px 0;position:absolute;top:-150px;}
+ #star2{width:200px;height:100px;background:url("img/star.png");background-position:-380px -150px;position:absolute;top:-150px;}
+ #star3{width:280px;height:150px;background:url("img/star.png");background-position:-380px -270px;position:absolute;top:-150px;}
+ </style>
+ <script type="text/javascript" src="js/zQuery.js"></script>
+ <script type="text/javascript">
+ window.onload=function (){
+ var con=document.getElementById('container');
+ var star=con.getElementsByTagName('div');
+ var h=con.offsetHeight;var w=con.offsetWidth;
+ var i=0;
+ setInterval(function (){
+	 var size=star[i].offsetWidth/star[0].offsetHeight;
+	 var left=Math.random()*w-Math.random()*(w-star[i].offsetWidth);
+	 star[i].style.left=left+'px';
+	 star[i].style.top=-150+'px';
+	 move(star[i],{left:[left+size*h],top:[h]});
+	 i++;
+	 if (i==star.length)
+	 {
+		 i=0;
+	 }
+ },3000)
+ }
+ </script>
+ </head>
+ <body>
+  <div id="container">
+  <div id="star1"></div>
+  <div id="star2"></div>
+  <div id="star3"></div>
+  </div>
+ </body>
+</html>

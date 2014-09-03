@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>CSS 3动画</title>
+  <style type="text/css">
+  div{
+  position:absolute;
+  animation:mymove 8s infinite;
+  -webkit-animation:mymove 8s infinite; /* Safari 和 Chrome */
+  height:50px;
+  width:100px;
+  top:300px;
+  border-radius:20px;
+  background:#3994C9;
+  text-align:center;
+  line-height:50px;
+  }
+  @keyframes mymove
+  {
+  0% {top:300px;left:0px;transform:rotate(50deg);}
+  20% {top:250px;left:450px;transform:rotate(80deg);height:100px;width:300px;} 
+  40% {top:300px;left:450px;transform:rotate(170deg);}
+  30% {top:300px;left:200px;transform:rotate(150deg);}
+  40% {top:300px;left:300px;transform:rotate(350deg);}
+  100% {top:300px;left:50px;transform:rotate(0deg);}
+  }
+  @-moz-keyframes mymove /* Firefox */
+  {
+  0% {top:300px;left:0px;-moz-transform:rotate(50deg);}
+  20% {top:250px;left:450px;-moz-transform:rotate(80deg);height:100px;width:300px;} 
+  40% {top:300px;left:450px;-moz-transform:rotate(170deg);}
+  30% {top:300px;left:200px;-moz-transform:rotate(150deg);}
+  40% {top:300px;left:300px;-moz-transform:rotate(350deg);}
+  100% {top:300px;left:50px;-moz-transform:rotate(0deg);}
+  }
+  @-webkit-keyframes mymove /* Safari 和 Chrome */
+  {
+  0% {top:300px;left:0px;-webkit-transform:rotate(50deg);}
+  20% {top:250px;left:450px;-webkit-transform:rotate(80deg);height:100px;width:300px;} 
+  40% {top:300px;left:450px;-webkit-transform:rotate(170deg);}
+  30% {top:300px;left:200px;-webkit-transform:rotate(150deg);}
+  40% {top:300px;left:300px;-webkit-transform:rotate(350deg);}
+  100% {top:300px;left:50px;-webkit-transform:rotate(0deg);}
+  }
+  @-o-keyframes mymove /* Opera */
+  {
+  0% {top:300px;left:0px;-o-transform:rotate(50deg);}
+  20% {top:250px;left:450px;-o-transform:rotate(80deg);height:100px;width:300px;} 
+  40% {top:300px;left:450px;-o-transform:rotate(170deg);}
+  30% {top:300px;left:200px;-o-transform:rotate(150deg);}
+  40% {top:300px;left:300px;-o-transform:rotate(350deg);}
+  100% {top:300px;left:50px;-o-transform:rotate(0deg);}
+  }
+  </style>
+
+ </head>
+ <body>
+  <div>-_-||</div>
+  <table border="1">
+  <tr>
+  	<td><b>属性名称</b></td>
+  	<td><b>属性作用</b></td>
+  </tr>
+  <tr>
+  	<td>@keyframes</td>
+  	<td>定义一个动画</td>
+  </tr>
+  <tr>
+  	<td>animation-name</td>
+  	<td>要应用到元素上的动画的名称</td>
+  </tr>
+  <tr>
+  	<td>animation-duration</td>
+  	<td>动画完成一个过程的时间</td>
+  </tr>
+  <tr>
+  	<td>animation-timing-function</td>
+  	<td>动画速度曲线，影响运动的类型。默认是 "ease"。</td>
+  </tr>
+  <tr>
+  	<td>animation-delay</td>
+  	<td>动画开始的时间，即是否设置延迟</td>
+  </tr>
+  <tr>
+  	<td>animation-iteration-count</td>
+  	<td>动画被播放的次数。默认是 1。</td>
+  </tr>
+  <tr>
+  	<td>animation-direction</td>
+  	<td>规定动画是否在下一周期逆向地播放。默认是 "normal"。</td>
+  </tr>
+  <tr>
+  	<td>animation-play-state</td>
+  	<td>规定动画的运行或暂停。默认是 "running"。</td>
+  </tr>
+  <tr>
+  	<td>animation-fill-mode</td>
+  	<td>规定对象动画时间之外的状态</td>
+  </tr>
+    <tr>
+  	<td>animation</td>
+  	<td>简写属性，参数表列为上面除去@keyframes、animation-play-state、animation-fill-mode之外的所有属性的值</td>
+  </tr>
+  </table>
+ </body>
+</html>

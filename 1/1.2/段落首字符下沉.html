@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>段落首字符下沉、缩进及特殊显示</title>
+  <style>
+  #a{text-indent:15px;}
+  #b{text-indent:-6px;}
+  #c{text-indent:0.5em;}
+  #a:first-letter{
+  font-size:25px;
+  color:#B23AEE;
+  float:left;
+  }
+  #b:first-letter{
+  font-size:30px;
+  color:red;
+  }
+  #c:first-letter{
+  font-size:25px;
+  color:#B23AEE;
+  }
+  p.uppercase:first-letter 
+  {
+  text-transform:uppercase;
+  }
+  </style>
+ </head>
+ <body>
+  <p id="a">
+  段落首字符下沉和15像素的缩进
+  </p>
+  <p id='b'>
+  if -首字符不下沉、首字符英文小写和悬挂缩进（-6像素）
+  </p>
+  <p class="uppercase" id='c'>
+  if 段落的首字符不下沉、首字母英文大写
+  </p>
+ </body>
+</html>

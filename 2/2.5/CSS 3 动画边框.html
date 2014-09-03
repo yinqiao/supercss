@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	*{
+	margin:0;
+	padding:0;
+	}
+	#demo {
+	width: 300px;
+	padding: 10px;
+	position: absolute;
+	left:200px;
+	top:100px;
+	}
+	#demo > img {
+	display: block;
+	position: relative;
+	cursor:pointer;
+	}
+	#demo:hover .animation_border{
+	opacity: 1;
+	}
+	.animation_border {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+	background-size: 30px 30px;
+	background-image: -webkit-linear-gradient(45deg, red 25%, transparent 25%, transparent 50%, red 50%, red 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, red 25%, transparent 25%, transparent 50%, red 50%, red 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, red 25%, transparent 25%, transparent 50%, red 50%, red 75%, transparent 75%, transparent);
+	-webkit-animation: animate 0.5s linear infinite;
+	-moz-animation: animate 0.5s linear infinite;
+	animation: animate 0.5s linear infinite;
+	}
+	@-webkit-keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+	@-moz-keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+	@keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+  </style>
+ </head>
+ <body>
+ <h1>CSS 3 动画边框实例，请将鼠标指向图片查看效果</h1>
+ <div id="demo">
+      <div class="animation_border"></div>
+      <img src="img/4.jpg" width="300" height="180" alt="" />
+ </div>
+ </body>
+</html>

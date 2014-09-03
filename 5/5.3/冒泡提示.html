@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>冒泡提示</title>
+  <style type="text/css">
+  #tips{
+  width:200px;height:100px;padding:5px;
+  border:1px solid;border-radius:10px;
+  position:absolute;display:none;top:-130px;
+  background:#D3D3D3;
+  }
+  #tips:before{content:"";width:0;height:0;
+  border-top:10px solid ;border-bottom:5px solid transparent ;border-left:10px solid ;border-right:16px solid transparent;
+  position:absolute;left:45%;top:101%;}
+  #tips:after{content:"";width:0;height:0;
+  border-top:9px solid #D3D3D3 ;border-bottom:4px solid transparent ;border-left:9px solid #D3D3D3;border-right:15px solid transparent;
+  position:absolute;left:45.5%;top:100%;}
+  a{position:absolute;top:140px;}
+  a:hover>#tips{display:block;}
+
+
+  #tips2{
+  width:200px;height:100px;padding:5px;
+  border:1px solid;border-radius:30px;
+  position:absolute;display:block;left:400px;
+  background:#D3D3D3;
+  }
+  #tips2:before{content:"";width:50px;height:50px;background:#D3D3D3;
+  border:1px solid;border-radius:25px;
+  position:absolute;left:20%;top:80%;}
+    #tips2:after{content:"";width:24px;height:24px;background:#D3D3D3;
+  border:1px solid;border-radius:12px;
+  position:absolute;left:15%;top:110%;}
+  </style>
+ </head>
+ <body>
+  
+  <a href="#">把鼠标移过来看看<div id="tips">你发现我了</div></a>
+  <div id="tips2">思考式气泡</div>
+ </body>
+</html>

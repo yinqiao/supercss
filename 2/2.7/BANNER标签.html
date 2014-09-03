@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>书签效果</title>
+  <style type="text/css">
+*{margin:0;padding:0;}
+body{background:#8E8E8E;}
+.featureBanner {position:relative;margin:20px;}
+.featureBanner:before {
+position:absolute;top:5px;left:-8px;z-index:1;						/*定位相关*/
+padding-right:10px;font-weight:bold;line-height:0px;
+color:#000;height:0px;
+border: 15px solid #EE7600;			/*利用的是border属性*/
+border-right-color: transparent;	   /*去掉右边的边框*/
+content: "图片";					/*这里定义标签上的文字*/
+box-shadow:-0px 5px 5px -5px #000;
+}
+.featureBanner:after {				/*第二部分的效果*/
+content: "";
+position:absolute;top:35px;left:-8px;
+border: 4px solid #89540c;
+border-left-color: transparent;		
+border-bottom-color: transparent;
+}
+img{width:300px;height:150px;}
+#b{
+margin:20px;
+width:150px;
+height:0;
+border-right:20px solid #912CEE;
+border-left:20px solid #912CEE;
+border-top:20px solid red;
+border-bottom:20px solid red;
+}
+
+  </style>
+ </head>
+ <body>
+  <div class="featureBanner"><img src="3.jpg" /></div>
+对border这一应用的解释：
+<div id="b"></div>
+ </body>
+</html>

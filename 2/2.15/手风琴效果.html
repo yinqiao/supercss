@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>手风琴效果</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  li{list-style:none;float:left;width:10px;overflow:hidden;border:1px solid;}
+  </style>
+  <script type="text/javascript" src='js/zQuery.js'></script>
+  <script type="text/javascript">
+  window.onload =function (){
+  var pics_ul=document.getElementById('pics');
+  var pics=pics_ul.getElementsByTagName('li');
+  var number=pics.length;
+  var now=1;
+  var pre_pic=pics[0];
+  var tempwidth=pics[0].getElementsByTagName('img')[0].offsetWidth;
+  pre_pic.style.width=pics[0].getElementsByTagName('img')[0].offsetWidth+"px";
+  var t;
+  t=setInterval(function (){
+	  move(pre_pic,{width:[10]});
+	  tempwidth=pics[now].getElementsByTagName('img')[0].offsetWidth;
+	  move(pics[now],{width:[tempwidth]});
+	  pre_pic=pics[now];
+	  now++;
+	  if(now==number){
+	  now=0;
+	  }
+  },2000);
+  pics_ul.onmouseover=function(){clearInterval(t);}
+  pics_ul.onmouseout=function (){
+	  t=setInterval(function (){
+	  move(pre_pic,{width:[10]});
+	  tempwidth=pics[now].getElementsByTagName('img')[0].offsetWidth;
+	  move(pics[now],{width:[tempwidth]});
+	  pre_pic=pics[now];
+	  now++;
+	  if(now==number){
+	  now=0;
+	  }
+  },2000);
+}
+   for (var i=0;i<number ;i++ )
+	  {
+		  pics[i].onclick=function (){
+		  move(pre_pic,{width:[10]});
+		  now=index(this,pics);
+		  move(pics[now],{width:[tempwidth]});
+		  pre_pic=pics[now];
+		  }
+	  }
+  }
+  </script>
+ </head>
+ <body>
+  <ul id="pics">
+  <li><img src="img/1.jpg" alt="" /></li>
+  <li><img src="img/2.jpg" alt="" /></li>
+  <li><img src="img/3.jpg" alt="" /></li>
+  <li><img src="img/4.jpg" alt="" /></li>
+  <li><img src="img/5.jpg" alt="" /></li>
+  <li><img src="img/6.jpg" alt="" /></li>
+  </ul>
+ </body>
+</html>

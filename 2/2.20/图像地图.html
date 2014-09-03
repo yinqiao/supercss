@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图像地图</title>
+  <style type="text/css">
+#imagemap{
+	width:500px;height:375px;
+	background:url("img/bg.jpg") no-repeat;
+	position:absolute;
+}
+.pc_s,.kb_s,.fl_s{
+	transition:all 1s;
+	-webkit-transition:all 1s;
+	-moz-transition:all 1s;
+	-o-transition:all 1s;
+	border:1px  solid white;
+	display:block;position:absolute;
+	opacity:0;
+}
+.pc_a,.kb_a,.fl_a{
+	padding:1%;
+	border:1px solid white;background:black;opacity:0;
+	text-decoration:none;color:#fff;
+	display:block;position:absolute;
+	transition:all 1s;
+	-webkit-transition:all 1s;
+	-moz-transition:all 1s;
+	-o-transition:all 1s;
+	border-radius:10px 10px;
+}
+.pc_s{width:20%;height:25%;top:16%;left:54%;}
+.kb_s{width:20%;height:11%;top:45%;left:54%;}
+.fl_s{width:15%;height:28%;top:22%;left:11%;}
+.pc_a{width:20%;height:8%;top:22%;left:77%;}
+.kb_a{width:20%;height:4%;top:48%;left:77%;}
+.fl_a{width:20%;height:4%;top:13%;left:8%;}
+#imagemap:hover .pc_s,#imagemap:hover .kb_s,#imagemap:hover .fl_s{opacity:1;}
+.pc_s:hover+.pc_a{opacity:0.5;}
+.kb_s:hover+.kb_a{opacity:0.5;}
+.fl_s:hover+.fl_a{opacity:0.5;}
+.pc_a:hover,.kb_a:hover,.fl_a:hover{opacity:0.8;}
+
+  </style>
+ </head>
+ <body>
+<div id="imagemap">
+<span class='pc_s'></span><a href="#" class="pc_a">这是一台电脑</a>
+<span class='kb_s'></span><a href="#" class="kb_a">这是键盘</a>
+<span class='fl_s'></span><a href="#" class="fl_a">这盆景怎么样</a>
+</div>
+ </body>
+</html>

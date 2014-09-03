@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>iphone开关</title>
+  <style type="text/css">
+  .iphone{width:271px;height:526px;
+  position:relative;margin:0 auto;
+  background:url('img/iphone.png');
+  }
+  ul{width:230px;padding:0;
+  border:1px solid;border-radius:5px;
+  position:absolute;left:22px;top:100px;
+  }
+  ul p{font-size:15px;text-align:center;margin:5px;}
+  li{list-style:none;
+  width:90%;height:30px;line-height:30px;padding-left:10%;
+  border:1px solid;border-bottom:none;
+  position:relative;
+  }
+  .iphoneButton{margin:2%;width:30%;height:65%;
+  border:1px solid;border-radius:15px 15px;
+  overflow:hidden;display:block;
+  position:absolute;right:0;
+  }
+  .button{width:180%;height:100%;padding:0;
+  position:absolute; 
+  line-height:100%;
+  font-weight:bold;
+  background:linear-gradient(to right,#1E90FF 0%,#1E90FF 50%,#EDEDED 50%,#EDEDED 100%);
+  border-radius:15px 15px;
+  transition:all .5s ease;
+  -webkit-transition:all .5s ease;
+  }
+  .button:after{content:'';
+  width:15%;height:96%;
+  border:1px solid;border-radius:100%;
+  position:absolute;left:40%;
+  background:#FFFFFF;
+  }
+  .on{width:0;height:50%;margin-top:3%;margin-left:22%;
+  border:1px solid #FFFFFF;
+  position:absolute;
+  }
+  .off{width:8%;height:50%;margin-top:2%;margin-left:72%;
+  border:2px solid #A1A1A1;border-radius:100%;
+  position:absolute;
+  }
+
+  .button:hover{left:-73%;}
+  .buttonOn{left:-73%;}
+  .buttonOff{left:0;}
+  </style>
+ </head>
+ <body>
+ <div class="iphone">
+ <ul>
+ <p>设置</p>
+ <li>
+ <span class="iphoneButton">
+  <span class="button  buttonOn"><span class="on"></span><span class="off"></span></span>
+  </span>
+  飞行模式
+  </li>
+ <li>
+ <span class="iphoneButton" >
+  <span class="button  buttonOff"><span class="on"></span><span class="off"></span></span>
+  </span>
+ WIFI
+  </li>
+ <li>
+ <span class="iphoneButton">
+  <span class="button  buttonOn"><span class="on"></span><span class="off"></span></span>
+  </span>
+  通知
+ </li>
+ </ul>
+  </div>
+ </body>
+</html>

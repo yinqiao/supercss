@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>11.23</title>
+<style type="text/css">
+.content {
+    margin: 300px 0 0 100px;
+}
+/*提示框相对容器进行相对定位*/
+.tooltip-container {
+    position:relative;  
+    cursor:help;
+}
+/*提示框样式*/
+.tooltip {
+    display:block;
+    position:absolute;
+    width:150px;
+    padding:5px 15px;
+    left:50%;
+    bottom:25px;
+    margin-left:-95px;
+    /* 提示框样式 */
+    color:#fff;
+    border:2px solid rgba(34,34,34,0.9);
+    background:rgba(51,51,51,0.9);
+    text-align:center;
+    border-radius:3px;
+    /* 提示框渐隐效果 */
+    opacity:0;
+    box-shadow:0px 0px 3px rgba(0, 0, 0, 0.3);
+    -webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -0-transition:all 0.2s ease-in-out;
+    -ms-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
+    -webkit-transform:scale(0);
+    -moz-transform:scale(0);
+    -o-transform:scale(0);
+    -ms-transform:scale(0);
+    transform:scale(0);
+    /* 提示框继承父容器字体样式 */
+    font-size:14px;
+    font-weight:normal;
+    font-style:normal;
+}
+/*实用伪类设计三角形箭头*/
+.tooltip:before, .tooltip:after{
+    content:"";
+    position:absolute;
+    bottom:-13px;
+    left:50%;
+    margin-left:-9px;
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:10px solid rgba(0,0,0,0.1);
+}
+.tooltip:after{
+    bottom:-12px;
+    margin-left:-10px;
+    border-top:10px solid rgba(34,34,34,0.9);
+}
+/*提示框动画效果，设置透明度与缩放效果*/
+.tooltip-container:hover .tooltip, a:hover .tooltip {
+    opacity:0.9;
+    -webkit-transform:scale(1);
+    -moz-transform:scale(1);
+    -o-transform:scale(1);
+    -ms-transform:scale(1);
+    transform:scale(1);
+}
+/* 自定义提示框样式 */
+.tooltip-style1 {
+    color:#000;
+    border:2px solid #fff;
+    background:rgba(246,246,246,0.9);
+    font-style:italic;
+}
+.tooltip-style1:after{
+    border-top:10px solid #fff;
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="content">
+    <i class="tooltip-container"><b>超级实用CSS代码1</b><span class="tooltip">Hi，第一个提示框</span></i>
+    <em class="tooltip-container"><b>超级实用CSS代码2</b><span class="tooltip tooltip-style1">第二个提示框</span></em>
+</div>
+ 
+
+  
+</body>
+
+
+</html>

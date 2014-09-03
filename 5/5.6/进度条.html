@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  *{
+  margin:0;
+  padding:0;
+  }
+  #progressbar{
+  position:absolute;
+  top:100px;
+  left:100px;
+  height:10px;
+  width:500px;
+  border:1px solid #63B8FF;
+  border-radius:5px;
+  text-align:center;
+  line-height:10px;
+  font-size:0.8em;
+  }
+  #progress{
+  position:absolute;
+/*  border:1px solid;*/
+  height:100%;
+  width:0;
+  background:#BFEFFF;
+  border-radius:5px;
+  z-index:-1;
+  }
+	#progress{
+	background-size: 30px 30px;
+	background-image: -webkit-linear-gradient(-45deg, #63B8FF,#63B8FF 25%, #BFEFFF
+		25%,#BFEFFF 50%, #63B8FF 50%, #63B8FF 75%, #BFEFFF 75%, #BFEFFF);
+	background-image: -moz-linear-gradient(-45deg, #63B8FF,#63B8FF 25%, #BFEFFF
+		25%,#BFEFFF 50%, #63B8FF 50%, #63B8FF 75%, #BFEFFF 75%, #BFEFFF);
+	background-image: linear-gradient(-45deg, #63B8FF,#63B8FF 25%,#BFEFFF 
+		25%,#BFEFFF 50%, #63B8FF 50%, #63B8FF 75%, #BFEFFF 75%, #BFEFFF);	
+	-webkit-animation: animate 1.5s linear infinite;
+	-moz-animation: animate 1.5s linear infinite;
+	animation: animate 1.5s linear infinite;
+	}
+	@-webkit-keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+	@-moz-keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+	@keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+  </style>
+ </head>
+ <body>
+  <div id="progressbar"><div id='progress'></div><p></p></div>
+  <script type="text/javascript">
+  window.onload=function(){ 
+  var now=0;
+  var timer=setInterval(function(){
+	  if(now==100)
+	  {
+		  clearInterval(timer);
+		  window.location.href='#';
+	  }
+	  else
+	  {
+		  now+=1;
+		  progressfn(now);
+	  }
+	},50); 
+  }
+  function progressfn(cent)
+	  {
+		  var progressbar=document.getElementById("progressbar");
+		  progressbar=progressbar.getElementsByTagName("p");
+		  progressbar[0].innerHTML=cent+"%";
+		  var progress=document.getElementById("progress");
+		  progress.style.width=cent+"%";
+	  }
+  </script>
+ </body>
+</html>

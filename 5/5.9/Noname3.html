@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>雪花飘落效果</title>
+ <style type="text/css">
+ @font-face{
+ font-family:icon;
+ src:url("css/font/icon.ttf"),url("css/font/icon.eot");
+ }
+ body{
+ background:black;
+ }
+ div{
+ font-family:icon;
+ color:#fff;
+ position:absolute;
+ top:-100px;
+ }
+ </style>
+ <script type="text/javascript">
+ function win(attr)
+ {//获取可视区尺寸，参数为height|width
+	switch(attr)
+		{           
+			case 'height'://获取窗口高度
+             if (window.innerHeight)
+			{
+                   winHeight = window.innerHeight;return winHeight;
+			}else if ((document.body) && (document.body.clientHeight)){
+                   winHeight = document.body.clientHeight;return winHeight;
+			}
+			if (document.documentElement  && document.documentElement.clientHeight)
+             {
+                 winHeight = document.documentElement.clientHeight;return winHeight;
+             }
+			 break;
+			case 'width'://获取窗口宽度
+			  if (window.innerWidth){
+                   winWidth = window.innerWidth;return winWidth;
+			  }else if ((document.body) && (document.body.clientWidth)){
+                   winWidth = document.body.clientWidth;   return winWidth;          
+			  }//通过深入Document内部对body进行检测，获取窗口大小
+             if (document.documentElement  &&document.documentElement.clientWidth)
+             {
+                 winWidth = document.documentElement.clientWidth;return winWidth;
+             }
+			 break;
+			 case 'scrollTop':
+				var scrollTop;
+				if(typeof window.pageYOffset != 'undefined'){
+				scrollTop = window.pageYOffset;
+				}
+				else
+				if(typeof document.compatMode != 'undefined' &&
+				document.compatMode != 'BackCompat'){
+				scrollTop = document.documentElement.scrollTop;
+				}
+				else 
+				if(typeof document.body != 'undefined'){
+				scrollTop = document.body.scrollTop;
+				}
+				return scrollTop;break;
+			default :return 0;break;
+		}
+}
+ window.onload =function (){
+	 var bd=document.getElementsByTagName('body')[0];//获取body
+	 function snow(){//雪花函数
+	 var win_height=win('height');//获取窗口高度
+	 var win_width=win('width');//获取窗口宽度
+	 function createsnow(){//创建雪花函数
+		 var snowdiv=document.createElement('div');//新建一个div
+		 snowdiv.innerHTML="j";//写入雪花（字体的代码为j）
+		 var size=20+parseInt(Math.random()*30);//随机生成雪花的大小
+		 var left=parseInt(win_width*(Math.random())*0.98);//随机生成left值
+		 snowdiv.style.fontSize=size+'px';//应用字体大小
+		 snowdiv.style.width=size+'px';//div应用宽度
+		 snowdiv.style.height=size+'px';//div应用高度
+		 snowdiv.style.left=left+'px';//雪花的left值
+		 bd.appendChild(snowdiv);//将此雪花放入文档中
+		 return snowdiv;//返回这个雪花对象
+	 }
+	 	 setInterval (function (){
+		 var snow=createsnow();//创建雪花并得到这一对象
+		 var sbd=Math.ceil(Math.random()*3);//随机生成下落速度
+		 move(snow,sbd);//移动雪花
+		 },100);
+		  function move(obj,speed){//移动函数
+			 var top=0;
+			 var timer=setInterval(
+				 function (){
+					 top=top+speed;//改变top值
+					 obj.style.top=top+'px';
+					 if (top>win_height-20)
+					 {
+						 clearInterval(timer);//下落停止
+					 }
+				 },30);
+			}
+		setInterval(function(){//一段时间之后清理一次雪花，防止文档过大卡住
+			 var snows=document.getElementsByTagName('div');
+			 for (var i=0;i<snows.length/3 ;i++ )
+			 {
+				 snows[i].parentNode.removeChild(snows[i]);
+			 }
+			 },20000);
+	 }
+	 snow();//执行snow函数
+	 window.onresize=function(){//窗口改变
+				 var snows=document.getElementsByTagName('div');
+				 for (var i=0;i<snows.length ;i++ )
+				 {
+					 snows[i].parentNode.removeChild(snows[i]);
+				 }
+			 }
+ }
+ </script>
+ </head>
+ <body>
+ </body>
+</html>

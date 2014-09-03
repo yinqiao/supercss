@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>纸张边角卷曲效果</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  body{
+  background:#D9D9D9;
+  }
+  #paper_top_right{
+  position:absolute;
+  height:150px;
+  width:150px;
+  top:0;
+  right:0;
+  }
+  #paper_top_right_animate{
+  height:30px;
+  width:30px;
+  position:absolute;
+  background:linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 35%,#D5D5D5 50%,#555555 50%,#555555);
+  background:-webkit-linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 35%,#D5D5D5 50%,#555555 50%,#555555 );
+  background:-o-linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 35%,#D5D5D5 50%,#555555 50%,#555555);
+  background:-moz-linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 35%,#D5D5D5 50%,#555555 50%,#555555 );
+  border-bottom-left-radius:10px 90px;
+  border-bottom-right-radius:100px 1px;
+  box-shadow:-3px 2px 5px #333333;
+  top:0;
+  right:0;
+  z-index:1;
+  }
+/*  #top_right_change{*/
+/*  display:none;*/
+/*  width:95px;*/
+/*  height:95px;*/
+/*  position:absolute;*/
+/*  top:0;*/
+/*  right:0;*/
+/*  z-index:-1;*/
+/*  }*/
+  </style>
+  <script type="text/javascript" src="js/jq.js"></script>
+  <script type="text/javascript">
+  $(function (){
+  $("#paper_top_right").hover(function(){show_top_right();},function(){hide_top_right();});
+  });
+  function show_top_right(){
+	$("#paper_top_right_animate").stop(true,false).animate ({height:"150px",width:"150px"},"slow");
+  }
+  function hide_top_right(){
+	$("#paper_top_right_animate").stop(true,false).animate ({height:"30px",width:"30px"},"slow");	  
+  }
+
+//如要加入广告，请参照下面代码
+//  $(function (){
+//  $("#paper_top_right").hover(function(){show_top_right();},function(){hide_top_right();});
+//  });
+//  function show_top_right(){
+//	$("#paper_top_right_animate").stop(true,false).animate ({height:"100px",width:"100px"},"slow",
+//	function(){
+//		$("#top_right_change").fadeIn("fast");
+//		$("#paper_top_right_animate").css("background","linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 35%,#D5D5D5 50%,transparent  50%,transparent )")});
+//    
+//  }
+//  function hide_top_right(){
+//	$("#top_right_change").fadeOut(100);
+//	$("#paper_top_right_animate").css("background","linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 35%,#D5D5D5 50%,#555555 50%,#555555)");
+//	$("#paper_top_right_animate").stop(true,false).animate ({height:"30px",width:"30px"},"slow");	  
+//  }
+
+  </script>
+ </head>
+ <body>
+  <div id="paper_top_right">
+  <div id="paper_top_right_animate"></div>
+  <!--<img src="../imgs/top_right_change.jpg " alt="" id="top_right_change" />-->
+  </div>
+  <pre>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </pre>
+ </body>
+</html>

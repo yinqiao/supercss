@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>CSS 3圆形导航菜单</title>
+ <style type="text/css">
+ *{margin:0;padding:0;}
+ #round_nav{
+ width:200px;height:200px;
+ position:absolute;left:50px;bottom:30px;
+ }
+ .round_nav{
+ list-style:none;
+ position:relative;
+ }
+  .round_nav>li{
+ width:50px;height:50px;
+ position:absolute;
+ -webkit-transform:translate(50px,150px);
+ -moz-transform:translate(50px,150px);
+ -o-transform:translate(50px,150px);
+ -ms-transform:translate(50px,150px);
+ transform:translate(50px,150px);
+ }
+ </style>
+ <script type="text/javascript" src="zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload=function(){
+  var round_links=document.getElementById('round_nav');//获取最外层div
+  var round_links_ul=getbyclass(round_links,"round_nav")[0];//获取ul
+  var round_links_lis=round_links_ul.getElementsByTagName('li');//获取li
+  var n=round_links_lis.length;//获取li的个数
+  var r1=round_links.offsetWidth;var r2=round_links_lis[0].offsetWidth;//获取外层div的宽度及li的宽度
+  round_links_ul.style.left=-r2+"px";//修正ul的相对定位
+  var adeg=90/n;//计算右上方每两个元素之间的度数
+  var button=true;
+  for (var i=0;i<n ;i++ )
+	  {
+		  round_links_lis[i].style.background="url(img/"+(i+1)+".png) no-repeat";//设置背景图片
+	  }
+  move(round_links_lis[0],{translate:[r2,r1-r2]},"flex");//将第一个元素移动到合理位置
+  round_links_lis[0].style.zIndex=5;//设置z-index
+  var click=1;//点击次数存放变量
+  round_links_ul.onclick=function (){
+	  if(button&&click%2){//点击奇数次，展开菜单
+	  round_links_click();click++;
+	  }else{//点击偶数次，收回菜单
+		  round_links_dbclick();click++;
+	  }
+  }
+  
+  function round_links_click(){//展开菜单函数
+	  var i=1;
+      var t=setInterval(function (){//定时器依次弹出每个元素
+  	  var deg=adeg*i/180*Math.PI;//计算当前元素与竖直方向的角度
+	  var h=r1-r1*Math.sin(deg);var w=r1*Math.cos(deg);//通过角度的三角函数值计算translate属性的参数值
+	  move(round_links_lis[i],{transform:[1,0,0,1,w,h]},"buffer",function(){button=true;},function (){button=false;});//将当前元素通过“flex”弹性运动的方式，将元素运动至translate值为[w,h]处
+	  i++;
+	  if(i==n){//所有元素弹出完毕
+	  i=1;
+	  clearInterval(t);
+	  }
+  },50);
+  }
+  function round_links_dbclick(){//收回菜单函数
+  for (var i=1;i<n;i++ )
+  {
+	  move(round_links_lis[i],{translate:[r2,r1-r2]},"buffer",function(){button=true;},function (){button=false;});//将元素运动回左下角
+  }
+  }
+  }
+  </script>
+ </head>
+ <body>
+  <div id="round_nav">
+  <ul class="round_nav">
+  	<li></li>
+	<li></li>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+  </ul>
+  </div>
+ </body>
+</html>

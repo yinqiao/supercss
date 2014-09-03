@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>网页右键菜单</title>
+  <style type="text/css">
+	*{margin:0;padding:0;}
+	#right_button_menu{
+	width:100px;height:auto;border:1px solid;border-radius:3px;
+	position:absolute;display:none;z-index:100;
+	}
+	#right_button_menu>ul{
+	position:relative;background:hsl(134,70%,80%);
+	}
+	#right_button_menu>ul>li{
+	border-bottom:1px dashed;position:relative;
+	text-align:center;list-style:none;cursor:pointer;
+	}
+	#right_button_menu>ul>li>a{
+	text-decoration:none;
+	}
+	#right_button_menu>ul>li>ul{
+	position:absolute;left:100px;
+	border:1px solid;border-radius:5px ;
+	display:none;background:hsl(134,70%,80%);
+	}
+	#right_button_menu>ul>li>ul>li{
+	border-bottom:1px dashed;
+	text-align:center;list-style:none;
+	}
+	#right_button_menu>ul>li>ul>li>a{
+	text-decoration:none;
+	}
+	#right_button_menu>ul>li:hover>ul{
+	display:block;
+	}
+  </style>
+  <script type="text/javascript">
+  window.onload =function (){
+	var menu=document.getElementById('right_button_menu');//获取到菜单
+	document.oncontextmenu=function(e){return false;}//禁止火狐、IE、safari的右键菜单弹出
+	function click(e) {//点击处理函数
+		var e=e||event;//为了兼容
+		if (e.which==2||e.button==4) {//中键
+			hide_menu(menu);//隐藏菜单
+			return false;
+		}
+		else if(e.which==3||e.button==2){//右键
+			x=e.clientX;y=e.clientY;//获取鼠标在可视区的位置
+			var l=document.body.scrollLeft>0?document.body.scrollLeft:document.documentElement.scrollLeft;//获取鼠标所在地的左偏移
+			var t=document.body.scrollTop>0?document.body.scrollTop:document.documentElement.scrollTop;//获取鼠标所在地的上偏移
+			document.title="X 坐标: " + (x +l)+ ", Y 坐标: " +( y+t);//将CSS将要应用的left和top值打印在标题上
+			show_menu(menu,x +l,y+t);//展示菜单
+		}
+		else if(e.which==1||e.button==1){//左键
+		setTimeout(function (){hide_menu(menu);},100);//隐藏菜单，同时如果点击菜单内容，设置一个延迟让菜单的功能实现，否则在IE下会来不及实现菜单功能					
+		}
+		}
+	document.onmousedown=click;//文档鼠标按下执行处理
+	function show_menu(obj,left,top){//展示函数
+	obj.style.left=left+'px';
+	obj.style.top=top+'px';
+	obj.style.display='block';
+	}
+	function hide_menu(obj){//隐藏函数
+	obj.style.display='none';
+	}
+  }
+  </script>
+ </head>
+ <body>
+  <div id="right_button_menu">
+  <ul>
+	<li><a href="">更换桌面背景</a></li>
+	<li><a href="">夜间模式</a></li>
+	<li><a href="">刷新</a></li>
+	<li class="has_sec_menu">
+	<ul>
+	<li><a href="">文本文档</a></li>
+	<li><a href="">Word文档</a></li>
+	<li><a href="">Excel表格</a></li>
+	<li><a href="">PowerPoint幻灯片</a></li>
+	</ul>新建
+	</li>
+	<li><a href="javascript:show('player');">听音乐</a></li>
+</ul>
+</div>
+
+ </body>
+</html>

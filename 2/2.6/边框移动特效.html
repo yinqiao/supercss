@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>边框移动特效</title>
+  <style type="text/css">
+  #animate_border{
+  position:absolute;left:0;top:0;
+  width:0;height:0;border:1px solid #2CAAC9;box-shadow:0 0 3px #0AF1F5;
+  }
+  input{margin:5px;}
+  input:nth-child(1){width:200px;height:20px;}
+  input:nth-child(2){width:300px;height:30px;}
+  input:nth-child(3){width:280px;height:20px;}
+  input:nth-child(4){width:100px;height:20px;}
+  </style>
+  <script type="text/javascript" src="js/zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload=function(){
+  var inputs=document.getElementsByTagName('input');//获取到输入框
+  var animate_border=document.getElementById('animate_border');//获取到div
+  for (var i=0;i<inputs.length ;i++)
+  {
+	  inputs[i].onfocus=function(){change_border_to(this);}//为输入框添加onfocus事件，将该对象作为参数传入变化函数
+  }
+  function change_border_to(obj){//出入某个输入框
+  var this_width=obj.offsetWidth;//获得该输入框的宽度
+  var this_height=obj.offsetHeight;//获得该输入框的高度
+  var this_left=obj.offsetLeft;//获得该输入框的左偏移值
+  var this_top=obj.offsetTop;//获得该输入框的上偏移值
+  move(animate_border,{width:[this_width],height:[this_height],left:[this_left],top:[this_top]});//使用运动框架动态改变div样式
+  }
+  }
+  </script>
+ </head>
+ <body>
+  <form action="#">
+  用户名<input type="text" /><br>
+  密码<input type="text" /><br>
+  短信验证码<input type="text" /><br>
+  验证码<input type="text" /><br>
+  <input type="submit" value="提交"/>
+  </form>
+  <div id="animate_border"></div>
+ </body>
+</html>

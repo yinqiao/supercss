@@ -2,185 +2,191 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="description" content=" ">
-<meta name="keywords" content="">
-<link href="./css/bootstrap.min.css" rel="stylesheet">
-<link href="./css/prettify.css" rel="stylesheet">
-<link href="./css/lab-common.css" rel="stylesheet">
-<title>11.3</title>
+<title>11.4</title>
 <style type="text/css">
-/* 时钟表面 */
-.clock {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    margin-top: -150px;
-    margin-left: -150px;
-    border: 10px solid #333;
-    border-radius: 50%;
+fieldset, img {
+    border: 0;
 }
-.clock .hour {
-    position: absolute;
-    left: 50%;
-    bottom: 150px;
-    width: 8px;
-    height: 50px;
-    margin-left: -4px;
-    background-color: #333;
+em {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
 }
-.clock .hour::after {
-    position: absolute;
-    top: -20px;
-    content: "";
-    width: 0px;
-    height: 0px;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid #333;
-}
-.clock .min {
-    position: absolute;
-    left: 50%;
-    bottom: 150px;
-    width: 4px;
-    height: 80px;
-    margin-left: -2px;
-    background-color: #333;
-}
-.clock .min::after {
-    position: absolute;
-    top: -20px;
-    content: "";
-    width: 0px;
-    height: 0px;
-    border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid #333;
-}
-.clock .sec {
-    position: absolute;
-    left: 50%;
-    bottom: 150px;
-    width: 2px;
-    height: 100px;
-    margin-left: -1px;
-    background-color: #333;
-}
-.clock .hour,
-.clock .min,
-.clock .sec {
-    -webkit-transform-origin: center bottom;
-    -moz-transform-origin: center bottom;
-    transform-origin: center bottom;
-}
-.clock .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.required {
+    color: #e90000;
     width: 20px;
-    height: 20px;
-    margin-left: -10px;
-    margin-top: -10px;
-    border-radius: 50%;
-    background-color: #333;
+    display: inline-block;
+    height: 12px;
+    line-height: 12px;
+    overflow: hidden;
 }
-.clock .small-scale {
-    position: absolute;
-    left: 50%;
-    top: 10px;
-    width: 4px;
-    height: 8px;
-    margin-left: -3px;
-    background-color: #333;
-    -webkit-transform-origin: center 140px;
-    -moz-transform-origin: center 140px;
-    transform-origin: center 140px;
+.label {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 185px;
+    text-align: right;
+    height: 32px;
+    line-height: 32px;
 }
-.clock .big-scale {
-    position: absolute;
-    left: 50%;
-    top: 10px;
-    width: 6px;
-    height: 14px;
-    margin-left: -3px;
-    background-color: #333;
-    -webkit-transform-origin: center 140px;
-    -moz-transform-origin: center 140px;
-    transform-origin: center 140px;
+.input-text {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 225px;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 6px 3px;
+    border: 1px solid #bababa;
+    box-shadow: 0 0 3px #e6e6e6 inset;
+    border-radius: 3px;
+    outline: 0;
 }
-.clock .small-scale em,
-.clock .big-scale em {
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    width: 30px;
-    margin-left: -15px;
-    text-align: center;
+.input-text:hover {
+    border-color: #666666;
+}
+.input-text:focus {
+    border-color: #0092d2;
+}
+.input-select {
+    border: 1px solid #bababa;
+    padding: 4px 5px 4px 3px;
+    height: 30px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 13px;
+    width: 233px;
+    border-radius: 3px;
+    outline: 0;
+}
+.input-select:hover {
+    border-color: #666666;
+}
+.input-select:focus {
+    border-color: #0092d2;
+}
+.mod .hd {
     font-size: 16px;
+    font-weight: bold;
+    color: #404040;
+    font-family: "Microsoft YaHei";
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    border-bottom: 2px solid #0092d2;
+    padding-bottom: 6px;
 }
+.mod-contacter {
+  padding: 20px;
+  padding-bottom: 1px;
+  *margin-bottom: -3px;
+}
+.mod-contacter li {
+  padding: 7px 0;
+  height: 32px;
+  line-height: 32px;
+  overflow: hidden;
+}
+.mod-contacter .contacter-info, .mod-contacter .invoice {
+  padding: 22px 0 18px 0;
+}
+.mod-contacter .contacter-info {
+  padding-top: 8px;
+  padding-bottom: 3px;
+}
+.mod-contacter .contacter-info .label, .mod-contacter .contacter-info .verify-wrap, .mod-contacter .contacter-info .required {
+  float: left;
+  _display: inline;
+}
+.mod-contacter .contacter-info .required {
+  margin-top: 12px;
+}
+.mod-contacter .contacter-info .placeholder {
+  *display: inline !important;
+}
+.mod-contacter .contacter-info .placeholder label {
+  height: 32px;
+  line-height: 35px;
+}
+.mod-contacter .contacter-info .verify-wrap-error {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding-right: 30px;
+  background-position: 245px 9px;
+}
+.mod-contacter .save-relation-list {
+  line-height: 14px;
+  padding: 0 0 4px 0;
+}
+.mod-contacter .save-relation-label {
+  display: inline-block;
+  cursor: pointer;
+}
+.mod-contacter .save-relation {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
 </style>
-<script>
-// 
-    function setCss3(ele, attr, val) {
-        var str = attr.charAt(0).toUpperCase() + attr.substring(1);
-        ele.style['Webkit' + str] = val;
-        ele.style['Moz' + str] = val;
-        ele.style['MS' + str] = val;
-        ele.style[attr] = val;
-    }
-    window.onload = function () {
-        var clock = document.querySelector('.clock');
-        var hour = document.querySelector('.hour');
-        var min = document.querySelector('.min');
-        var sec = document.querySelector('.sec');
-        /**
-         * 创建刻度
-         */
-        for (var i = 0; i < 60; i++) {
-            var span = document.createElement('span');
-            setCss3(span, 'transform', 'rotate(' + 6 * i + 'deg)');
-            if (i % 5) {
-                span.className = 'small-scale';
-            } else {
-                span.className = 'big-scale';
-                if (i === 0) {
-                    span.innerHTML = '<em>' + 12 + '</em>';
-                } else {
-                    span.innerHTML = '<em>' + i/5 + '</em>';
-                }
-                setCss3(span.children[0], 'transform', 'rotate(' + -6 * i + 'deg)');
-            }
-            clock.appendChild(span);
-        }
-        /**
-         * 更新时间
-         */
-        function update() {
-            var date = new Date();
-            setCss3(hour, 'transform', 'rotate(' + 30 * (date.getHours() + date.getMinutes() / 60) + 'deg)');
-            setCss3(min, 'transform', 'rotate(' + 6 * (date.getMinutes() + date.getSeconds() / 60) + 'deg)');
-            setCss3(sec, 'transform', 'rotate(' + 6 * date.getSeconds() + 'deg)');
-        }
-        update();
-        setInterval(update, 1000);
-    };
-</script>
 </head>
+
 <body>
-    <div class="container">
-        <div class="clock">
-            <div class="hour"></div>
-            <div class="min"></div>
-            <div class="sec"></div>
-            <div class="circle"></div>
+
+<!-- <form method="post" action="#">
+    用户名：<input type="text" name="name"><br>
+    密码：<input type="password" name="password">
+</form> -->
+
+<form class="stepnow-fillin" id="J_Form" action="../../pages/io/post.json">
+    <fieldset class="mod mod-contacter">
+        <header class="hd">填写联系人信息</header>
+        <div class="bd " id="J_ContacterWrapper">
+            <ul class="contacter-info" id="J_Contacter">
+                <li>
+                    <label class="label" for="J_ContacterName">姓名： </label>
+                    <em class="required">*</em>
+                    <span class="verify-wrap">
+                        <input type="text" class="input-text" id="J_ContacterName" name="relationName"/>
+                    </span>
+                </li>
+                <li>
+                    <label class="label" for="J_ContacterTel"> 手机号码： </label>
+                    <em class="required">*</em>
+                    <span class="verify-wrap">
+                        <input type="text" class="input-text" id="J_ContacterTel" placeholder="通知机票出票状态和航班信息" name="relationMobile"/>
+                    </span>
+                </li>
+                <li>
+                    <label class="label" for="J_ContacterPhone"> 备选号码： </label>
+                    <em class="required">&nbsp;</em>
+                    <span class="verify-wrap">
+                        <input type="text" class="input-text" id="J_ContacterPhone" placeholder="" name="relationPhone"/>
+                    </span>
+                </li>
+                <li>
+                    <label class="label" for="J_ContacterEmail"> 电子邮箱： </label>
+                    <em class="required">*</em>
+                    <span class="verify-wrap">
+                        <input type="text" class="input-text" id="J_ContacterEmail" placeholder="通知机票出票状态和航班信息" name="relationEmail"/>
+                    </span>
+                </li>
+                <li class="save-relation-list">
+                    <label class="label"></label>
+                    <em class="required"></em>
+                    <label class="save-relation-label" for="J_NeedSaveRelation">
+                        <input type="checkbox" name="needSaveRelation" class="save-relation" checked="true" id="J_NeedSaveRelation"/>
+                        存为常用联系人
+                    </label>
+                </li>
+            </ul>
         </div>
-    </div>  
-    <script src="./js/jquery-1.7.2.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>    
-    <script src="./js/prettify.js"></script>
+    </fieldset>
+</form>
+
+
 </body>
+
 </html>

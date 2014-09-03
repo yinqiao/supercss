@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>css 重置</title>
+ </head>
+ <body>
+<pre>
+方案一
+html, body, div, span,applet, object, iframe, table, caption,     
+tbody, tfoot, thead, tr,th, td, del, dfn, em, font, img, ins,     
+kbd, q, s, samp, small,strike, strong, sub, sup, tt, var,     
+h1, h2, h3, h4, h5, h6,p, blockquote, pre, a, abbr,     
+acronym, address, big,cite, code, dl, dt, dd, ol, ul, li,     
+fieldset, form, label,legend {     
+    vertical-align: baselinebaseline;     
+    font-family: inherit;     
+    font-weight: inherit;     
+    font-style: inherit;     
+    font-size: 100%;     
+    outline: 0;     
+    padding: 0;     
+    margin: 0;     
+    border: 0;     
+}     
+
+:focus {     
+    outline: 0;     
+}     
+
+body {     
+    background: white;     
+    line-height: 1;     
+    color: black;     
+}     
+
+ol, ul {     
+    list-style: none;     
+}     
+
+table {     
+    border-collapse: separate;     
+    border-spacing: 0;      
+}     
+
+caption, th, td {     
+    font-weight: normal;     
+    text-align: left;     
+}     
+
+blockquote:before,blockquote:after, q:before, q:after {     
+    content: "";     
+}     
+
+blockquote, q {     
+    quotes: "" "";     
+} 
+
+
+
+
+
+方案二：Yahoo’s（YUI） CSS Reset
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,     
+form,fieldset,input,textarea,p,blockquote,th,td{     
+    padding: 0;     
+    margin: 0;     
+}     
+
+table {     
+    border-collapse: collapse;     
+    border-spacing: 0;     
+}     
+
+fieldset,img {     
+    border: 0;     
+}     
+
+address,caption,cite,code,dfn,em,strong,th,var{     
+    font-weight: normal;     
+    font-style: normal;     
+}     
+
+ol,ul {     
+    list-style: none;     
+}     
+
+caption,th {     
+    text-align: left;     
+}     
+
+h1,h2,h3,h4,h5,h6 {     
+    font-weight: normal;     
+    font-size: 100%;     
+}     
+
+q:before,q:after {     
+    content:'';     
+}     
+
+abbr,acronym {
+    border:0;     
+}  
+
+<hr />
+方案三
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code
+, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+    { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; outline:none; }
+html
+    { height:101%; } /* 总是显示滚动条 */
+body
+    { font-size:62.5%; line-height:1; font-family:Arial, Tahoma, Verdana, sans-serif; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+    { display:block; }
+img
+    { border:0; max-width:100%; }
+a
+    { text-decoration:none; }
+a:hover
+     { text-decoration:underline; }
+ol, ul
+    { list-style:none; }
+blockquote, q
+    { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after
+     { content:""; content:none; }
+strong
+    { font-weight:bold; } 
+input
+    { outline:none; }
+table
+    { border-collapse:collapse; border-spacing:0; }
+</pre>
+ </body>
+</html>

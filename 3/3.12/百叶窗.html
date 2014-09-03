@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>百叶窗效果</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #blinds{width:300px;height:auto;border:1px solid;margin:20px auto;}
+  #blinds>li{list-style:none;width:100%;height:30px;overflow:hidden;position:relative;border-bottom:1px dashed;line-height:30px;}
+  #blinds>li>div{position:absolute;top:-30px;}
+  #blinds>li>div>a{height:30px;}
+  </style>
+  <script type="text/javascript" src="zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload =function (){
+  var blinds=document.getElementById("blinds");//获取ul
+  var btn=true;//定时器、切换判断变量
+  show(blinds);
+  function show(obj){//展示切换函数
+  var timer=setInterval(function(){
+  var i=0;
+  var blinds_div=obj.getElementsByTagName('div');//获取div
+  var t=setInterval(function (){//内层定时器
+	  if (i<blinds_div.length)//按次序切换过程
+	  {
+		  console.log(i);
+		  move(blinds_div[i],{top:btn?0:-30});//运动函数，通过切换判断变量决定向上/向下切换
+		  i++;//准备切换下一个元素
+	  }else{//本次切换完成
+	 btn=!btn;//回复i，切换方向变量取反（如本次向下切换，下次会向上切换）
+	 clearInterval(t);//清空当前的定时器
+	 }
+  },80);
+  },4000);//展示括号内ul对象
+  }}
+  </script>
+ </head>
+ <body>
+  <ul id="blinds">
+  <li><div><a href="#">百叶窗效果第一行</a><br><a href="">百叶窗效果第二行</a></div></li>
+  <li><div><a href="#">百叶窗效果第三行</a><br><a href="">百叶窗效果第四行</a></div></li>
+  <li><div><a href="#">百叶窗效果第五行</a><br><a href="">百叶窗效果第六行</a></div></li>
+  <li><div><a href="#">百叶窗效果第七行</a><br><a href="">百叶窗效果第八行</a></div></li>
+  <li><div><a href="#">百叶窗效果第九行</a><br><a href="">百叶窗效果第十行</a></div></li>
+  </ul>
+ </body>
+</html>

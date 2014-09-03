@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>碰撞运动</title>
+  <style type="text/css">
+  div{width:100px ;height:100px;position:absolute;background:red;}
+  </style>
+ </head>
+ <script type="text/javascript" src="js/zQuery.js"></script>
+ <script type="text/javascript">
+ window.onload =function (){
+	 var odiv=document.getElementsByTagName('div')[0];
+	 var timer;
+	 var speedX=0;//记录拖拽产生的速度
+	 var speedY=0;
+	var lastX=0;//记录上一个拖拽点的位置
+	var lastY=0;
+	odiv.onmousedown=function (ev){//按下鼠标
+	clearInterval(timer);
+	var oev=ev||event;
+	var disX=oev.clientX-odiv.offsetLeft;
+	var disY=oev.clientY-odiv.offsetTop;
+	document.onmousemove=function (ev){//拖动鼠标
+	var oev=ev||event;
+	var left=oev.clientX-disX;
+	var top=oev.clientY-disY;
+	odiv.style.left=left+'px';//更新对象的位置
+	odiv.style.top=top+'px';
+	speedX=left-lastX;//计算拖拽速度
+	speedY=top-lastY;
+	lastX=left;//更新上一个点
+	lastY=top;
+	}
+	document.onmouseup=function (){//抬起鼠标
+	document.onmousemove=null;
+	document.onmouseup=null;
+	drag_throw_move(odiv,speedX,speedY);
+	}
+ }
+ }
+ </script>
+ <body>
+  <div></div>
+ </body>
+</html>

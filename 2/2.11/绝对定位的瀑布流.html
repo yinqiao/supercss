@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>绝对定位的瀑布流</title>
+  <style type="text/css">
+   *{margin:0;padding:0;}
+  .pubuliu{
+  position:relative;
+  width:708px;
+  height:auto;/*  居中*/
+  margin:20px auto;
+  }
+  .pubuliu>ul>li{
+  list-style:none;
+  position:absolute;
+  }
+
+  </style>
+  <script type="text/javascript" src="js/jq.js "></script>
+ <script type="text/javascript">
+ $(function (){
+    var lis=$(".pubuliu").children("ul").children("li");//获取所有li元素
+	var li_height = {C1:[],C2:[],C3:[]};//元素高度暂存数组
+    for (var i=0;i<lis.length;i++)
+	 {
+		 var col=i%3;//计算出元素应在的列
+		 switch(col)//分情况
+		 {
+			 case 0://第一列
+			 lis.eq(i).css("left","5px");
+			 li_height.C1.push(parseInt (lis.eq(i).css("height")));//把当前元素的高度存入第一列数组C1中
+			 var row=Math.floor(i/3);//向下取整求排数
+			 if(!row)//第一排
+			 {
+				 lis.eq(i).css("top","0");
+			 }else//非第一排
+			 {
+				 var top=0;//top值暂存器
+				 for (var j=0;j<row ;j++ )
+				 {
+					 top+=li_height.C1[j];//累加元素上方所有排元素的高度值
+				 }
+				 lis.eq(i).css("top",top+"px");
+			 }
+			 break;
+			 case 1://第2列
+			 lis.eq(i).css("left","236px");
+			  li_height.C2.push(parseInt (lis.eq(i).css("height")));//把当前元素的高度存入第2列数组C2中
+			 var row=Math.floor(i/3);
+			 if(!row)
+			 {
+				 lis.eq(i).css("top","0");
+			 }else
+			 {
+				 var top=0;
+				 for (var j=0;j<row ;j++ )
+				 {
+					 top+=li_height.C2[j];
+				 }
+				 lis.eq(i).css("top",top+"px");
+			 }
+			 break;
+			 case 2:
+			 lis.eq(i).css("left","472px");
+			  li_height.C3.push(parseInt (lis.eq(i).css("height")));//把当前元素的高度存入第3列数组C3中
+			 var row=Math.floor(i/3);
+			 if(!row)
+			 {
+				 lis.eq(i).css("top","0");
+			 }else
+			 {
+				 var top=0;
+				 for (var j=0;j<row ;j++ )
+				 {
+					 top+=li_height.C3[j];
+				 }
+				 lis.eq(i).css("top",top+"px");
+			 }
+			 break;
+		 }
+	 }
+ })
+ </script>
+ </head>
+ <body>
+  <div class="pubuliu">
+  <ul>
+  	<li><img src="img/1.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/2.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/3.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/4.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/5.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/6.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/7.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/8.jpg" alt="" /><p>标题</p></li>
+	<li><img src="img/9.jpg" alt="" /><p>标题</p></li>
+  </ul>
+  </div>
+ </body>
+</html>

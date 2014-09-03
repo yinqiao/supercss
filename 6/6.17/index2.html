@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>6.18</title>
+    <link rel="stylesheet" type="text/css" href="http://zh.learnlayout.com/css/style.css">
+    
+    <style>
+.container {
+  display: -webkit-flex;
+  display: flex;
+}
+.initial {
+  -webkit-flex: initial;
+          flex: initial;
+  width: 200px;
+  min-width: 100px;
+}
+.none {
+  -webkit-flex: none;
+          flex: none;
+  width: 200px;
+}
+.flex1 {
+  -webkit-flex: 1;
+          flex: 1;
+}
+.flex2 {
+  -webkit-flex: 2;
+          flex: 2;
+}
+
+  </style>
+
+</head>
+<body>
+  
+<div class="container elem">
+  <section class="elem elem-green initial">
+    <span class="label">&lt;div class="initial"&gt;</span>
+    <p>
+      空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。
+    </p>
+    <span class="endlabel">&lt;/div&gt;</span>
+  </section>
+
+  <section class="elem elem-green none">
+    <span class="label">&lt;div class="none"&gt;</span>
+    <p>
+      无论窗口如何变化，我的宽度一直是200px。
+    </p>
+    <span class="endlabel">&lt;/div&gt;</span>
+  </section>
+
+  <section class="elem elem-green flex1">
+    <span class="label">&lt;div class="flex1"&gt;</span>
+    <p>
+      我会占满剩余宽度的1/3。
+    </p>
+    <span class="endlabel">&lt;/div&gt;</span>
+  </section>
+
+  <section class="elem elem-green flex2">
+    <span class="label">&lt;div class="flex2"&gt;</span>
+    <p>
+      我会占满剩余宽度的2/3。
+    </p>
+    <span class="endlabel">&lt;/div&gt;</span>
+  </section>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>纸张边角稍稍卷起</title>
+  <style type="text/css">
+  *{
+		margin:0;
+		padding:0;
+	}
+	.clear{
+		clear:both;                 		/*防止浮动带来的混乱*/
+	}
+	.paper{
+		position:relative;
+		height:auto;
+		width:860px;
+	    	margin:30px auto;
+		padding:15px;
+		border:1px solid #CCC;            /*阴影效果*/
+	    	box-shadow:2px 1px 4px 2px rgba(0,0,0,0.3);
+		-webkit-transition:all 0.4s;  		/* Safari 和 Chrome */
+		-moz-transition:all 0.4s;    		/* 火狐 */
+		-ms-transition:all 0.4s; 			/* IE */
+		-o-transition:all 0.4s;				/*其他支持他的浏览器 */
+	}
+	.paper:hover{
+		border-top-right-radius:140px 50px;	/*纸张卷边实质是圆角的效果*/
+	}
+	.content{
+	   	float:left;
+		width:100%;
+		height:auto;
+		min-height:760px;                	/*设置纸张的最小高度，不是以文字的多少适配*/
+	}
+	.paper:before, .paper:after{
+	content: "";
+	background:-moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); 	/* 线性渐变；火狐3.6+ */
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), 
+	color-stop(100%,#e5e5e5)); 
+	background:-webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);	/*谷歌10+,Safari5.1+ */
+	background:-o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); 	/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); 	/* IE10+ */
+	background:linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); 		/* W3C */
+	background:#FFF;
+	border:1px solid #CCC;
+	position: absolute;
+	z-index: -1;                                                   /*显示优先级*/
+	box-shadow:2px 1px 4px 2px rgba(0,0,0,0.3);
+	}
+	.paper:before {
+	height:96%;
+	width:96%;                                                   /*底部纸张的缩放*/
+	top:-20px;
+	left:20px;
+	}
+	.paper:after {
+	height:96%;
+	width:98%;
+	top:-10px;
+	left:10px;
+	}
+
+
+
+  </style>
+ </head>
+ <body>
+  <div class="paper">
+	<div class="content">
+	      <h1>《背影》——朱自清</h1>  
+	            <p>
+            我与父亲不相见已二年余了，我最不能忘记的是他的背影。
+	            </p> 
+		 </div>
+	     <div class="clear"></div>
+	</div>
+
+ </body>
+</html>

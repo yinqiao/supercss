@@ -1,0 +1,34 @@
+
+  .window{
+  position:relative;
+  border:1px solid;
+  border-radius:10px;
+  background:#E2E2E2;
+  background:-webkit-gradient(linear,center top,center bottom,from(#FBFAFF), to(#BDBDBD));
+  -moz-box-shadow: 2px 2px 2px #888888; /* ÀÏµÄ Firefox */
+  box-shadow: 2px 2px 2px #888888;
+  }
+  .window_top{
+  width:100%;
+  border-radius:10px;
+  border-bottom:1px solid;
+  font-size:0.9em;
+  background:-webkit-gradient(linear,center top,center bottom,from(#FBFAFF), to(#F7F7F7));
+  }
+  .window_top_close,.window_top_min,.window_top_max{
+  display:inline-block;
+  height:1em;
+  width:1em;
+  border:1px solid;
+  border-radius:10px;
+  background:#FEFFFD;
+  }
+  .window_top_close{
+  background:#DC5037;
+  }
+  .window_top_min{
+  background:#F4D257;
+  }
+  .window_top_max{
+  background:#9DCC1C;
+  }

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>对联广告</title>
+ <style type="text/css">
+ div{height:200px;width:100px;
+ position:absolute;
+ background:HSL(123,45%,80%)}
+ #ad1{left:20px;top:0;}
+  #ad2{right:20px;top:0;}
+  span{position:absolute;bottom:-10%;left:25%;display:block;
+  height:20px;width:50%;border:1px dashed;cursor:pointer;}
+ </style>
+ <script type="text/javascript" src="js/zQuery.js"></script>
+ <script type="text/javascript">
+ window.onload=function (){
+ var ad1=document.getElementById('ad1');//获取到广告一
+ var  ad2=document.getElementById('ad2');//获取到广告二
+ var span=document.getElementsByTagName('span');//获取到关闭按钮
+ for (var i=0;i<span.length ;i++ )
+ {
+	 span[i].onclick=function(){this.parentNode.style.display='none';}//点击关闭按钮，找到该span的父元素div，将其隐藏
+ }
+ var ad_height=ad1.offsetHeight;//获取到广告宽度
+ var view_height=win('height');//获取到窗口大小
+ var top_first=parseInt((view_height-ad_height)/2);//计算top
+ move(ad1,{top:[top_first]});
+ move(ad2,{top:[top_first]});//移动div到中间
+ window.onscroll=function (){//页面滚动
+ var offtop=win('scrollTop');//获取滚动的距离
+ var top=top_first+offtop;//计算top
+ move(ad1,{top:[top]});
+ move(ad2,{top:[top]});
+ }
+  window.onresize=function (){//窗口调整大小
+ var offtop=win('scrollTop');
+ view_height=win('height');
+ top_first=parseInt((view_height-ad_height)/2);
+ var top=top_first+offtop;
+ move(ad1,{top:[top]});
+ move(ad2,{top:[top]});
+ }
+ }
+ </script>
+ </head>
+ <body>
+   <div id="ad1"><span>关闭X</span></div>
+  <div id="ad2"><span>关闭X</span></div>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p> 
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+  <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+  <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+ <p>+</p>
+
+ </body>
+</html>

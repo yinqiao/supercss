@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>使用left的图片轮播图</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #pics{
+  width:520px;height:280px;
+  border:1px solid;overflow:hidden;
+  position:absolute;top:100px;left:300px;
+  }
+  .pics{
+  width:2600px;height:280px;
+  position:relative;
+  left:0;
+  }
+  .pics>li{float:left;}
+  .pics_pre{
+  width:32px;height:32px;
+  position:absolute;top:45%;left:0;
+  background:url("img/arrow_left.png");
+  cursor:pointer;display:none;
+  }
+   .pics_next{
+  width:32px;height:32px;
+  position:absolute;top:45%;right:0;
+  background:url("img/arrow_right.png");
+  cursor:pointer;display:none;
+  }
+  .pics_list{
+  width:100%;height:8%;
+  position:absolute;bottom:0;
+  background:#8B8878;opacity:0.8;filter:alpha(opacity:80);
+  cursor:pointer;text-align:center;display:none;
+  }
+  .pics_list>li{
+  width:10px;height:10px;
+  border-radius:5px;
+  background:#ffffff;
+  cursor:pointer;
+  float:left;margin:5px;left:35%;position:relative;
+  list-style:none;
+  }
+  </style>
+  <script type="text/javascript" src="js/zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload=function(){
+  var pics=document.getElementById('pics');//获取外层div
+  var pics_pre=getbyclass(pics,'pics_pre')[0];//获取上一个按钮
+  var pics_next=getbyclass(pics,'pics_next')[0];//获取下一个按钮
+  var pics_list=getbyclass(pics,'pics_list')[0];//获取圆点ul
+  var pics_ul=pics.getElementsByTagName('ul')[0];//获取图片ul
+  var pics_lis=pics_ul.getElementsByTagName('li');//获取图片li
+  var inow=0;//贯穿整体的当前图片索引变量
+  for (var i=0;i<pics_lis.length ;i++ )
+  {
+	  var list=document.createElement('li');
+	  pics_list.appendChild(list);//为圆点ul添加所有的小圆点
+  }
+  var list_li=pics_list.getElementsByTagName('li');//获取所有小圆点
+  for (var i=0; i<list_li.length;i++ )
+	{
+		  list_li[i].onclick=function (){//为每个小圆点加载点击事件
+		  inow=index(this,list_li);//获取当前圆点的索引值
+		  show(inow);//展示相应的图片
+		  }
+	}
+	show(0);//页面加载完成显示第一张
+	var timer=setInterval(function (){//定时器自动播放
+		if (inow<pics_lis.length-1)
+		{
+			inow++;//页面加载完成后将从第二张开始，解决定时器等待的问题
+		}else{
+		inow=0;
+		}
+		show(inow);
+	},3000);
+	pics_pre.onclick=function (){//上一个按钮被点击
+	if (inow>0)//更改索引变量的值
+	{
+		inow-=1;
+	}else{
+	inow=pics_lis.length-1;
+	}
+		show(inow);//展示
+	}
+    pics_next.onclick=function (){//下一个按钮被点击
+	if (inow<pics_lis.length-1)//更改索引变量的值
+	{
+		inow+=1;
+	}else{
+	inow=0;
+	}
+		show(inow);//展示
+	}
+  
+  function show(inow){//展示函数
+  var l=pics_lis[inow].offsetLeft;//获取到需要展示的图片的偏移量
+  move(pics_ul,{left:-l});//偏移量作为运动中left值
+  for (var i=0;i<pics_lis.length ;i++ )
+  {
+	  list_li[i].style.background='#FFFFFF';//将所有小圆点的背景色变为白色
+  }
+  list_li[inow].style.background='#EE7600';//将当前小圆点的颜色改变
+  }
+  pics.onmouseover=function(){//鼠标悬停在图片上方
+  pics_pre.style.display="block";//展示按钮与小圆点
+  pics_next.style.display="block";
+  pics_list.style.display='block';
+  clearInterval(timer);//暂停播放
+  }
+  pics.onmouseout=function(){//鼠标移开图片
+  pics_pre.style.display="none";//将按钮与小圆点隐藏
+  pics_next.style.display="none";
+  pics_list.style.display="none";
+  timer=setInterval(function (){//重开定时器，展示第inow张图片
+		if (inow<pics_lis.length)
+		{
+			show(inow);
+			inow++;
+		}else{
+		inow=0;
+		}
+	},3000);
+  }
+  }
+  </script>
+ </head>
+ <body>
+ <div id="pics">
+  <ul class="pics">
+  <li><a href=""><img src="img/1.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/2.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/3.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/4.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/5.jpg" alt="" /></a></li>
+  </ul>
+  <span class="pics_pre"></span><span class="pics_next"></span>
+  <ul class="pics_list">
+  </ul>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <meta name="format-detection" content="telephone=no">
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>打印页面显示URL、禁用webkit高亮</title>
+ </head>
+ <style type="text/css">
+body {	   
+/*	禁用webkit高亮*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+    user-select: none;
+}
+#in2 {outline: none;}
+input{border-radius:20px;border:1px solid #ccc;}
+textarea {outline: none;}
+textarea {resize: none;}
+ </style>
+ <body>
+  document.documentElement.style.webkitTouchCallout = 'none';
+  document.documentElement.style.webkitUserSelect  = 'none';
+  <br />
+  <br />
+  <br />
+  没有禁用外边框的文本框
+  <br />
+  <input type="text" />
+  <br />
+  <br />
+  禁用了外边框的文本框
+  <br />
+  <input type="text" id="in2"/>
+ </body>
+</html>

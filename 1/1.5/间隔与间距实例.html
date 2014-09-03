@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>间隔与间距实例</title>
+  <style type="text/css">
+  p.wordspacing{word-spacing:20px;}
+/*  设置空格的长度*/
+  p.letterspacing{letter-spacing:20px;}
+/*  设置字间距*/
+  p.lineheight{line-height:0.3;}
+/*  设置行间距*/
+  p.whitespace_normal{white-space:normal;}
+/*  默认，忽略多个空格为1个，忽略回车符*/
+  p.whitespace_pre{white-space:pre;}
+/*  保留多个空格*/
+  p.whitespace_nowrap{white-space:nowrap;}
+/*  忽略回车符，禁止换行，直到遇到br*/
+  p.whitespace_prewrap{white-space:pre-wrap;}
+/*  保留所有空格符与回车符*/
+  p.whitespace_preline{white-space:pre-line;}
+/*  忽略多个空格为1个，保留回车*/
+  </style>
+ </head>
+ <body>
+  <p class="wordspacing">控 制 空 格 的 长 度</p>
+  <p class="letterspacing">控制相邻两个字的间距</p>
+  <p class="lineheight">使用百分比控制行间距</p>
+  <p class="lineheight">使用像素值控制行间距</p>
+  <p class="lineheight">使用数值（如1.2）控制行间距</p>
+  <p class="whitespace_normal">空白符的默认处理，浏览器会忽略连续的多个空白符									为1个</p>
+  <p class="whitespace_pre">空白符的pre处理，浏览器会保留      多个空白符，与pre标签相似</p>
+  <p class="whitespace_nowrap">空白符的nowarp处理，浏览器会忽略
+回车符直到遇到br<br />br之后的内容</p>
+  <p class="whitespace_prewrap">保留多个    空白符，保留
+回车符</p>
+ <p class="whitespace_preline">忽略多个    空白符，保留
+回车符</p>
+  
+ </body>
+</html>

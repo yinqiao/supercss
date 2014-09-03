@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>TAB标签页</title>
+  <style type="text/css">
+  #tab,#tab2{
+  width:310px;height:130px;
+  margin:10px;position:relative;
+  }
+  a{
+  width:100px ;height:30px ;
+  border:1px solid;
+  display:block;cursor:pointer;float:left;
+  text-decoration:none;text-align:center;line-height:30px;
+  }
+  #tab>div,#tab2>div{
+  border:1px solid;border-top:none;
+  width:304px ;height:100px;
+  position:absolute;top:32px;
+  background:#FFFFFF;
+  }
+  #div1:target,#div2:target,#div3:target{
+  z-index:2;
+  }
+  </style>
+  <script type="text/javascript">
+function index(current, obj)//获取元素索引值
+{ 
+	for (var i = 0; i < obj.length; i++)
+	{ 
+		if (obj[i] == current)return i; 
+	} 
+} 
+  window.onload=function(){
+  var tab=document.getElementById('tab');
+  var tab_a=tab.getElementsByTagName('a');
+  var tab_content=tab.getElementsByTagName('div');
+  for (var i=0;i<tab_a.length ;i++ )
+  {
+	  tab_a[i].onclick =function (){show_tab_content(index(this,tab_a))}
+  }
+  function show_tab_content(i){
+	  for (var j=0;j< tab_content.length ;j++ )
+	  {
+		  tab_a[j].style.borderBottom="1px solid";
+		  tab_content[j].style.zIndex=0;
+	  }
+	  tab_a[i].style.borderBottom='0';
+	  tab_content[i].style.zIndex=2;
+  }
+  }
+  </script>
+ </head>
+ <body>
+ <p>使用JavaScript的tab标签页</p>
+  <div id="tab">
+  <a>标签一</a>
+  <a>标签二</a>
+  <a>标签三</a>
+  <div>这里是标签一的内容</div>
+  <div>这里是标签二的内容</div>
+  <div>这里是标签三的内容</div>
+  </div>
+  <p>使用CSS 3 target伪类</p>
+  <div id="tab2">
+  <a href="#div1">标签一</a>
+  <a href="#div2">标签二</a>
+  <a href="#div3">标签三</a>
+  <div id="div1">这里是标签一的内容</div>
+  <div id="div2">这里是标签二的内容</div>
+  <div id="div3">这里是标签三的内容</div>
+  </div>
+
+ </body>
+</html>

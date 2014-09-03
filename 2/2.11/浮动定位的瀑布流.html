@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>浮动定位瀑布流</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  .pubuliu{
+  width:708px;
+  height:auto;/*  居中*/
+  margin:20px auto;
+  }
+  .pubuliu>ul{
+  width:226px;
+  margin:5px;
+  float:left;
+  list-style:none;
+  }
+  </style>
+ <script type="text/javascript" src="js/jq.js"></script>
+ <script type="text/javascript">
+ $(function (){
+ var veiw_height=$(window).height();//获取窗口可以使用范围的高度
+ var str;//HTML 组建时的字符串存放变量
+ $(window).resize(function(){
+ veiw_height=$(window).height();//窗口大小改变时重新获取窗口可以使用范围的高度
+ });
+ //滚动条滚动触发
+ $(window).scroll(function (){
+ var uls=$(".pubuliu").children("ul");//获取所有的列
+ for (var i=0;i< uls.length;i++ )//遍历列
+ {
+	var lastli=uls.eq(i).children("li").last();//获取每一列的最后一个元素
+	var  top_distance =lastli.offset().top;//获取最后一个元素距离文档顶部的距离
+	var listli_height=parseInt (lastli.css("height"));//获取最后一个元素的高度值
+	var scroll_distance=document.documentElement.scrollTop|| document.body.scrollTop;//获取滚动条向下滚动的距离，后值针对Opera浏览器和Safari浏览器等webkit内核
+	if(top_distance+listli_height<veiw_height+scroll_distance)//判断是否到达了底部
+	{
+		ajax(i);//需要加载新内容，ajax请求，返回HTML字符串保存，把列序号作为形式参数传入
+	}
+ }
+ });//滚动结束
+ });//主函数结束
+ function ajax(number){
+	 $.ajax({url:"js/data.js ",
+	 success:function(data)//回调函数
+	 {
+		 str="";//清空字符串变量
+		 data=eval(data);//解析json
+			 var n2=data[number].src.length;
+			 for (var j=0;j<n2;j++ )//遍历数据
+			 {
+				 //组建HTML代码
+				 str+="<li><img src="+data[number].src[j]+" alt='' /><p>"+data[number].title[j]+"</p></li>";
+			 }
+			 $(".pubuliu").children("ul").eq(number).append(str);//添加至相应的列中
+//			 console.log(str);//控制台查看代码加载是否正确
+	 }
+	 });//请求结束
+ }//ajax 函数体结束
+ </script>
+ </head>
+ <body>
+  瀑布流是一种非常流行的图片展示布局。
+  一般有两种形式--浮动与定位。
+  <div class="pubuliu">
+  <ul>
+  	<li><img src="img/1.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	 <li><img src="img/2.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	  	<li><img src="img/3.jpg" alt="" />
+	<p>标题</p>
+	</li>
+    <li><img src="img/3.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	<li><img src="img/3.jpg" alt="" />
+	<p>标题</p>
+	</li>
+  </ul>
+    <ul>
+  	<li><img src="img/4.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	  	<li><img src="img/9.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	  	<li><img src="img/6.jpg" alt="" />
+	<p>标题</p>
+	</li>
+  </ul>
+    <ul>
+  	<li><img src="img/7.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	  	<li><img src="img/8.jpg" alt="" />
+	<p>标题</p>
+	</li>
+	<li><img src="img/5.jpg" alt="" />
+	<p>标题</p>
+	</li>
+  </ul>
+  </div>
+ </body>
+</html>

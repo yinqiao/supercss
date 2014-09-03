@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  body{
+  background:#D9D9D9;
+  }
+  #top_right{
+  width:200px;
+  height:150px;
+  background:#555555;
+  position:absolute;
+  top:0;
+  right:0;
+  }
+  #top_right_all{
+  width:200px;
+  height:150px;
+  border-top-right-radius:200px 150px;
+  position:absolute;
+  background:linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 50%,#E2E2E2 75%,#E2E2E2);
+  background:-webkit-linear-gradient(45deg,#D7D7D7,#E2E2E2 20%,#FFFFFF 50%,#E2E2E2 75%,#E2E2E2);
+  }
+  #top_left{
+  width:25px;
+  height:100px;
+  position:absolute;
+  top:0;
+  left:0;
+  border-top-right-radius:25px 100px;
+  background:#D9D9D9;/*注意与背景色相同*/
+  box-shadow:-3px 2px 2px #333333 inset;
+  }
+  #bottom_left{
+  width:75px;
+  height:50px;
+  position:absolute;
+  top:100px;
+  left:0;
+  background:#FFFFFF;
+  border:0;
+  background:#D9D9D9;/*注意与背景色相同*/
+  }
+  #bottom_left_right{
+  width:50px;
+  height:50px;
+  position:absolute;
+  top:0;
+  left:25px;
+  border-bottom-left-radius:50px 50px;
+  background:linear-gradient(45deg,#E8E8E8,#F0F0F0);
+  background:-webkit-linear-gradient(45deg,#E8E8E8,#F0F0F0);
+  border-top-width:0;
+  box-shadow:-3px 3px 2px #333333 ;
+  }
+  #bottom_middle{
+  width:75px;
+  height:50px;
+  position:absolute;
+  top:100px;
+  left:75px;
+  border-top-left-radius:75px 50px;
+  background:#FFFFFF;
+  box-shadow:2px 3px 2px #333333 inset;
+  background:#D9D9D9;/*注意与背景色相同*/
+  }
+  #bottom_right{
+  width:50px;
+  height:50px;
+  position:absolute;
+  top:100px;
+  left:150px;
+  border-top-right-radius:50px 50px;
+  background:#FFFFFF;
+  box-shadow:-5px 3px 2px #333333 inset;
+  background:#D9D9D9;/*注意与背景色相同*/
+  }
+  </style>
+ </head>
+ <body>
+ <div id="top_right">
+  <div id="top_right_all">
+  <div id="top_left"></div>
+  <div id="bottom_left"><div id="bottom_left_right"></div></div>
+  <div id="bottom_middle"></div>
+  <div id="bottom_right"></div>
+  </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>搜索框实例</title>
+  <style type="text/css">
+#search
+{
+position:relative;
+padding-top:3px;
+height:35px;
+width:330px;
+background:url(search.jpg) no-repeat;
+}
+#input
+{
+left:2px;
+position:absolute;
+font-size:20px;
+width:240px;
+height:25px;
+border:0;
+background:none;
+}
+#go
+{
+position:absolute;
+left:258px;
+width:70px;
+height:30px;
+cursor:pointer;
+border:0;
+background:none;
+}
+#search2
+{
+position:relative;
+padding-top:3px;
+height:35px;
+width:330px;
+}
+#input2
+{
+left:2px;
+position:absolute;
+font-size:20px;
+width:240px;
+height:25px;
+border:0;
+background:#FFFFFF;
+border:1px solid #CCCCCC;
+}
+#go2
+{
+font-size:14px;
+color:#FFFFFF;
+position:absolute;
+left:258px;
+width:70px;
+height:30px;
+cursor:pointer;
+border:0;
+background:#4876FF;
+border:1px solid;
+border-radius:5px;
+}
+  </style>
+ </head>
+ <body>
+ 方案一：使用背景图片制作的搜索框
+  <div id="search">
+  <input type="text" id="input" />
+  <input type="button" id="go" />
+  </div>
+  方案二：纯CSS实现的搜索框
+  <div id="search2">
+  <input type="text" id="input2" />
+  <input type="button" id="go2" value="搜　索" />
+  </div>
+ </body>
+</html>

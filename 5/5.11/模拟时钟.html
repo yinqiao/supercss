@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>模拟时钟</title>
+  <style type="text/css">
+  *{margin:0;padding:0;list-style:none;}
+  #clock{
+/*  border:1px solid;*/
+  position:absolute;
+  background:url(img/clock.jpg) no-repeat;
+  }
+  #hour{
+  background:black;
+  position:absolute;z-index:1;
+  -webkit-transform-origin:50% 10%;-moz-transform-origin:50% 10%;-o-transform-origin:50% 10%;-ms-transform-origin:50% 10%;transform-origin:50% 10%;
+  }
+  #minute{
+  background:green;
+  position:absolute;z-index:2;
+  -webkit-transform-origin:50% 10%;-moz-transform-origin:50% 10%;-o-transform-origin:50% 10%; -ms-transform-origin:50% 10%; transform-origin:50% 10%;
+  }
+  #second{
+  background:red;
+  position:absolute;z-index:3;
+  -webkit-transform-origin:50% 20%;-moz-transform-origin:50% 20%;-o-transform-origin:50% 20%;-ms-transform-origin:50% 20%;transform-origin:50% 20%;
+  }
+  #lis li{
+  display:block;
+  position:absolute; 
+  border:1px solid;
+  background:black;
+  -webkit-transform-origin:0% 0%;-moz-transform-origin:0% 0%;-o-transform-origin:0% 0%;-ms-transform-origin:0% 0%;transform-origin:0% 0%;
+  display:none;
+  }
+
+  
+  </style>
+  <script type="text/javascript">
+   function clock(){
+  var clock=document.getElementById("clock");//获取时钟
+  var lis=document.getElementById("lis");//获取刻度ul
+  var lis_li=lis.getElementsByTagName("li");//获取每个刻度li 
+  var hour=document.getElementById("hour");//获取时针
+  var minute=document.getElementById("minute");//获取分针
+  var second=document.getElementById("second");//获取秒针
+  var clock_margin=5;//设置clock的margin值，单位为像素
+  var hours;var minutes;var seconds;//时间变量
+  var hour_height=0.3;var hour_width=0.01;var hour_left;var hour_top;//指针参数及设置变量（占整个钟表宽度的百分比）
+  var minute_height=0.35;var minute_width=0.007;var minute_left;var minute_top;
+  var second_height=0.45;var second_width=0.005;var second_left;var second_top;
+  var view_width=document.documentElement.clientWidth;//获取可视区宽度
+  var view_height=document.documentElement.clientHeight;//获取可视区高度
+  var clock_width=(view_width<=view_height)?view_width-2*clock_margin:view_height-2*clock_margin;//时钟的宽和高与可视区最小长度相等
+  clock.style.margin=clock_margin+"px";//clock外边距
+  clock.style.height=clock_width+"px";
+  clock.style.width=clock_width+"px";
+  clock.style.left=(view_width-clock_width)/2+"px";
+  clock.style.backgroundSize=clock_width+"px "+clock_width+"px";
+  var clock_radius=Math.ceil(clock_width/2);//圆角
+  clock.style.borderRadius=clock_radius+"px";
+  var longdistance=Math.ceil(clock_radius*0.866);//计算li偏移（translate）时需要的较长宽度
+  var shortdistance=Math.ceil(clock_radius*0.5);//计算li偏移（translate）时需要的较短宽度
+  var li_width=Math.ceil(clock_radius*0.02);//计算li宽度
+  var li_height=Math.ceil(clock_radius*0.2);//计算li长度
+  for (var i=0;i< lis_li.length;i++ )
+  {
+	  var distancestr;var degstr;
+	  switch(i){
+	  case 0:distancestr="("+clock_radius+"px,0)";degstr="(0deg);";break;
+	  case 1:distancestr="("+(clock_radius+shortdistance)+"px,"+(clock_radius-longdistance)+"px)";degstr="(30deg);";break;
+	  case 2:distancestr="("+(clock_radius+longdistance)+"px,"+(clock_radius-shortdistance)+"px)";degstr="(60deg);";break;
+	  case 3:distancestr="("+clock_width+"px,"+clock_radius+"px)";degstr="(90deg);";break;
+	  case 4:distancestr="("+(clock_radius+longdistance)+"px,"+(clock_radius+shortdistance)+"px)";degstr="(120deg);";break;
+	  case 5:distancestr="("+(clock_radius+shortdistance)+"px,"+(clock_radius+longdistance)+"px)";degstr="(150deg);";break;
+	  case 6:distancestr="("+clock_radius+"px,"+clock_width+"px)";degstr="(180deg);";break;
+	  case 7:distancestr="("+(clock_radius-shortdistance)+"px,"+(clock_radius+longdistance)+"px)";degstr="(210deg);";break;
+	  case 8:distancestr="("+(clock_radius-longdistance)+"px,"+(clock_radius+shortdistance)+"px)";degstr="(240deg);";break;
+	  case 9:distancestr="("+0+"px,"+clock_radius+"px)";degstr="(270deg);";break;
+	  case 10:distancestr="("+(clock_radius-longdistance)+"px,"+(clock_radius-shortdistance)+"px)";degstr="(300deg);";break;
+	  case 11:distancestr="("+(clock_radius-shortdistance)+"px,"+(clock_radius-longdistance)+"px)";degstr="(330deg);";break;
+	  default:distancestr="(0,0)";degstr="(0deg);";break;
+	  }
+	   lis_li[i].style.cssText="-webkit-transform:translate"+distancestr+"rotate"+degstr+"-moz-transform:translate"+distancestr+"rotate"+degstr+"-o-transform:translate"+distancestr+"rotate"+degstr+"-ms-transform:translate"+distancestr+"rotate"+degstr+"transform:translate"+distancestr+"rotate"+degstr;
+	   lis_li[i].style.width=li_width+"px";lis_li[i].style.height=li_height+"px";
+  }
+
+  hour_height=Math.ceil(hour_height*clock_width);hour_width=Math.ceil(hour_width*clock_width);//指针的大小及定位属性值计算
+  hour_left=Math.ceil(clock_radius-hour_width*0.5);hour_top=Math.ceil(clock_radius-hour_height*0.1);//小数部分为transform-origin中的数值
+  minute_height=Math.ceil(minute_height*clock_width);minute_width=Math.ceil(minute_width*clock_width);
+  minute_left=Math.ceil(clock_radius-minute_width*0.5);minute_top=Math.ceil(clock_radius-minute_height*0.1);
+  second_height=Math.ceil(second_height*clock_width);second_width=Math.ceil(second_width*clock_width);
+  second_left=Math.ceil(clock_radius-second_width*0.5);second_top=Math.ceil(clock_radius-second_height*0.2);
+  var hour_css_text="width:"+hour_width+"px;height:"+hour_height+"px;left:"+hour_left+"px;top:"+hour_top+"px;";//css属性文本，将于下方与旋转值同时应用
+  var minute_css_text="width:"+minute_width+"px;height:"+minute_height+"px;left:"+minute_left+"px;top:"+minute_top+"px;";
+  var second_css_text="width:"+second_width+"px;height:"+second_height+"px;left:"+second_left+"px;top:"+second_top+"px;";
+  
+
+
+  hours = new Date().getHours();minutes = new Date().getMinutes();seconds = new Date().getSeconds();//获取时间
+  hours_deg="("+(hours/12*360+180)+"deg);";//计算旋转度数，注意补充差值180度
+  minutes_deg="("+(minutes/60*360+180)+"deg);";
+  seconds_deg="("+(seconds/60*360+180)+"deg);";
+  hour.style.cssText=hour_css_text+"-moz-transform:rotate"+hours_deg+"-webkit-transform:rotate"+hours_deg+"-o-transform:rotate"+hours_deg+"-ms-transform:rotate"+hours_deg+"transform:rotate"+hours_deg;//将大小、定位、旋转同时应用到指针
+  minute.style.cssText=minute_css_text+"-moz-transform:rotate"+minutes_deg+"-webkit-transform:rotate"+minutes_deg+"-o-transform:rotate"+minutes_deg+"-ms-transform:rotate"+minutes_deg+"transform:rotate"+minutes_deg;
+  second.style.cssText=second_css_text+"-moz-transform:rotate"+seconds_deg+"-webkit-transform:rotate"+seconds_deg+"-o-transform:rotate"+seconds_deg+"-ms-transform:rotate"+seconds_deg+"transform:rotate"+seconds_deg;
+  }
+  window.onload=function (){
+  clock();
+  var t=setInterval(function (){clock();},1000);
+  window.onresize = function(){clock();}
+  }
+  </script>
+ </head>
+ <body>
+ <div id="clock">
+<ul id="lis"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+<div id="hour"></div>
+<div id="minute"></div>
+<div id="second"></div>
+</div>
+ </body>
+</html>

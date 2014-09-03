@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>CSS 3美观的下拉菜单</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  @font-face{
+  font-family:icon;
+  src:url("css/fonts/icon.eot"),url("css/fonts/icon.svg"),url("css/fonts/icon.ttf"),url("css/fonts/icon.woff");
+  }
+  body{background:url("img/bg.jpg");}
+  .fleft{width:200px;margin:100px auto;position:relative;}
+  .cd-dropdown{
+  width:300px;height:30px;background:#fff;
+  box-shadow:1px 1px 1px 2px #ccc;
+  margin:10px;padding:10px;line-height:30px;text-align:center;
+  font-size:20px;font-weight: bold;color:hsla(223,50%,45%,0.7);
+  cursor:pointer;
+  }
+  .cd-dropdown:after{
+  content:"";
+  top:20px;right:-100px;position:absolute;
+  border-top:5px solid black;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-bottom:5px solid transparent;
+  }
+  .cd-dropdown ul{position:absolute;left:0;margin-top:10px;}
+  .cd-dropdown li{
+	width:300px;height:30px;background:#fff;
+	position:absolute;top:-30px;opacity:0;
+	box-shadow:1px 1px 1px 2px #ccc;
+	margin:10px;padding:10px;line-height:30px;text-align:center;
+	list-style:none;cursor:pointer;
+	transform-origin:10% 50%;
+	-ms-transform-origin:10% 50%;
+	-webkit-transform-origin:10% 50%;
+	-o-transform-origin:10% 50%;
+	-moz-transform-origin:10% 50%;
+	-webkit-transition: all 0.2s linear 0s;
+	-moz-transition: all 0.2s linear 0s;
+	-ms-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+	transition: all 0.2s linear 0s;
+  }
+  .cd-dropdown li:hover{background:hsla(153,50%,45%,0.7);}
+    .icon-google-plus:before{
+	font-family:icon;content: "\21";font-size:40px;
+	}
+	.icon-facebook:before {
+		font-family:icon;content: "\22";font-size:40px;
+	}
+	.icon-twitter:before {
+		font-family:icon;content: "\23";font-size:40px;
+	}
+	.icon-github:before {
+		font-family:icon;content: "\24";font-size:40px;
+	}
+  </style>
+  <script type="text/javascript">
+  window.onload =function (){
+  var all=document.getElementById('menu');//整体
+  var button=all.getElementsByTagName('div')[0].getElementsByTagName('span')[0];//按钮
+  var oul=all.getElementsByTagName('ul')[0];//列表
+  var lis=oul.getElementsByTagName('li');//选项卡
+  var click=0;//点击计数器
+  button.onclick=function (){
+	  click++;//计数器+1
+	  if (click%2)//判断点击
+	  {
+		  for (var i=0;i<lis.length ;i++ )
+		  {
+			  lis[i].style.top=i*(lis[i].offsetHeight+10)+"px";//定位高度
+			  lis[i].style.opacity=1;//透明度
+			  lis[i].style.transform="rotate("+Math.floor(Math.random()*5)+"deg)";//随机生成5度以内的数字并应用在旋转
+			  lis[i].style.webkitTransform="rotate("+Math.floor(Math.random()*5)+"deg)";
+			  lis[i].style.oTransform="rotate("+Math.floor(Math.random()*5)+"deg)";
+			  lis[i].style.mozTransform="rotate("+Math.floor(Math.random()*5)+"deg)";
+			  lis[i].style.msTransform="rotate("+Math.floor(Math.random()*5)+"deg)";
+		  }
+	  }else{
+	  		  for (var i=0;i<lis.length ;i++ )
+			  {
+				  lis[i].style.top=0+"px";//回复初始值
+				  lis[i].style.opacity=0;
+				  lis[i].style.transform="rotate("+0+"deg)";
+				  lis[i].style.webkitTransform="rotate("+0+"deg)";
+				  lis[i].style.oTransform="rotate("+0+"deg)";
+				  lis[i].style.mozTransform="rotate("+0+"deg)";
+				  lis[i].style.msTransform="rotate("+0+"deg)";
+			  }
+	  }
+  };
+  }
+  </script>
+ </head>
+ <body>
+  				<div class="fleft" id="menu">
+				<div class="cd-dropdown"><span>将此内容分享到</span>
+				<ul>
+				<li><span class="icon-google-plus">Google Plus</span></li>
+				<li><span class="icon-facebook">Facebook</span></li>
+				<li><span class="icon-twitter">Twitter</span></li>
+				<li><span class="icon-github">GitHub</span></li>
+				</ul></div>
+				</div>
+
+ </body>
+</html>

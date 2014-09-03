@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图片翻转</title>
+  <style type="text/css">
+  img{
+  width:200px;
+  height:100px;
+  }
+.turn{
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+  </style>
+ </head>
+ <body>
+  <img src="img/1.jpg" alt="" />
+  <img src="img/1.jpg" alt="" class='turn'/>
+ </body>
+</html>

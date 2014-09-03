@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>标签云</title>
+  <style type="text/css">
+  #tagcloud{width:200px;border:1px solid;margin:0;padding:0;}
+  #tagcloud p{font-size:18px;margin:0;padding:0;font-weight:bold;color:#ed5412}
+  </style>
+  <script type="text/javascript">
+  window.onload =function (){
+  var tagcloud=document.getElementById('tagcloud');
+  var oa=tagcloud.getElementsByTagName('a');
+  for (var i=0;i<oa.length ;i++ )
+  {
+	  oa[i].style.fontSize=(Math.random()+0.8)+'em';
+	  oa[i].style.color="rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+  }
+  }
+  </script>
+ </head>
+ <body>
+  <div id="tagcloud">
+  <p>标签云</p>
+  <a href="#">CSS</a>
+  <a href="#">JavaScript</a>
+  <a href="#">HTML</a>
+  <a href="#">CSS 3</a>
+  <a href="#">Java</a>
+  <a href="#">云计算</a>
+  <a href="#">C</a>
+  <a href="#">C++</a>
+  <a href="#">.NET</a>
+  <a href="#">PHP</a>
+  </div>
+ </body>
+</html>

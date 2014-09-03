@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>HTML播放器</title>
+<style type="text/css">
+*{margin:0;padding:0;}
+#player1{/*外层容器*/
+border:1px solid;
+width:768px;height:430px;
+position:absolute;
+}
+.playerBar{/*播放控件*/
+border:1px solid;position:relative;bottom:-100%;
+width:100%;height:15%;
+background:#ccc;
+}
+.player{position:absolute;}/*播放区*/
+.play,.pause,.go10,.back10,.muted0,.muted1,.full,.vol{/*所有按钮*/
+border-radius:5px;cursor:pointer;position:absolute;
+}
+.play{bottom:2%;left:45%;/*不同按钮的背景与大小，播放键*/
+background:url("img/7.png");background-size:48px 48px;
+width:48px;height:48px;
+}
+.pause{bottom:2%;left:45%;/*暂停键与播放键重叠*/
+background:url("img/5.png");background-size:48px 48px;
+width:48px;height:48px;
+}
+.go10{/*快进键*/
+bottom:2%;left:52%;
+background:url("img/1.png");background-size:32px 32px;
+width:32px;height:32px;
+}
+.back10{/*快退键*/
+bottom:2%;left:40%;
+background:url("img/9.png");background-size:32px 32px;
+width:32px;height:32px;
+}
+.muted0{/*音量*/
+bottom:2%;right:30%;
+background:url("img/14.png");background-size:32px 32px;
+width:32px;height:32px;
+}
+.muted1{/*静音与音量重叠*/
+bottom:5%;right:30%;
+background:url("img/15.png");background-size:32px 32px;
+width:32px;height:32px;
+}
+.full{/*全屏*/
+bottom:5%;right:1%;
+background:url("img/16.png");background-size:32px 32px;
+width:32px;height:32px;
+}
+.vol{/*音量滑块*/
+width:20%;
+bottom:30%;right:8%;
+color:#ccc;
+}
+.time{/*时间提示*/
+position:absolute;top:15%;right:0;
+font-size:12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  #progressbar{
+  position:absolute;
+  width:100%;height:10%;
+  top:2%;
+  border:1px solid #63B8FF;
+  border-radius:5px;
+  text-align:center;
+  line-height:10px;
+  font-size:0.8em;
+  z-index:2;
+  }
+  #progress{
+  position:absolute;
+/*  border:1px solid;*/
+  height:100%;
+  width:0;
+  background:#BFEFFF;
+  border-radius:5px;
+  z-index:1;
+  }
+	#progress{
+	background-size: 30px 30px;
+	background-image: -webkit-linear-gradient(-45deg, #63B8FF,#63B8FF 25%, #BFEFFF
+		25%,#BFEFFF 50%, #63B8FF 50%, #63B8FF 75%, #BFEFFF 75%, #BFEFFF);
+	background-image: -moz-linear-gradient(-45deg, #63B8FF,#63B8FF 25%, #BFEFFF
+		25%,#BFEFFF 50%, #63B8FF 50%, #63B8FF 75%, #BFEFFF 75%, #BFEFFF);
+	background-image: linear-gradient(-45deg, #63B8FF,#63B8FF 25%,#BFEFFF 
+		25%,#BFEFFF 50%, #63B8FF 50%, #63B8FF 75%, #BFEFFF 75%, #BFEFFF);	
+	-webkit-animation: animate 1.5s linear infinite;
+	-moz-animation: animate 1.5s linear infinite;
+	animation: animate 1.5s linear infinite;
+	}
+	@-webkit-keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+	@-moz-keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+	@keyframes animate {
+	from {
+	background-position: 0 0;
+	}
+	to {
+	background-position: 60px 30px;
+	}
+	}
+
+
+
+
+
+
+
+
+</style>
+<script type="text/javascript" src='js/jq.js'></script>
+<script>
+$(document).ready(function(){	
+	var video = $('.player');//获取video标签
+	$(".pause").css('display','none');//页面载入完成将暂停键隐藏、只显示播放键
+	$(".play").click(function(){  //播放键被点击
+		video[0].play(); //响应播放
+		$(".play").css('display','none');//播放键隐藏
+		$(".pause").css('display','block');//切换为暂停键
+		var all=video[0].duration;//获取视频总秒数
+		var allhour=parseInt(all/3600);//计算小时
+		var allminute=parseInt((all-allhour*3600)/60);//计算分钟
+		var allseconds=parseInt(all-allhour*3600-allminute*60);//计算秒
+		var t=setInterval(function(){//设置一个间隔1s的定时器
+		var now=video[0].currentTime;//每秒获取一次当前播放时间
+		if (now==all)//播放完成清空定时器
+		{
+			clearInterval(t);
+		}
+		var cent=now/all*100;//计算播放进度
+		progressfn(cent);//传入进度条变化函数以控制进度条
+		var hour=parseInt(now/3600);//计算当前小时
+		var minute=parseInt((now-hour*3600)/60);//计算当前分钟
+		var seconds=parseInt(now-hour*3600-minute*60);//计算当前秒
+		$(".time").html(hour+":"+minute+":"+seconds+'/'+allhour+":"+allminute+":"+allseconds);//将时间信息写入到网页中
+		},1000);
+	}); 
+	$(".pause").click(function(){//暂停键被点击
+		video[0].pause();//响应暂停
+		$(".pause").css('display','none');//暂停键隐藏
+		$(".play").css('display','block');//切换为播放键
+	});
+	$(".go10").click(function(){  video[0].currentTime+=2;  });//快进2s操作
+	$(".back10").click(function(){  video[0].currentTime-=2;  });//快退2s操作
+//	$(".rate1").click(function(){  video[0].playbackRate+=2;  });//播放速率
+//	$(".rate0").click(function(){  video[0].playbackRate-=2;  });
+	$(".muted1").click(function(){  //静音键被点击
+		video[0].muted=false;//响应静音
+		$(".muted1").css('display','none');//静音键隐藏
+		$(".muted0").css('display','block');//音量键显示
+		});
+	$(".muted0").click(function(){  //音量键被点击
+		video[0].muted=true;//响应静音
+		$(".muted0").css('display','none');//音量键隐藏
+		$(".muted1").css('display','block');//静音键显示
+		});
+	$(".full").click(function(){  //全屏键被点击（无IE）
+	   video[0].mozRequestFullScreen();  // FireFox浏览器
+	   video[0].webkitEnterFullscreen(); // webkit类型的浏览器
+	});
+	$(".vol").click(function(){//音量滑块控件被点击
+	video[0].volume=$(".vol").val()/100;//获取滑块的值并转换为可以控制播放音量的值并设置
+	});
+});
+  function progressfn(cent)//进度条改变函数
+	  {
+		  var progressbar=document.getElementById("progressbar");
+		  var progress=document.getElementById("progress");
+		  progress.style.width=cent+"%";
+	  }
+</script>
+
+ </head>
+ <body>
+ <div id="player1">
+	<video src="mpeg/love.mp4" class="player">浏览器不支持HTML5，不能播放视频</video>
+	<div class="playerBar">
+	<div id="progressbar"><div id='progress'></div></div>
+	<p class="time"></p>
+	<span class="play"></span>
+	<span class="pause"></span>
+	<span class="go10"></span>
+	<span class="back10"></span>
+	<input type="range" class="vol"/>
+	<span class="muted1"></span>
+	<span class="muted0"></span>
+	<span class="full"></span>
+	</div>
+ </div>
+ </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>文字变链接</title>
+ <style>
+a, div:hover span { display: none; }
+div:hover a { display: inline-block; }
+</style>
+ </head>
+ <body>
+  <div>
+    <span>超实用的CSS代码段</span>
+    <a href="">点此链接到超实用的CSS代码段</a>包含常用的CSS代码。
+</div>
+ </body>
+</html>

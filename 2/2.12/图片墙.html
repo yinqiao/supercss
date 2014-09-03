@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>图片墙</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  body{background:url("img/bg.jpg");overflow:hidden;}
+  .polaroid{padding:10px;background:#FFF;text-align:center;width:auto;position:absolute;}
+  .cover{position:absolute;width:100%;height:100%;z-index:10;}
+  </style>
+
+<script type="text/javascript" src='js/zQuery.js'></script>
+<script type="text/javascript">
+window.onload =function (){
+var ocover=getbyclassname("div","cover");//获取类名为cover的所有div（遮罩层）
+var pre=ocover[0].parentNode;//在图片切换时存放上一张图片的变量
+var body=document.getElementsByTagName('body')[0];//获取body供窗口大小的设置
+resize();//页面加载完成之后的随机参数生成
+window.onresize=resize;//页面大小调整后重新调整参数
+function resize(){//随机图片布局的生成
+var winh=win('height');var winw=win('width');//获取窗口大小
+body.style.width=winw;//设置body宽度(解决键盘箭头按下页面会动的问题)
+body.style.height=winh;//设置body高度
+for (var i=0;i<ocover.length ;i++ )
+{
+	var left=Math.random()*(winw-1.3*ocover[i].offsetWidth);//随机left
+	var top=Math.random()*(winh-ocover[i].offsetHeight);//随机top
+	var deg=Math.random()*45;//随机角度
+	if (i%2==0)
+	{
+		deg=-deg;//图片顺、逆时针旋转交替进行
+	}
+	ocover[i].parentNode.style.left=left+'px';//设置定位值
+	ocover[i].parentNode.style.top=top+'px';
+	ocover[i].parentNode.style.webkitTransform='rotate('+deg+"deg)";//设置旋转度数
+	ocover[i].parentNode.style.mozTransform='rotate('+deg+"deg)";
+	ocover[i].parentNode.style.oTransform='rotate('+deg+"deg)";
+	ocover[i].parentNode.style.msTransform='rotate('+deg+"deg)";
+	ocover[i].parentNode.style.transform='rotate('+deg+"deg)";
+	ocover[i].onmousedown=function (){//选中图片
+	pre.style.zIndex=0;//上一张图片的zIndex变为0
+	this.parentNode.style.zIndex=1000;//当前图片调整到最上层
+	drag(this.parentNode);//实现当前图片的拖拽
+	pre=this.parentNode;//更新上一张图片为本次的图片
+	}
+}
+}
+document.onkeydown=function(event){//键盘按下
+var deg=css(pre,'rotate')[0];//获取图片当前的旋转度数
+if(event.keyCode==37){//判断按键（左箭头）
+	deg--;//度数减小
+	if (deg<-90)
+	{
+		deg++;//防止颤抖（考虑到方法css()）
+	}
+}else if(event.keyCode==39){//判断按键（右箭头）
+    deg++;
+	if (deg>90)
+	{
+		deg--;
+	}
+}else{
+	return false;
+}
+	pre.style.webkitTransform='rotate('+deg+"deg)";//设置角度
+	pre.style.mozTransform='rotate('+deg+"deg)";
+	pre.style.oTransform='rotate('+deg+"deg)";
+	pre.style.msTransform='rotate('+deg+"deg)";
+	pre.style.transform='rotate('+deg+"deg)";
+}
+}
+  </script>
+ </head>
+ <body>
+  <div class="polaroid">
+  <div class="cover"></div>
+  <img src="img/1.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/2.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/3.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/4.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/5.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/6.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/7.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/8.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/9.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+    <div class="polaroid">
+	<div class="cover"></div>
+  <img src="img/10.png" alt="" />
+  <p>可以使用键盘上的左右箭头进行旋转调整</p>
+  </div>
+ </body>
+</html>

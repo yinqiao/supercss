@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>无缝切换</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #pics{
+  width:520px;height:280px;
+  border:1px solid;overflow:hidden;
+  position:absolute;top:100px;left:300px;
+  }
+  .pics{
+  width:5200px;height:280px;
+  position:relative;
+  left:0;
+  }
+  .pics>li{float:left;list-style:none;}
+  .pics_pre{
+  width:32px;height:32px;
+  position:absolute;top:45%;left:0;
+  background:url("img/arrow_left.png");
+  cursor:pointer;display:none;
+  }
+   .pics_next{
+  width:32px;height:32px;
+  position:absolute;top:45%;right:0;
+  background:url("img/arrow_right.png");
+  cursor:pointer;display:none;
+  }
+  .pics_list{
+  width:100%;height:8%;
+  position:absolute;bottom:0;
+  background:#8B8878;opacity:0.8;filter:alpha(opacity:80);
+  cursor:pointer;text-align:center;display:none;
+  }
+  .pics_list>li{
+  width:10px;height:10px;
+  border-radius:5px;
+  background:#ffffff;
+  cursor:pointer;
+  float:left;margin:5px;left:35%;position:relative;
+  list-style:none;
+  }
+  </style>
+  <script type="text/javascript" src="js/zQuery.js"></script>
+  <script type="text/javascript">
+  window.onload=function(){
+  var pics=document.getElementById('pics');//获取外层div
+  var pics_pre=getbyclass(pics,'pics_pre')[0];//获取上一个按钮
+  var pics_next=getbyclass(pics,'pics_next')[0];//获取下一个按钮
+  var pics_list=getbyclass(pics,'pics_list')[0];//获取圆点ul
+  var pics_ul=pics.getElementsByTagName('ul')[0];//获取图片ul
+  var pics_lis=pics_ul.getElementsByTagName('li');//获取图片li
+  var n=pics_lis.length;//图片数量
+  var inow=0;//当前图片索引变量
+  var btn=true;//开关，解决连续点击来不及删除元素的问题
+  for (var i=0;i<pics_lis.length ;i++ )
+  {
+	  var list=document.createElement('li');
+	  pics_list.appendChild(list);//为圆点ul添加所有的小圆点
+  }
+  var list_li=pics_list.getElementsByTagName('li');//获取所有小圆点
+  for (var i=0; i<list_li.length;i++ )
+	{
+		  list_li[i].onclick=function (){//为每个小圆点加载点击事件
+		  inow=index(this,list_li);//获取当前圆点的索引值
+		  show(inow);//展示相应的图片
+		  }
+	}
+	show(0);//页面加载完成显示第一张
+	var timer=setInterval(function (){//定时器自动播放
+		if (inow<n-1)
+		{
+			inow++;//页面加载完成后将从第二张开始，解决定时器等待的问题
+		}else{
+		inow=0;
+		}
+		show_next();//展示下一张
+	},3000);
+	pics_pre.onclick=function (){//上一个按钮被点击
+		show_pre();//展示上一张
+	}
+    pics_next.onclick=function (){//下一个按钮被点击
+	show_next();//展示下一张
+	}
+  function show_pre(){//展示上一张函数
+	  if (btn)
+	  {
+		  btn=false;//将开关关闭，直到下次打开之前点击按钮将无效
+		  var newli=pics_lis[n-1].cloneNode(true);//复制最后一张
+		  pics_ul.insertBefore(newli,pics_lis[0]);//添加到第一张之前成为第一张
+		  pics_ul.style.left=-pics_lis[1].offsetLeft+'px';//拉倒第二张的位置
+		  move(pics_ul,{left:0},'buffer',function(){//从第二张图切换到第一张图
+			  pics_ul.removeChild(pics_lis[n]);//移除最后一张图
+			  btn=true;//删除完毕后打开开关
+		  });
+		  if(inow>0){//更改索引值
+		  inow--;
+		  }else{
+		  inow=4;
+		  }
+		for (var i=0;i<n ;i++ )
+		  {
+			  list_li[i].style.background='#FFFFFF';//将所有小圆点的背景色变为白色
+		  }
+		  list_li[inow].style.background='#EE7600';//将对应小圆点的颜色改变
+	  }
+  }
+  function show_next(){
+	  if (btn)
+	  {
+		  btn=false;//将开关关闭，直到下次打开之前点击按钮将无效
+		  var newli=pics_lis[0].cloneNode(true);//复制第一张
+		  pics_ul.appendChild(newli);//添加到ul最后
+		  var l=pics_lis[1].offsetWidth;
+		  move(pics_ul,{left:-l},'buffer',function(){//切换至第二张图
+			  pics_ul.removeChild(pics_lis[0]);//移除第一张图
+			  pics_ul.style.left=0;//重设left为0
+			  btn=true;//打开开关
+		  });
+		  if(inow<n-1){//更改索引值
+		  inow++;
+		  }else{
+		  inow=0;
+		  }
+		for (var i=0;i<n ;i++ )
+		  {
+			  list_li[i].style.background='#FFFFFF';//将所有小圆点的背景色变为白色
+		  }
+		  list_li[inow].style.background='#EE7600';//将对应小圆点的颜色改变
+	  }
+  }
+  function show(inow){//展示函数
+  var l=pics_lis[inow].offsetLeft;//获取到需要展示的图片的偏移量
+  
+  for (var i=0;i<n ;i++ )
+  {
+	  list_li[i].style.background='#FFFFFF';//将所有小圆点的背景色变为白色
+  }
+  list_li[inow].style.background='#EE7600';//将当前小圆点的颜色改变
+  move(pics_ul,{left:-l},'buffer');//偏移量作为运动中left值
+  }
+  pics.onmouseover=function(){//鼠标悬停在图片上方
+  pics_pre.style.display="block";//展示按钮与小圆点
+  pics_next.style.display="block";
+  pics_list.style.display='block';
+  clearInterval(timer);//暂停播放
+  }
+  pics.onmouseout=function(){//鼠标移开图片
+  pics_pre.style.display="none";//将按钮与小圆点隐藏
+  pics_next.style.display="none";
+  pics_list.style.display="none";
+  timer=setInterval(function (){//重开定时器，展示第inow张图片
+		if (inow<pics_lis.length)
+		{
+			show_next();
+			inow++;
+		}else{
+		inow=0;
+		}
+	},3000);
+  }
+  }
+  </script>
+ </head>
+ <body>
+ <div id="pics">
+  <ul class="pics">
+  <li><a href=""><img src="img/1.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/2.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/3.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/4.jpg" alt="" /></a></li>
+  <li><a href=""><img src="img/5.jpg" alt="" /></a></li>
+  </ul>
+  <span class="pics_pre"></span><span class="pics_next"></span>
+  <ul class="pics_list">
+  </ul>
+  </div>
+ </body>
+</html>

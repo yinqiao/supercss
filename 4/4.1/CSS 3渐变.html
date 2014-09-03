@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>CSS3渐变</title>
+ </head>
+ <style type="text/css">
+ *{margin:0;padding:0;}
+ div{
+  width:100px;height:100px;
+ border:1px solid;
+ }
+ div:nth-child(1){
+ background-image:linear-gradient(to bottom,red,white);
+ }
+  div:nth-child(2){
+ background-image:-ms-linear-gradient(top,red,yellow 25%,green 50%,blue 75%,purple);
+ }
+    div:nth-child(3){
+ background-image:linear-gradient(30deg,red,yellow,white);
+ }
+   div:nth-child(4){
+ background-image:-ms-linear-gradient(30deg,red,white);
+ }
+  div:nth-child(5){
+ background-image:radial-gradient(at center,red,white);
+ }
+   div:nth-child(6){
+ background-image:-webkit-radial-gradient(center,circle,red,white);
+ }
+   div:nth-child(7){
+ background-image:radial-gradient(circle farthest-corner,red,white);
+ }
+   div:nth-child(8){
+ background-image:-ms-radial-gradient(circle cover,red,white);
+ }
+    div:nth-child(9){
+ background-image:radial-gradient(circle 50px at center,red,white);
+ }
+   div:nth-child(10){
+ background-image:-ms-radial-gradient(center,50px,50px,red,white);
+ }
+    div:nth-child(11){
+ background-image:radial-gradient(circle farthest-corner,red,white);
+ }
+   div:nth-child(12){
+ background-image:-ms-radial-gradient(circle cover,red,white);
+ }
+     div:nth-child(13){
+background-image:-ms-radial-gradient(30px 40px ,circle closest-side ,red,white);
+ }
+   div:nth-child(14){
+ background-image:-ms-radial-gradient(30px 40px ,circle closest-corner ,red,white);
+ }
+    div:nth-child(15){
+background-image:-ms-radial-gradient(30px 40px ,circle farthest-side ,red,white);
+ }
+   div:nth-child(16){
+background-image:-ms-radial-gradient(30px 40px ,circle farthest-corner ,red,white);
+ }
+    div:nth-child(17){
+background-image:radial-gradient(30px 40px at 40px 40px ,red,white);
+ }
+     div:nth-child(18){
+background-image:radial-gradient(red,white);
+ }
+ </style>
+ <body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+closest-side ：指定径向渐变的半径长度为从圆心到离圆心最近的边；
+closest-corner ：指定径向渐变的半径长度为从圆心到离圆心最近的角；
+farthest-side ：指定径向渐变的半径长度为从圆心到离圆心最远的边；
+farthest-corner ：指定径向渐变的半径长度为从圆心到离圆心最远的角；
+repeating-linear-gradient”和“repeating-radial-gradient
+ </body>
+</html>

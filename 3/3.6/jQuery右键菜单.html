@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>jQuery右键菜单</title>
+  <style type="text/css">
+    #right_button_menu{
+  position:absolute;
+  display:none;
+  }
+  #right_button_menu>ul{
+  width:6.5em;
+  padding:2px;
+  border:1px solid;
+  list-style:none;
+  border-radius:10px;
+  background:#E2E2E2;
+  background:linear-gradient(to bottom,#FBFAFF, #BDBDBD);
+  -moz-box-shadow: 2px 2px 2px #888888; /* 老的 Firefox */
+  box-shadow: 2px 2px 2px #888888;
+  }
+  #right_button_menu>ul>li{
+  position:relative;
+  font-size:0.9em;
+  line-height:1.5em;
+  color:blue;
+  border-bottom:1px #666666 solid;
+  text-align:center;
+  }  
+  #right_button_menu>ul>li>a{
+  text-decoration:none;
+  display:block;
+  }
+  #right_button_menu>ul>li>ul{
+  display:none;
+  position:absolute;
+  top:-2em;
+  left:7.2em;
+  width:6.5em;
+  padding:2px;
+  border:1px solid;
+  list-style:none;
+  border-radius:10px;
+  background:#E2E2E2;
+  background:linear-gradient(to bottom,#FBFAFF, #BDBDBD);
+  -moz-box-shadow: 2px 2px 2px #888888; /* 老的 Firefox */
+  box-shadow: 2px 2px 2px #888888;
+  }
+  #right_button_menu>ul>li>ul>li{
+  margin:0.4em;
+  font-size:1em;
+  border-bottom:1px #666666 solid;
+  text-align:center;
+  }  
+  #right_button_menu>ul>li>ul>li>a{
+  display:block;
+  text-decoration:none;
+  }
+
+  </style>
+  <script type="text/javascript" src="js/jq.js"></script>
+  <script type="text/javascript" src="js/right_button_menu.js"></script>
+
+ </head>
+ <body>
+  <div id="right_button_menu">
+<ul>
+	<li><a href="">更换桌面背景</a></li>
+	<li><a href="">夜间模式</a></li>
+	<li><a href="">刷新</a></li>
+	<li class="has_sec_menu">新建
+	<ul>
+	<li><a href="">文本文档</a></li>
+	<li><a href="">Word文档</a></li>
+	<li><a href="">Excel表格</a></li>
+	<li><a href="">PowerPoint幻灯片</a></li>
+	</ul>
+	</li>
+	<li><a href="javascript:show('player');">听音乐</a></li>
+</ul>
+</div>
+
+ </body>
+</html>

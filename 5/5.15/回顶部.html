@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>回顶部</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  #bottom-top
+  {
+  opacity:1;
+  position:absolute;
+  right:0;
+  width:34px;
+  height:34px;
+  background:url("img/bottom-top.png") no-repeat;
+  background-position:top;
+  } 
+  </style>
+  <script type="text/javascript">
+  function win(attr)
+{//获取可视区尺寸，参数为height|width
+	switch(attr)
+		{           
+			case 'height'://获取窗口高度
+             if (window.innerHeight)
+			{
+                   winHeight = window.innerHeight;
+			}else if ((document.body) && (document.body.clientHeight)){
+				alert("body");
+                   winHeight = document.body.clientHeight;
+			}
+			else if (document.documentElement  && document.documentElement.clientHeight)
+             {
+                 winHeight = document.documentElement.clientHeight;
+             }
+			 return winHeight;
+			 break;
+			case 'width'://获取窗口宽度
+			  if (window.innerWidth){
+                   winWidth = window.innerWidth;return winWidth;
+			  }else if ((document.body) && (document.body.clientWidth)){
+                   winWidth = document.body.clientWidth;   return winWidth;          
+			  }//通过深入Document内部对body进行检测，获取窗口大小
+             else if (document.documentElement  &&document.documentElement.clientWidth)
+             {
+                 winWidth = document.documentElement.clientWidth;return winWidth;
+             }
+			 break;
+			 case 'scrollTop':
+				var scrollTop;
+				if(typeof window.pageYOffset != 'undefined'){
+				scrollTop = window.pageYOffset;
+				}
+				else
+				if(typeof document.compatMode != 'undefined' &&
+				document.compatMode != 'BackCompat'){
+				scrollTop = document.documentElement.scrollTop;
+				}
+				else 
+				if(typeof document.body != 'undefined'){
+				scrollTop = document.body.scrollTop;
+				}
+				return scrollTop;break;
+			default :return 0;break;
+		}
+}
+  window.onload=function(){
+  var bottom_top=document.getElementById('bottom-top');//获取div
+  var bottom_top_height=bottom_top.offsetHeight;//获取div本身高度
+  var window_height=win('height');//获取可视区高度
+  bottom_top.style.top=window_height-bottom_top_height+"px";//初始化div的top值
+  bottom_top.onmouseover=function(){//鼠标悬浮
+  this.style.backgroundPosition='bottom';
+  }
+  bottom_top.onmouseout=function(){//鼠标离开
+  this.style.backgroundPosition='top';
+  }
+  bottom_top.onclick=function(){//点击
+  document.documentElement.scrollTop=0;//回到顶部
+  document.body.scrollTop=0;
+  }
+  window.onscroll=function(){//页面滚动
+  var scroll_dis=win('scrollTop');//获取滚动距离
+  var top=window_height-bottom_top_height+scroll_dis;
+  bottom_top.style.top=top+"px";//重置top值
+  }
+  }
+  </script>
+ </head>
+ <body>
+  <div id="bottom-top"></div>
+  本段代码实现的是快速回到顶部的功能。
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  去底部的功能可以自行拓展，举一反三。
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ </body>
+</html>

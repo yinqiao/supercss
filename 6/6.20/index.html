@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>6.20</title>
+
+<style type="text/css">
+
+/* 
+(c) 2011 Lubomir Krupa, CC BY-ND 3.0
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('OpenSans-Light.eot');
+  src: local('Open Sans Light'), local('OpenSans-Light'), url('OpenSans-Light.woff') format('woff'), url('OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Vegur';
+  font-style: normal;
+  font-weight: 300;
+  src: url('vegur-l-webfont.eot');
+  src: local('Vegur Light'), local('Vegur-Light'), url('vegur-l-webfont.woff') format('woff');
+}
+
+body {
+  background: #260930;
+  overflow: hidden;
+}
+
+#place {
+  position: relative;
+  width: 3065px;
+  height: 560px;
+  margin: 0px;
+}
+
+#wrapper1,
+#wrapper2,
+#wrapper3 {
+  width: 975px;
+  height: 480px;
+  position: absolute;
+  top: 80px;
+}
+
+#wrapper1 {
+  left: 0px;
+}
+
+#wrapper2 {
+  left: 1045px;
+}
+
+#wrapper3 {
+  left: 2090px;
+}
+
+#name1,
+#name2,
+#name3 {
+  font-family: 'Open Sans',Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  color: #fff;
+  position: absolute;
+  top: 0px
+}
+
+#name1 {
+  left: 5px
+}
+
+#name2 {
+  left: 1050px
+}
+
+#name3 {
+  left: 2095px
+}
+
+#net {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 0px !important;
+  height: 60%;
+  width: auto;
+  cursor: pointer;
+}
+
+#button1to2,
+#button2to1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 85px;
+  left: 995px;
+}
+
+#button1to2 {
+  background: url('http://d.lanrentuku.com/down/js/daohang-969/lib/arrow.png') center center;
+}
+
+#button2to1 {
+  background: url('../lib/arrow-back.png') center center;
+  display: none;
+}
+
+#button2to3,
+#button3to2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 85px;
+  left: 2040px;
+}
+
+#button2to3 {
+  background: url('../lib/arrow.png') center center;
+  display: none;
+}
+
+#button3to2 {
+  background: url('../lib/arrow-back.png') center center;
+  display: none;
+}
+
+#button1to2:hover,
+#button2to1:hover,
+#button2to3:hover,
+#button3to2:hover {
+  cursor: pointer;
+}
+
+form {
+  width: 635px;
+  height: 30px;
+  position: absolute;
+  left: 340px;
+  top: 225px;
+  font-family: Tahoma, Arial, "MS Trebuchet", sans-serif;
+  text-align: center;
+  padding: 0px;
+}
+
+input {
+  width: 583px;
+/*568 povodne*/
+  height: 24px;
+  margin: 5px 0px 5px 5px;
+  background: #fff;
+  border: 2px #fff solid;
+  color: #333;
+  font-family: Tahoma, Arial, "MS Trebuchet", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 1px;
+}
+
+input:focus {
+  border: 2px #00aef0 solid;
+  outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #ccc;
+  font-style: oblique;
+}
+
+input:-moz-placeholder {
+  color: #ccc;
+  font-style: oblique;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+/*50 povodne*/
+  margin-left: 5px;
+/*upravenbe*/
+  vertical-align: bottom;
+  background: url('http://d.lanrentuku.com/down/js/daohang-969/lib/arrow.png') no-repeat center;
+/**/
+  color: #333;
+  font-family: Tahoma, Arial, "MS Trebuchet", sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: url('../lib/arrow-hover.png') no-repeat center;
+  cursor: pointer;
+}
+
+#search-engine1,
+#search-engine2,
+#search-engine3 {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 0px;
+  right: 35px;
+  background: url('../lib/search.png') center center no-repeat;
+}
+
+#search-engine1:hover,
+#search-engine2:hover,
+#search-engine3:hover {
+  background: url('../lib/search-hover.png') center center no-repeat;
+  cursor: pointer;
+  border: 0px !important;
+  box-shadow: 0px 0px 0px #fff !important;
+  margin: 5px !important;
+}
+
+#engines1,
+#engines2,
+#engines3 {
+  width: 120px;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  right: 65px;
+  display: none;
+}
+
+#engines1:hover,
+#engines2:hover,
+#engines3:hover {
+  border: 0px !important;
+  box-shadow: 0px 0px 0px #fff !important;
+  margin: 5px !important;
+}
+
+#google1,
+#google2,
+#google3 {
+  background: url(../lib/google.png) center center no-repeat;
+}
+
+#google1:hover,
+#google2:hover,
+#google3:hover {
+  background: url(../lib/google-hover.png) center center no-repeat;
+}
+
+#bing1,
+#bing2,
+#bing3 {
+  background: url(../lib/bing.png) center center no-repeat;
+}
+
+#bing1:hover,
+#bing2:hover,
+#bing3:hover {
+  background: url(../lib/bing-hover.png) center center no-repeat;
+}
+
+#yahoo1,
+#yahoo2,
+#yahoo3 {
+  background: url(../lib/yahoo.png) center center no-repeat;
+}
+
+#yahoo1:hover,
+#yahoo2:hover,
+#yahoo3:hover {
+  background: url(../lib/yahoo-hover.png) center center no-repeat;
+}
+
+#wikipedia1,
+#wikipedia2,
+#wikipedia3 {
+  background: url(../lib/wikipedia.png) center center no-repeat;
+}
+
+#wikipedia1:hover,
+#wikipedia2:hover,
+#wikipedia3:hover {
+  background: url(../lib/wikipedia-hover.png) center center no-repeat;
+}
+
+#engines1 div:hover,
+#engines2 div:hover,
+#engines3 div:hover {
+  border: 0px !important;
+  box-shadow: 0px 0px 0px #fff !important;
+  margin: 0px !important;
+  cursor: pointer;
+}
+
+#engines1 div,
+#engines2 div,
+#engines3 div {
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+#wrapper1 div,
+#wrapper2 div,
+#wrapper3 div {
+  margin: 5px;
+  text-align: center;
+}
+
+#wrapper1 div img,
+#wrapper2 div img,
+#wrapper3 div img {
+  vertical-align: middle;
+}
+
+#wrapper1 div a,
+#wrapper2 div a,
+#wrapper3 div a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  0
+  font-weight: bold;
+  text-align: left !important;
+  color: #fff;
+  line-height: 100%;
+}
+
+.title:hover {
+  border: 0px !important;
+  box-shadow: none !important;
+  margin: 5px !important;
+}
+
+#thumb1-1,
+#thumb2-1,
+#thumb3-1 {
+  width: 215px;
+  height: 103px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #409da5;
+  line-height: 103px;
+}
+
+#thumb1-1 img,
+#thumb2-1 img,
+#thumb3-1 img {
+  max-width: 215px;
+  max-height: 103px;
+}
+
+#thumb1-1 .title,
+#thumb2-1 .title,
+#thumb3-1 .title {
+  font-size: 26px;
+}
+
+#thumb1-2,
+#thumb2-2,
+#thumb3-2 {
+  width: 215px;
+  height: 102px;
+  position: absolute;
+  left: 0px;
+  top: 113px;
+  background: #4849a6;
+  line-height: 102px;
+  line-height: 102px;
+}
+
+#thumb1-2 img,
+#thumb2-2 img,
+#thumb3-2 img {
+  max-width: 215px;
+  max-height: 102px;
+}
+
+#thumb1-2 .title,
+#thumb2-2 .title,
+#thumb3-2 .title {
+  font-size: 25px;
+}
+
+#thumb1-3,
+#thumb2-3,
+#thumb3-3 {
+  width: 140px;
+  height: 65px;
+  position: absolute;
+  left: 225px;
+  top: 0px;
+  background: #cd432d;
+  line-height: 65px;
+  line-height: 65px;
+}
+
+#thumb1-3 img,
+#thumb2-3 img,
+#thumb3-3 img {
+  max-width: 140px;
+  max-height: 65px;
+}
+
+#thumb1-3 .title,
+#thumb2-3 .title,
+#thumb3-3 .title {
+  font-size: 16px;
+}
+
+#thumb1-4,
+#thumb2-4,
+#thumb3-4 {
+  width: 140px;
+  height: 65px;
+  position: absolute;
+  left: 375px;
+  top: 0px;
+  background: #da8515;
+  line-height: 65px;
+}
+
+#thumb1-4 img,
+#thumb2-4 img,
+#thumb3-4 img {
+  max-width: 140px;
+  max-height: 65px;
+}
+
+#thumb1-4 .title,
+#thumb2-4 .title,
+#thumb3-4 .title {
+  font-size: 16px;
+}
+
+#thumb1-5,
+#thumb2-5,
+#thumb3-5 {
+  width: 290px;
+  height: 140px;
+  position: absolute;
+  left: 225px;
+  top: 75px;
+  background: #7d9f2a;
+  line-height: 140px;
+}
+
+#thumb1-5 img,
+#thumb2-5 img,
+#thumb3-5 img {
+  max-width: 290px;
+  max-height: 140px;
+}
+
+#thumb1-5 .title,
+#thumb2-5 .title,
+#thumb3-5 .title {
+  font-size: 35px;
+}
+
+#thumb1-6,
+#thumb2-6,
+#thumb3-6 {
+  width: 440px;
+  height: 215px;
+  position: absolute;
+  left: 525px;
+  top: 0px;
+  background: #672c9b;
+  line-height: 215px;
+}
+
+#thumb1-6 img,
+#thumb2-6 img,
+#thumb3-6 img {
+  max-width: 440px;
+  max-height: 215px;
+}
+
+#thumb1-6 .title,
+#thumb2-6 .title,
+#thumb3-6 .title {
+  font-size: 54px;
+}
+
+#thumb1-7,
+#thumb2-7,
+#thumb3-7 {
+  width: 330px;
+  height: 160px;
+  position: absolute;
+  left: 0px;
+  top: 225px;
+  background: #621354;
+  line-height: 160px;
+}
+
+#thumb1-7 img,
+#thumb2-7 img,
+#thumb3-7 img {
+  max-width: 330px;
+  max-height: 160px;
+}
+
+#thumb1-7 .title,
+#thumb2-7 .title,
+#thumb3-7 .title {
+  font-size: 40px;
+}
+
+#thumb1-8,
+#thumb2-8,
+#thumb3-8 {
+  width: 160px;
+  height: 75px;
+  position: absolute;
+  left: 0px;
+  top: 395px;
+  background: #409da5;
+  line-height: 75px;
+}
+
+#thumb1-8 img,
+#thumb2-8 img,
+#thumb3-8 img {
+  max-width: 160px;
+  max-height: 75px;
+}
+
+#thumb1-8 .title,
+#thumb2-8 .title,
+#thumb3-8 .title {
+  font-size: 19px;
+}
+
+#thumb1-9,
+#thumb2-9,
+#thumb3-9 {
+  width: 160px;
+  height: 75px;
+  position: absolute;
+  left: 170px;
+  top: 395px;
+  background: #7d9f2a;
+  line-height: 75px;
+}
+
+#thumb1-9 img,
+#thumb2-9 img,
+#thumb3-9 img {
+  max-width: 160px;
+  max-height: 75px;
+}
+
+#thumb1-9 .title,
+#thumb2-9 .title,
+#thumb3-9 .title {
+  font-size: 19px;
+}
+
+#thumb1-10,
+#thumb2-10,
+#thumb3-10 {
+  width: 420px;
+  height: 205px;
+  position: absolute;
+  left: 340px;
+  top: 265px;
+  background: #03417a;
+  line-height: 205px;
+}
+
+#thumb1-10 img,
+#thumb2-10 img,
+#thumb3-10 img {
+  max-width: 420px;
+  max-height: 205px;
+}
+
+#thumb1-10 .title,
+#thumb2-10 .title,
+#thumb3-10 .title {
+  font-size: 51px;
+}
+
+#thumb1-11,
+#thumb2-11,
+#thumb3-11 {
+  width: 195px;
+  height: 98px;
+  position: absolute;
+  left: 770px;
+  top: 265px;
+  background: #409da5;
+  line-height: 98px;
+}
+
+#thumb1-11 img,
+#thumb2-11 img,
+#thumb3-11 img {
+  max-width: 195px;
+  max-height: 98px;
+}
+
+#thumb1-11 .title,
+#thumb2-11 .title,
+#thumb3-11 .title {
+  font-size: 25px;
+}
+
+#thumb1-12,
+#thumb2-12,
+#thumb3-12 {
+  width: 195px;
+  height: 97px;
+  position: absolute;
+  left: 770px;
+  top: 373px;
+  background: #da8515;
+  line-height: 97px;
+}
+
+#thumb1-12 img,
+#thumb2-12 img,
+#thumb3-12 img {
+  max-width: 195px;
+  max-height: 97px;
+}
+
+#thumb1-12 .title,
+#thumb2-12 .title,
+#thumb3-12 .title {
+  font-size: 24px;
+}
+
+
+</style>
+
+</head>
+<body>
+    <div id="place">
+        <div id="name1">Metro 风格布局</div>
+        <div id="wrapper1">
+            <div id="thumb1-1"></div>
+            <div id="thumb1-2"></div>
+            <div id="thumb1-3"></div>
+            <div id="thumb1-4"></div>
+            <div id="thumb1-5"></div>
+            <div id="thumb1-6"></div>
+            <div id="thumb1-7"></div>
+            <div id="thumb1-8"></div>
+            <div id="thumb1-9"></div>
+            <div id="thumb1-10"></div>
+            <div id="thumb1-11"></div>
+            <div id="thumb1-12"></div>
+        
+            <form action="" method="get">
+                <input type="text" name="q" value="" /><button type="submit"></button>
+                <div id="engines1">
+                    <div id="google1"></div>
+                    <div id="bing1"></div>
+                    <div id="yahoo1"></div>
+                    <div id="wikipedia1"></div>
+                </div>
+                <div id="search-engine1"></div>
+            </form>
+        </div><!-- end wrapper1 -->
+        <div id="button1to2"></div>
+        <div id="button2to1"></div>
+        <div id="name2"></div>
+        <div id="wrapper2">
+            <div id="thumb2-1"></div>
+            <div id="thumb2-2"></div>
+            <div id="thumb2-3"></div>
+            <div id="thumb2-4"></div>
+            <div id="thumb2-5"></div>
+            <div id="thumb2-6"></div>
+            <div id="thumb2-7"></div>
+            <div id="thumb2-8"></div>
+            <div id="thumb2-9"></div>
+            <div id="thumb2-10"></div>
+            <div id="thumb2-11"></div>
+            <div id="thumb2-12"></div>
+        
+            <form action="" method="get">
+                <input type="text" name="q" value="" placeholder="" /><button type="submit"></button>
+                <div id="engines2">
+                    <div id="google2"></div>
+                    <div id="bing2"></div>
+                    <div id="yahoo2"></div>
+                    <div id="wikipedia2"></div>
+                </div>
+                <div id="search-engine2"></div>
+            </form>
+        </div><!-- end wrapper2 -->
+        <div id="button2to3"></div>
+        <div id="button3to2"></div>
+        <div id="name3"></div>
+        <div id="wrapper3">
+            <div id="thumb3-1"></div>
+            <div id="thumb3-2"></div>
+            <div id="thumb3-3"></div>
+            <div id="thumb3-4"></div>
+            <div id="thumb3-5"></div>
+            <div id="thumb3-6"></div>
+            <div id="thumb3-7"></div>
+            <div id="thumb3-8"></div>
+            <div id="thumb3-9"></div>
+            <div id="thumb3-10"></div>
+            <div id="thumb3-11"></div>
+            <div id="thumb3-12"></div>
+        
+            <form action="" method="get">
+                <input type="text" name="q" value="" placeholder="" /><button type="submit"></button>
+                <div id="engines3">
+                    <div id="google3"></div>
+                    <div id="bing3"></div>
+                    <div id="yahoo3"></div>
+                    <div id="wikipedia3"></div>
+                </div>
+                <div id="search-engine3"></div>
+            </form>
+        </div><!-- end wrapper3 -->
+    </div><!-- end place -->
+ 
+
+</body>
+</html>

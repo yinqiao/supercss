@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>CSS 3变形</title>
+  <style type="text/css">
+  div{
+  width:100px;height:100px;border:1px solid;position:absolute;
+  }
+  div:nth-child(2){
+  transform:translate(50px,50px);
+  }
+  div:nth-child(3){
+  left:200px;top:50px;
+  }
+    div:nth-child(4){
+  left:200px;top:50px;
+  transform:rotate(45deg);
+  }
+    div:nth-child(5){
+  left:400px;top:50px;
+  }
+    div:nth-child(6){
+  left:400px;top:50px;
+  transform:scale(1.5,1.2);
+  }
+      div:nth-child(7){
+  left:600px;top:50px;
+  }
+    div:nth-child(8){
+  left:600px;top:50px;
+  transform:skew(30deg,10deg);
+  }
+        div:nth-child(9){
+  left:800px;top:50px;
+  }
+    div:nth-child(10){
+  left:800px;top:50px;
+  transform:matrix(0.707,0.707,-0.707,0.707,50,50);
+  }
+  </style>
+ </head>
+ <body>
+  <div></div>
+  <div>translate(50px,50px)</div>
+  <div></div>
+  <div>rotate(45deg)</div>
+  <div></div>
+  <div>scale(1.5,1.2)</div>
+  <div></div>
+  <div>skew(30deg,10deg)</div>
+  <div></div>
+  <div>matrix(0.707,0.707,-0.707,0.707,50,50)</div>
+ </body>
+</html>
